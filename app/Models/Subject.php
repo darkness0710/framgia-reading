@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = [
         'title',
         'description',

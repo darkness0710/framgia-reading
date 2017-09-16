@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocialAccount extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = [
         'social_type',
         'social_id',
