@@ -1,0 +1,30 @@
+{
+  "name": "framgia-reading",
+  "description": "Framgia reading",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor/bower_dl",
+    "test",
+    "tests"
+  ],
+  "main": "bower.json",
+  "authors": [
+    "Nguyen Thanh Hai <nguyenthanhhaid13cn7@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nguyen-thanh-hai/framgia-reading",
+  "dependencies": {
+    "font-awesome": "font-awesome#4.5.0",
+    "Ionicons": "ionicons#2.0.1",
+    "bootstrap": "^3.3.7",
+    "simple-line-icons": "^2.4.1",
+    "themify-icons": "^0.1.2",
+    "pixeden-stroke-7-icon": "^1.2.3",
+    "elegant-icons": "*",
+    "stroke-gap-icons-webfont": "Stroke-Gap-Icons-Webfont#^0.0.3",
+    "flaticon-ventures": "*",
+    "flaticon-travel": "*",
+    "rivolicons": "*"
+  }
+}
