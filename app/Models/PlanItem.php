@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanItem extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = [
         'note',
         'start_date',

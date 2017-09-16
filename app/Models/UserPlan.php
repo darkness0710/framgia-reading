@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserPlan extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = [
         'status',
         'assign_id',
