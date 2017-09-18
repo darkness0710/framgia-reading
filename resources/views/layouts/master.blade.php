@@ -11,6 +11,7 @@
         {{ Html::style('css/main.css') }}
         {{ Html::style('css/plugin.css') }}
         {{ Html::style('css/style.css') }}
+        {{ Html::style('css/custom.css') }}
 
         @yield('styles')
     </head>
@@ -33,6 +34,7 @@
 
         {{ Html::script('js/core-plugins.js') }}
         {{ Html::script('js/customs.js') }}
+        {{ Html::script('js/auth.js') }}
         <!-- Only in Home Page -->
         {{ Html::script('js/jquery.flexdatalist.js') }}
         
