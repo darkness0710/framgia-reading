@@ -1,53 +1,115 @@
 <div id="loginModal" class="modal fade login-box-wrapper" tabindex="-1" data-width="550" data-backdrop="static" data-keyboard="false" data-replace="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-center">Sign-in into your account</h4>
+        <h4 class="text-center">{{ trans('messages.login_title') }}</h4>
     </div>
     <div class="modal-body">
         <div class="row gap-20">
             <div class="col-sm-6 col-md-6">
-                <button class="btn btn-facebook btn-block mb-5-xs">Log-in with Facebook</button>
+                <button class="btn btn-facebook btn-block mb-5-xs">{{ trans('messages.login_fb') }}</button>
             </div>
             <div class="col-sm-6 col-md-6">
-                <button class="btn btn-google-plus btn-block">Log-in with Google+</button>
+                <button class="btn btn-google-plus btn-block">{{ trans('messages.login_gg') }}</button>
             </div>
             <div class="col-md-12">
                 <div class="login-modal-or">
-                    <div><span>or</span></div>
+                    <div><span>{{ trans('messages.or') }}</span></div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="form-group"> 
-                    <label>Username</label>
-                    <input class="form-control" placeholder="Min 4 and Max 10 characters" type="text"> 
+
+            {!! Form::open([
+                'role' => 'form',
+                'id' => 'login_form'
+            ]) !!}
+
+                {!! BsForm::formItem('email', [
+                    'label' => [
+                        trans('messages.email'),
+                        'options' => [
+                            'class' => 'col-md-4 control-label',
+                        ],
+                    ],
+                    'input' => [
+                        'type' => 'email',
+                        'options' => [
+                            'class' => 'form-control',
+                            'required' => true,
+                            'placeholder' => trans('messages.enter_email'),
+                        ],
+                    ],
+                    'div' => [
+                        'class' => 'col-md-12'
+                    ],
+                    'error' => [
+                        'id' => 'error_email',
+                    ],
+                    'template' => "
+                        <div class='form-group'>
+                            <div class='{div}'>
+                                {label}
+                                {input}
+                                {error}
+                            </div>
+                        </div>",
+                ]) !!}
+
+                {!! BsForm::formItem('password', [
+                    'label' => [
+                        trans('messages.password'),
+                        'options' => [
+                            'class' => 'col-md-4 control-label',
+                        ],
+                    ],
+                    'input' => [
+                        'type' => 'password',
+                        'options' => [
+                            'class' => 'form-control',
+                            'required' => true,
+                            'placeholder' => trans('messages.input_placeholder', [
+                                'min' => 8,
+                                'max' => 20,
+                            ]),
+                        ],
+                    ],
+                    'div' => [
+                        'class' => 'col-sm-12 col-md-12'
+                    ],
+                    'error' => [
+                        'id' => 'error_password',
+                    ],
+                    'template' => "
+                        <div class='form-group'>
+                            <div class='{div}'>
+                                {label}
+                                {input}
+                                {error}
+                            </div>
+                        </div>",
+                ]) !!}
+                <div class="col-sm-6 col-md-6 div-margin-top">
+                    <div class="checkbox-block"> 
+                        <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
+                        <label class="" for="remember_me_checkbox">{{ trans('messages.remember_me') }}</label>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="form-group"> 
-                    <label>Password</label>
-                    <input class="form-control" placeholder="Min 4 and Max 10 characters" type="text"> 
+                <div class="col-sm-6 col-md-6 div-margin-top">
+                    <div class="login-box-link-action">
+                        <a data-toggle="modal" href="#forgotPasswordModal" class="block line18 mt-1">{{ trans('messages.forgot_password') }}</a> 
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <div class="checkbox-block"> 
-                    <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
-                    <label class="" for="remember_me_checkbox">Remember me</label>
+                <div class="col-sm-12 col-md-12">
+                    <div class="login-box-box-action">
+                        {{ trans('messages.no_account') }}<a data-toggle="modal" href="#registerModal">{{ trans('messages.register') }}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <div class="login-box-link-action">
-                    <a data-toggle="modal" href="#forgotPasswordModal" class="block line18 mt-1">Forgot password?</a> 
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="login-box-box-action">
-                    No account? <a data-toggle="modal" href="#registerModal">Register</a>
-                </div>
-            </div>
         </div>
     </div>
     <div class="modal-footer text-center">
-        <button type="button" class="btn btn-primary">Log-in</button>
-        <button type="button" data-dismiss="modal" class="btn btn-primary btn-border">Close</button>
+        {!! Form::submit(trans('messages.login'), [
+            'class' => 'btn btn-primary',
+            'id' => 'btn_login',
+        ]) !!}
+        <button type="button" data-dismiss="modal" class="btn btn-primary btn-border">{{ trans('messages.close') }}</button>
     </div>
+    {!! Form::close() !!}
 </div>

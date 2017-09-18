@@ -241,6 +241,4 @@ jQuery(function($) {
         $(this).prev().toggle();
         return false;
     });
-
-
 });

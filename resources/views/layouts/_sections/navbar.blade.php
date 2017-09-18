@@ -23,8 +23,25 @@
         <div class="nav-mini-wrapper">
             <ul class="nav-mini">
                 <li>
-                    <a data-toggle="modal" data-target="#registerModal"><i class="icon-user-follow" data-placement="bottom" title="{{ trans('view.account') }}"></i></a>
-                    <a data-toggle="modal" data-target="#loginModal"><i class="icon-login" data-placement="bottom" title="{{ trans('view.account') }}"></i></a>
+                    @if(Auth::user())
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out" data-placement="bottom" title="{{ trans('view.account') }}"></i>
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @else
+                        <a data-toggle="modal" data-target="#registerModal">
+                            <i class="icon-user-follow" data-placement="bottom" title="{{ trans('view.account') }}"></i>
+                        </a>
+                        <a data-toggle="modal" data-target="#loginModal">
+                            <i class="fa fa-sign-in" data-placement="bottom" title="{{ trans('view.account') }}"></i>
+                        </a>
+                    @endif
                 </li>
             </ul>
         </div>
