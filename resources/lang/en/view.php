@@ -13,5 +13,7 @@ return [
     'year' => 'Years of Pulish',
     'bookIntroduction' => 'BOOK INTRODUCTION',
     'basedOn' => 'based on',
-    'reviews' => 'reviews'
+    'reviews' => 'reviews',
+    'look' => 'What are you loking for?',
+    'books' => 'BOOKS',
 ];

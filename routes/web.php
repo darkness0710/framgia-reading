@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
+
+Route::get('/', 'Web\HomeController@index');
 
 Route::group(['prefix' => 'book'], function () {
     Route::get('/{id}', 'Web\BookController@show')->name('book.show');
 });
+
+Route::get('search', 'Web\HomeController@searchData')->name('search');

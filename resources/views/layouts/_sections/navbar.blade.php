@@ -10,7 +10,7 @@
             </div>
         </div>
         <div id="navbar" class="navbar-nav-wrapper">
-            <ul class="nav navbar-nav" id="responsive-menu">
+            <ul class="nav navbar-nav navbar-left" id="responsive-menu">
                 <li>
                     <a href="#">{{ trans('view.home') }}</a>
                 </li>
@@ -18,7 +18,15 @@
                     <a href="#">{{ trans('view.about_us') }}</a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right" id="responsive-menu">
+                <div class="form-group">
+                    <input type="text" placeholder="{{ trans('view.look') }}" class="form-control" size="50" id="search">
+                </div>
+            </ul>
+            <ul id="search-result" >
+            </ul>
         </div>
+       
         <!--/.nav-collapse -->
         <div class="nav-mini-wrapper">
             <ul class="nav-mini">
