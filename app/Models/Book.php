@@ -30,9 +30,14 @@ class Book extends Model
         return $this->morphMany(Review::class);
     }
 
-    public function planItem()
+    public function planItems()
     {
-        return $this->belongsTo(PlanItem::class);
+        return $this->hasMany(PlanItem::class);
+    }
+
+    public function userPlanItems()
+    {
+        return $this->hasMany(UserPlanItem::class);
     }
 
     public function comments()

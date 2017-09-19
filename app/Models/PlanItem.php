@@ -14,7 +14,7 @@ class PlanItem extends Model
         'start_date',
         'due_date',
     ];
-
+ 
     public function userPlanItems()
     {
         return $this->hasMany(UserPlanItem::class);
@@ -27,6 +27,6 @@ class PlanItem extends Model
 
     public function book()
     {
-        return $this->hasOne(Book::class);
+        return $this->belongsTo(Book::class);
     }
 }

@@ -26,7 +26,7 @@ class AddTrendingToSubjects extends Migration
     public function down()
     {
         Schema::table('subjects', function (Blueprint $table) {
-            $table->unsignedInteger('trending');
+            $table->dropColumn('trending');
         });
     }
 }

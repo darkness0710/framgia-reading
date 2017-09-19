@@ -30,6 +30,6 @@ class CreateUserPlanItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_plan_items');
+        Schema::dropIfExists('user_plan_items');
     }
 }

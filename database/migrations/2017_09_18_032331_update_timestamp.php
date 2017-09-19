@@ -32,13 +32,19 @@ class UpdateTimestamp extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('timestamp');
+            if (Schema::hasColumn('categories', 'timestamp')) {
+                $table->dropColumn('timestamp');
+            }
         });
         Schema::table('subjects', function (Blueprint $table) {
-            $table->dropColumn('timestamp');
+            if (Schema::hasColumn('subjects', 'timestamp')) {
+                $table->dropColumn('timestamp');
+            }
         });
         Schema::table('book_category', function (Blueprint $table) {
-            $table->dropColumn('timestamp');
+            if (Schema::hasColumn('book_category', 'timestamp')) {
+                $table->dropColumn('timestamp');
+            }
         });
     }
 }
