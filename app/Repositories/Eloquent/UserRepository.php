@@ -15,10 +15,12 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         return User::class;
     }
+
     public function __get($attribute)
     {
         return Auth::$attribute();
     }
+
     public function __call(string $name, array $arguments)
     {
         return Auth::$name($arguments);

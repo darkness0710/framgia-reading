@@ -29,26 +29,47 @@
        
         <!--/.nav-collapse -->
         <div class="nav-mini-wrapper">
-            <ul class="nav-mini">
+            <ul class="margin-left-120">
                 <li>
-                    @if(Auth::user())
-                        <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out" data-placement="bottom" title="{{ trans('view.account') }}"></i>
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                    @if(Auth::user())    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <img src="{{ Auth::user()->avatar }}" style="height: 40px; width:40px" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a class="normal" href="{{ action('Web\UserController@dashboard', [
+                                        'id'=> Auth::user()->id,
+                                    ]) }}">
+                                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        class="normal"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                     @else
-                        <a data-toggle="modal" data-target="#registerModal">
-                            <i class="icon-user-follow" data-placement="bottom" title="{{ trans('view.account') }}"></i>
-                        </a>
-                        <a data-toggle="modal" data-target="#loginModal">
-                            <i class="fa fa-sign-in" data-placement="bottom" title="{{ trans('view.account') }}"></i>
-                        </a>
+                        <li class="white-text">
+                            <a data-toggle="modal" data-target="#registerModal"
+                                class="white-text">
+                                <i class="icon-user-follow" data-placement="bottom" title="{{ trans('view.account') }}"></i>
+                            </a>
+                            <a data-toggle="modal" data-target="#loginModal"
+                                class="white-text">
+                                <i class="fa fa-sign-in" data-placement="bottom" title="{{ trans('view.account') }}"></i>
+                            </a>
+                        </li>
                     @endif
                 </li>
             </ul>
