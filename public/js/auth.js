@@ -11,10 +11,9 @@ $("#submit_btn").click(function(e) {
         },
         error: function (data) {
             errors = data['responseJSON'];
-            console.log(errors);
             $.each(errors, function(index, value) {
-                console.log(index + "   " + value);
-                $('#error_' + index).append('<strong class="alert-danger">'+ value + '</strong>');
+                error_str = '<strong class="alert-danger">'+ value + '</strong>';
+                $('#error_' + index).append(error_str);
             });
         }
     });
@@ -35,16 +34,17 @@ $("#btn_login").click(function(e) {
         method: "POST",
         dataType: "json",
         data: data,
+        redirect_url: window.location.href,
         url: "/login",
         success:function(data){
             $('#loginModal').modal('hide');
+            location.reload();
         },
         error: function (data) {
             errors = data['responseJSON'];
-            console.log(errors);
             $.each(errors, function(index, value) {
-                console.log(index + "   " + value);
-                $('#error_' + index).append('<strong class="alert-danger">'+ value + '</strong>');
+                error_str = '<strong class="alert-danger">'+ value + '</strong>';
+                $('#login_error_' + index).html(error_str);
             });
         }
     });

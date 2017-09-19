@@ -41,7 +41,7 @@
                         'class' => 'col-md-12'
                     ],
                     'error' => [
-                        'id' => 'error_email',
+                        'id' => 'login_error_email',
                     ],
                     'template' => "
                         <div class='form-group'>
@@ -75,7 +75,7 @@
                         'class' => 'col-sm-12 col-md-12'
                     ],
                     'error' => [
-                        'id' => 'error_password',
+                        'id' => 'login_error_password',
                     ],
                     'template' => "
                         <div class='form-group'>
@@ -86,10 +86,32 @@
                             </div>
                         </div>",
                 ]) !!}
+
                 <div class="col-sm-6 col-md-6 div-margin-top">
-                    <div class="checkbox-block"> 
-                        <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
-                        <label class="" for="remember_me_checkbox">{{ trans('messages.remember_me') }}</label>
+                    <div class="checkbox-block">
+                        {!! BsForm::formItem('remember', [
+                                'label' => [
+                                    trans('messages.remember_me'),
+                                ],
+                                'input' => [
+                                    'type' => 'checkbox',
+                                    'options' => [
+                                        'id' => 'remember',
+                                        'class' => 'checkbox',
+                                        'value' => 'First Choice',
+                                    ],
+                                ],
+                                'div' => [
+                                    'class' => 'col-md-12'
+                                ],
+                                'template' => "
+                                    <div class='form-group'>
+                                        <div class='{div}'>
+                                            {input}
+                                            {label}
+                                        </div>
+                                    </div>",
+                            ]) !!}
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 div-margin-top">
