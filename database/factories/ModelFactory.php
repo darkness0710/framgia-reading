@@ -118,6 +118,7 @@ $factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->text(5),
         'description' => $faker->text(20),
+        'trending' => $faker->numberBetween(0, 3),
         'plan_id' => function () {
             return App\Models\Plan::pluck('id')
                 ->random(1)
