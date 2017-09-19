@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -41,19 +42,10 @@ class LoginController extends Controller
 
     protected function sendLoginResponse(Request $request)
     {
+        $request->session()->regenerate();
         $this->clearLoginAttempts($request);
 
         return response()->json(['SUCCESS' => 'AUTHENTICATED'], 200);
-    }
-
-    /**
-     * Get the failed login response instance.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    protected function sendFailedLoginResponse()
-    {
-        return response()->json(['ERROR' => 'AUTH_FAILED'], 401);
     }
 
     /**
