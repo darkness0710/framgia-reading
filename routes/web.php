@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::group(['prefix' => 'book'], function () {
+    Route::get('/{id}', 'Web\BookController@show')->name('book.show');
+});

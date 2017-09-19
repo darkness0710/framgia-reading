@@ -39,8 +39,10 @@ $factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Book::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->text(5),
-        'description' => $faker->text(20),
+        'description' => $faker->text(150),
         'author' => $faker->name,
+        'speak' => 'English',
+        'year' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'status' => $faker->randomElement($array = array ('1', '2')),
         'publisher' => $faker->company,
         'pages' => $faker->numberBetween(100, 1000),

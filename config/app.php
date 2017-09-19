@@ -178,7 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\BsCollectiveServiceProvider::class,
-
+        App\Providers\RepositoryServiceProvider::class,
+        
         Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
