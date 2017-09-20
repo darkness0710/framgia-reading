@@ -6,7 +6,7 @@
     <div class="container">
         <div class="logo-wrapper">
             <div class="logo">
-                <a href="#"><img src="images/logo-white.png" alt="Logo" /></a>
+                <a href="#"><img src="{{ url('images/logo-white.png') }}" alt="Logo" /></a>
             </div>
         </div>
         <div id="navbar" class="navbar-nav-wrapper">

@@ -16,4 +16,9 @@ return [
     'reviews' => 'reviews',
     'look' => 'What are you loking for?',
     'books' => 'BOOKS',
+    'categories' => 'Categories',
+    'summary' => 'Summary',
+    'introduction' => 'Introduction',
+    'details' => 'Details',
+    'reviews' => 'Reviews',
 ];

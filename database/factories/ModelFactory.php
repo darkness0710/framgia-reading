@@ -38,7 +38,7 @@ $factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Book::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->text(5),
+        'title' => $faker->text(25),
         'description' => $faker->text(150),
         'author' => $faker->name,
         'speak' => 'English',
@@ -48,6 +48,7 @@ $factory->define(App\Models\Book::class, function (Faker\Generator $faker) {
         'pages' => $faker->numberBetween(100, 1000),
         'cover' => $faker->imageUrl($width = 640, $height = 480),
         'rate' => $faker->numberBetween(1, 5),
+        'summary' => $faker->text(150),
     ];
 });
 
@@ -74,8 +75,6 @@ $factory->define(App\Models\Plan::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->text(5),
         'description' => $faker->text(20),
-        'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'due_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'user_id' => function () {
             return App\Models\User::pluck('id')
                 ->random(1)
@@ -96,6 +95,8 @@ $factory->define(App\Models\UserPlan::class, function (Faker\Generator $faker) {
                 ->random(1)
                 ->first();
         },
+        'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'due_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'status' => $faker->randomElement($array = array ('done', 'process')),
     ];
 });
@@ -145,7 +146,16 @@ $factory->define(App\Models\UserPlanItem::class, function (Faker\Generator $fake
             return App\Models\UserPlan::pluck('id')
                 ->random(1)
                 ->first();
-        }, 
+        },
+        'book_id' => function () {
+            return App\Models\Book::pluck('id')
+                ->random(1)
+                ->first();
+        },
+        'duration' => $faker->numberBetween(1, 8), 
+        'note' => $faker->text(10),
+        'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'due_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'status' => $faker->randomElement($array = array ('done', 'process')),
     ];
 });
@@ -160,8 +170,7 @@ $factory->define(App\Models\Relation::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\PlanItem::class, function (Faker\Generator $faker) {
     return [
         'note' => $faker->numberBetween(1, 2),
-        'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'due_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'duration' => $faker->numberBetween(1, 8),
         'plan_id' => function () {
             return App\Models\Plan::pluck('id')
                 ->random(1)
