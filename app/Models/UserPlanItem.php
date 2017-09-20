@@ -30,4 +30,9 @@ class UserPlanItem extends Model
     {
         return $this->belongsTo(PlanItem::class);
     }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

@@ -27,8 +27,8 @@ class AddYearAndSpeakToBook extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->string('speak');
-            $table->date('year');
+            $table->dropColumn('speak');
+            $table->dropColumn('year');
         });
     }
 }
