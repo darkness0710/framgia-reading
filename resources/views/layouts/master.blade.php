@@ -35,6 +35,7 @@
         {{ Html::script('js/core-plugins.js') }}
         {{ Html::script('js/customs.js') }}
         {{ Html::script('js/auth.js') }}
+        {{ Html::script('js/search.js') }}
         <!-- Only in Home Page -->
         {{ Html::script('js/jquery.flexdatalist.js') }}
         

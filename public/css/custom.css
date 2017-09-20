@@ -1,3 +1,70 @@
 .div-margin-top {
 	margin-top: 20px;
 }
+
+#search-result {
+    position: absolute;
+    top: 37px;
+    right: 185.7px;
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: 100;
+    width: 408px;
+    background: #fafafa;
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+#search-result {
+    padding: 15px 10px;
+}
+
+#search-result li {
+    padding:5px 10px;
+}
+
+#search-result li a{
+    display: inline-block;
+    width: 100%;
+}
+
+#search-result .header-search:hover {
+    color: white;
+    background: #ff4d4d;
+    opacity: 0.8;
+}
+#search-result .header-search img {
+    width: 50px !important;
+    margin-right: 10px; 
+}
+
+#search-result .header-title {
+    color: white;
+    background: #5488c7;
+
+}
+
+#search-result .header-search:hover a {
+    color: #fff;
+}
+
+#search-result .divider {
+    background: #D6D6D6 !important;
+    height: 1px;
+    padding: 0px !important;
+    margin: 10px 5px;
+}
+
+#header-image {
+    /*display: inline-block;*/
+    float: left;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#header-search {
+    padding-left: 10px;
+    display: inline-block;
+    width: 300px;
+    margin-top: 26px;
+}
