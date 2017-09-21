@@ -12,10 +12,18 @@ class Subject extends Model
     protected $fillable = [
         'title',
         'description',
+        'cover',
+        'trending',
     ];
 
     public function plans()
     {
         return $this->hasMany(Plan::class);
+    }
+
+    public function getCoverAttribute()
+    {
+        return $this->attributes['cover'] = config('setup.subject_cover_path') 
+            . $this->attributes['cover'];
     }
 }

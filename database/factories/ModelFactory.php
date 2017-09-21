@@ -75,6 +75,11 @@ $factory->define(App\Models\Plan::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->text(5),
         'description' => $faker->text(20),
+        'subject_id' => function () {
+            return App\Models\Subject::pluck('id')
+                ->random(1)
+                ->first();
+        },
         'user_id' => function () {
             return App\Models\User::pluck('id')
                 ->random(1)
@@ -119,6 +124,7 @@ $factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
     return [
+        'cover' => '5.png',
         'title' => $faker->text(5),
         'description' => $faker->text(20),
         'trending' => $faker->numberBetween(0, 3),
