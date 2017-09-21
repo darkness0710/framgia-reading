@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function userPlanItems()
     {
-        return $this->hasMany(PlanItem::class);
+        return $this->hasMany(UserPlanItem::class);
     }
 
     public function reviews()
