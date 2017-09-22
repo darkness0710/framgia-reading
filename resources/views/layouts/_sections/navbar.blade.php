@@ -6,13 +6,13 @@
     <div class="container">
         <div class="logo-wrapper">
             <div class="logo">
-                <a href="#"><img src="{{ url('images/logo-white.png') }}" alt="Logo" /></a>
+                <a href="{{ route('home') }}"><img src="{{ url('images/logo-white.png') }}" alt="Logo" /></a>
             </div>
         </div>
         <div id="navbar" class="navbar-nav-wrapper">
             <ul class="nav navbar-nav navbar-left" id="responsive-menu">
                 <li>
-                    <a href="#">{{ trans('view.home') }}</a>
+                    <a href="{{ route('home') }}">{{ trans('view.home') }}</a>
                 </li>
                 <li>
                     <a href="#">{{ trans('view.about_us') }}</a>

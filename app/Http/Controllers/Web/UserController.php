@@ -19,6 +19,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->user();
         $readBooks = $user->userPlanItems()->where('status', 'done')->get();
+        
         return view('users.details.components.dashboard')->with([
             'user' => $user,
             'books' => $readBooks,

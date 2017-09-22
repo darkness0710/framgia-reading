@@ -15,11 +15,13 @@ class SubjectRepository extends Repository implements SubjectRepositoryInterface
         return Subject::class;
     }
 
-    public function getSubjectByTrending()
+    public function getSubjectByTrending($select = ['*'], $withCount = [], $limit)
     {
-        $subjects = Subject::withCount('plans')
+
+        $subjects = Subject::select($select)
+            ->withCount($withCount)
             ->orderBy('trending', 'desc')
-            ->limit(6)
+            ->limit($limit)
             ->get();
 
         return $subjects;

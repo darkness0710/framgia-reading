@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectsTable extends Migration
+class AddSummaryToPlans extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('description');
+        Schema::table('plans', function (Blueprint $table) {
+            $table->string('summary');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::table('plans', function (Blueprint $table) {
+            $table->dropColumn('summary');
+        });
     }
 }

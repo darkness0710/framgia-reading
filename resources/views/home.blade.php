@@ -13,8 +13,7 @@
 @endsection
 
 @section('content')
-
     @include('layouts._sections._slider')
     @include('layouts._sections._subject')
-
+    @include('layouts._sections._user')
 @endsection

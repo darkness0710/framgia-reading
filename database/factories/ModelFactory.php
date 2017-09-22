@@ -59,13 +59,8 @@ $factory->define(App\Models\Review::class, function (Faker\Generator $faker) {
                 ->random(1)
                 ->first();
         },
-        'plan_id' => function () {
-            return App\Models\Plan::pluck('id')
-                ->random(1)
-                ->first();
-        },
         'reviewable_id' =>  $faker->numberBetween(1, 10),
-        'reviewable_type' => $faker->randomElement($array = array ('1', '2')),
+        'reviewable_type' => $faker->randomElement($array = array ('Book', 'Plan')),
         'content' => $faker->text(100),
         'rate' => $faker->numberBetween(1, 5),
     ];
@@ -85,6 +80,8 @@ $factory->define(App\Models\Plan::class, function (Faker\Generator $faker) {
                 ->random(1)
                 ->first();
         },
+        'summary' => $faker->text(150),
+        'rate' => $faker->numberBetween(1, 5),
     ];
 });
 
@@ -128,11 +125,6 @@ $factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
         'title' => $faker->text(5),
         'description' => $faker->text(20),
         'trending' => $faker->numberBetween(0, 3),
-        'plan_id' => function () {
-            return App\Models\Plan::pluck('id')
-                ->random(1)
-                ->first();
-        }, 
     ];
 });
 
@@ -175,7 +167,7 @@ $factory->define(App\Models\Relation::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\PlanItem::class, function (Faker\Generator $faker) {
     return [
-        'note' => $faker->numberBetween(1, 2),
+        'note' => $faker->text(150),
         'duration' => $faker->numberBetween(1, 8),
         'plan_id' => function () {
             return App\Models\Plan::pluck('id')
@@ -187,6 +179,7 @@ $factory->define(App\Models\PlanItem::class, function (Faker\Generator $faker) {
                 ->random(1)
                 ->first();
         },
+        'summary' => $faker->text(20),
     ];
 });
 
