@@ -25,7 +25,7 @@
                 @include('layouts._sections.navbar')
             </header>
             <div class="content">
-                @yield('content')    
+                @yield('content')  
             </div>
 
             @include('layouts._sections.footer')
@@ -38,7 +38,9 @@
         {{ Html::script('js/search.js') }}
         <!-- Only in Home Page -->
         {{ Html::script('js/jquery.flexdatalist.js') }}
+
         
+
         @stack('scripts')
     </body>
 </html>

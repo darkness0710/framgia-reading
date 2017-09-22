@@ -21,3 +21,8 @@ Route::group(['prefix' => 'book'], function () {
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');
+Route::group(['prefix' => 'user/{id}'], function () {
+    Route::group(['prefix' => 'detail'], function () {
+        Route::get('/dashboard', 'Web\UserController@dashboard');
+    });
+});
