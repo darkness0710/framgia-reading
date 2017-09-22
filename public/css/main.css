@@ -38,7 +38,7 @@
 
 @import "https://fonts.googleapis.com/css?family=Signika:400,300,600,700";
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900');
-
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
 /**
  * Font Icons
  */
@@ -374,6 +374,7 @@ h2,
 .h2 {
     font-size: 28px;
     font-weight: 400;
+    font-family: 'Quicksand', sans-serif;
 }
 
 h2.font-lg,

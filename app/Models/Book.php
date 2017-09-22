@@ -18,6 +18,7 @@ class Book extends BaseModel
         'pages',
         'cover',
         'rate',
+        'summary',
     ];
 
     public function categories()

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', $book->title)
+
 @section('content')
 
 <div class="container mt-10">
@@ -33,10 +35,10 @@
                     <span><i class="ti-wand text-primary mr-5"></i> {{ trans('view.categories') }}: </span>
                     <span class="pl-sm" id="highligh"></span>
                 </div>
-            </div>
-            <div class="mt-5">
-                <span><i class="ti-bookmark text-primary mr-5"></i> {{ trans('view.summary') }}: </span>
-                <span></span>
+                <div class="mt-5">
+                    <span><i class="ti-bookmark text-primary mr-5"></i> {{ trans('view.summary') }}: </span>
+                    <span>{{ $book->summary }}</span>
+                </div>
             </div>
         </div>
         <div class="col-md-12">

@@ -21,4 +21,10 @@ return [
     'introduction' => 'Introduction',
     'details' => 'Details',
     'reviews' => 'Reviews',
+    'view_more' => 'View More',
+    'view' => 'View',
+    'subjects' => 'SUBJECTS',
+    'plan' => 'plan',
+    'plans' => 'PLANS',
+    'framgia_reading' => 'Framgia-Reading'
 ];
