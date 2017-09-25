@@ -34,7 +34,7 @@
                     @if(Auth::user())    
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" class="thumb"/>
+                                <img src="{{ Auth::user()->avatar }}" class="thumb"/>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
