@@ -22,7 +22,7 @@
             ]) !!}
                 <div class="row gap-20">
 
-                <img id="avatar" class="avatar" src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" alt="avatar"/>
+                <img id="avatar" class="avatar" src="{{ Auth::user()->avatar }}" alt="avatar"/>
 
                     <div class="col-sm-10 col-md-8">
                         
