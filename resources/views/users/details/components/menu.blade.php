@@ -2,16 +2,20 @@
 	<aside class="sidebar-wrapper pr-15 pr-0-xs">
 		<div class="common-menu-wrapper">
 			<ul class="common-menu-list">
-				<li class="active">
-					<a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
+				<li id="item_dashboard">
+					<a href="{{ action('Web\UserController@dashboard', [
+						'id' => $user->id,
+					]) }}">{{ trans('dashboard-messages.dashboard') }}</a>
 				</li>
-				<li>
-					<a href="#">{{ trans('dashboard-messages.edit_profile') }}</a>
-				</li>
-				<li>
+				<li id="item_edit_profile">
+					<a href="{{ action('Web\UserController@editProfile', [
+						'id' => $user->id,
+					]) }}">{{ trans('dashboard-messages.edit_profile') }}</a>
+				</li> 
+				<li id="item_my_plans">
 					<a href="#">{{ trans('dashboard-messages.my_plans') }}</a>
 				</li>
-				<li>
+				<li id="item_change_password">
 					<a href="#">{{ trans('dashboard-messages.change_password') }}</a>
 				</li>
 				<li>

@@ -703,3 +703,21 @@ ul.nav-mini li a {
 .margin-left-120 {
     margin-left: 120px;
 }
+
+.avatar {
+    height: 250px;
+    width: 250px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.height-170 {
+    height: 170px;
+}
+
+.thumb {
+    height: 40px;
+    width: 40px;
+    border-radius: 20%;
+    object-fit: cover;
+}
