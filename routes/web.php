@@ -14,10 +14,14 @@
 
 Auth::routes();
 
-Route::get('/', 'Web\HomeController@index');
+Route::get('/', 'Web\HomeController@index')->name('home');
 
 Route::group(['prefix' => 'book'], function () {
     Route::get('/{id}', 'Web\BookController@show')->name('book.show');
+});
+
+Route::group(['prefix' => 'plan'], function () {
+    Route::get('/{id}', 'Web\PlanController@show')->name('plan.show');
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');

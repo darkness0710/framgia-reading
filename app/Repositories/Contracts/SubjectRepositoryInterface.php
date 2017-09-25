@@ -3,5 +3,5 @@ namespace App\Repositories\Contracts;
 
 interface SubjectRepositoryInterface extends RepositoryInterface
 {
-    public function getSubjectByTrending();
+    public function getSubjectByTrending($select = ['*'], $withCount = [], $limit);
 }

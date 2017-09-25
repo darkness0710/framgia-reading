@@ -61,7 +61,7 @@
  */
 
 html {
-    font-family: sans-serif;
+    font-family: 'Quicksand', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -151,7 +151,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font-family: inherit;
+    font-family: 'Quicksand', sans-serif;
     vertical-align: baseline;
     zoom: 1;
 }
@@ -210,7 +210,7 @@ table {
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     line-height: 26px;
     font-weight: 400;
@@ -280,7 +280,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: 'Signika', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     line-height: 1.4;
     color: #111
 }
@@ -538,7 +538,7 @@ small,
 
 blockquote {
     overflow: hidden;
-    font-family: "Merriweather", "Georgia", Times New Roman, Times, serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     line-height: 40px;
     font-style: italic;
@@ -1796,6 +1796,10 @@ ul.no-margin,
     transform: scale(1.2);
 }
 
+.float-left {
+    float: left;
+}
+
 
 /**
  * List
@@ -1900,7 +1904,7 @@ ul.list-yes-no li + li {
 
 ul.list-yes-no li:before {
     content: "\f3fe";
-    font-family: 'Ionicons';
+    font-family: 'Quicksand', sans-serif;
     position: absolute;
     top: 1px;
     left: 0;
@@ -1985,7 +1989,7 @@ ul.list-col-3 li {
 }
 
 .list-yes-no-box ul li:before {
-    font-family: "Ionicons";
+    font-family: 'Quicksand', sans-serif;
     content: "\f383";
     position: absolute;
     top: 0;
@@ -2918,7 +2922,7 @@ a.link-alt:hover {
 
 .font-italic {
     font-style: italic !important;
-    font-family: 'Open Sans', 'rsu_textregular', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .underline {
@@ -3082,6 +3086,10 @@ h5.section-title {
 .bg-success {
     background: #358D44 !important;
     color: #FFF !important;
+}
+
+.bg-color-white {
+    background: white !important;
 }
 
 .bg-warning {
@@ -3425,7 +3433,7 @@ h5.section-title {
     text-transform: uppercase;
     color: #7F4681;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btn-more-less:hover,
@@ -3444,7 +3452,7 @@ h5.section-title {
     text-transform: uppercase;
     color: #F65C33;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btn-more-less:hover,

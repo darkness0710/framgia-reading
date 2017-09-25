@@ -17,17 +17,12 @@ class LinkForeignKey extends Migration
             $table->foreign('user_id')->references('id')->on('users')->change();
         });
 
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->foreign('plan_id')->references('id')->on('plans')->change();
-        });
-
         Schema::table('plans', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->change();
         });
 
         Schema::table('reviews', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->change();
-            $table->foreign('plan_id')->references('id')->on('plans')->change();
         });
 
         Schema::table('comments', function (Blueprint $table) {

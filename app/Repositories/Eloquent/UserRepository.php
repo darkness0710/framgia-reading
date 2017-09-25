@@ -25,4 +25,14 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         return Auth::$name($arguments);
     }
+
+    public function getUserByPlan($id, $with = [], $select = ['*'], $withCount = [])
+    {
+        $user = User::find($id)
+            ->select($select)
+            ->withCount($withCount)
+            ->first();
+
+        return $user;
+    }
 }

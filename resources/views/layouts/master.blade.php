@@ -38,7 +38,7 @@
         {{ Html::script('js/search.js') }}
         <!-- Only in Home Page -->
         {{ Html::script('js/jquery.flexdatalist.js') }}
-
+        
         
 
         @stack('scripts')
