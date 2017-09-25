@@ -16,7 +16,9 @@
 					<a href="#">{{ trans('dashboard-messages.my_plans') }}</a>
 				</li>
 				<li id="item_change_password">
-					<a href="#">{{ trans('dashboard-messages.change_password') }}</a>
+					<a href="{{ action('Web\UserController@editPassword', [
+						'id' => $user->id,
+					]) }}">{{ trans('dashboard-messages.change_password') }}</a>
 				</li>
 				<li>
 					<a href="{{ route('logout') }}" class="normal" id="btn_logout">{{ trans('dashboard-messages.logout') }}</a>

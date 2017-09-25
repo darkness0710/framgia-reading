@@ -29,4 +29,10 @@ return [
     'phone' => 'Phone',
     'dob' => 'Date of Birth',
     'address' => 'Address',
+    'change_password' => 'Change password',
+    'current_password' => 'Current Password',
+    'new_password' => 'New Password',
+    'confirm_password' => 'Confirm Password',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
 ];

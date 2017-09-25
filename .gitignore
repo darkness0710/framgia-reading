@@ -13,3 +13,4 @@ yarn-error.log
 public/bower_components
 composer.lock
 /storage
+/public/uploads/avatars
