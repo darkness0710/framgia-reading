@@ -6,6 +6,10 @@
 	{{ Html::style('css/bootsnip-timeline.css') }}
 @endsection
 
+@push('scripts')
+	{{ Html::script('js/dashboard-menu.js') }}
+@endpush
+
 @section('content')
 	@include('users.details.user_profile_wrapper')
 

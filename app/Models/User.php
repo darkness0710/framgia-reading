@@ -69,4 +69,20 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Comment::class, Review::class);
     }
+
+    public function getAvatar($id)
+    {
+        $user = User::find($id)->first();
+        $avatarName = $user->avatar;
+        if (!$this->isLocalAvatar($avatarName)) {
+            return $avatarName;
+        }
+
+        return asset(config('custom.avatar.url') . $avatarName);
+    }
+
+    public function isLocalAvatar($name)
+    {
+        return strpos($name, config('app.name')) !== false;
+    }
 }

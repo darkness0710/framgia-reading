@@ -25,4 +25,8 @@ return [
     'register' => 'Register',
     'login' => 'Log-in',
     'no_account' => 'No account? ',
+    'avatar' => 'Avatar',
+    'phone' => 'Phone',
+    'dob' => 'Date of Birth',
+    'address' => 'Address',
 ];

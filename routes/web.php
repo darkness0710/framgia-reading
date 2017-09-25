@@ -28,5 +28,7 @@ Route::get('search', 'Web\HomeController@searchData')->name('search');
 Route::group(['prefix' => 'user/{id}'], function () {
     Route::group(['prefix' => 'detail'], function () {
         Route::get('/dashboard', 'Web\UserController@dashboard');
+        Route::get('/edit-profile', 'Web\UserController@editProfile');
+        Route::post('/update-profile', 'Web\UserController@updateProfile');
     });
 });

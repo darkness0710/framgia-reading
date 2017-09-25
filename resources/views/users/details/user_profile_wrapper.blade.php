@@ -4,9 +4,7 @@
             <div class="content-top container">
                 <div class="container">
                     <div class="inner-top">
-                        <div class="image avatar-height">
-                            <img src="{{ asset(Auth::user()->avatar) }}" alt="image"/>
-                        </div>
+                        <img src="{{ asset(Auth::user()->getAvatar(Auth::user()->id)) }}" alt="image" class="image avatar height-170" />
                         <div class="GridLex-gap-20">
                             <div class="GridLex-grid-noGutter-equalHeight GirdLex-grid-bottom">
                                 <div class="GridLex-col-7_sm-12_xs-12_xss-12">
