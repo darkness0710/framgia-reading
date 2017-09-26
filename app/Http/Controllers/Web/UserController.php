@@ -7,6 +7,7 @@ use App\Repositories\Eloquent\UserRepository;
 use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
+use App\Models\UserPlan;
 use Hash;
 
 class UserController extends Controller
@@ -93,6 +94,20 @@ class UserController extends Controller
         return Redirect::back()->with([
             'status' => 'success',
             'message' => 'Password Changed Successfully!',
+        ]);
+    }
+
+    public function showPlans($id)
+    {
+        $user = $this->userRepository->user();
+        $plans = $this->userRepository
+            ->userPlansDone(config('custom.plan.pagination'));
+        $followers = $this->userRepository->getFollowers($id)->count();
+
+        return view('users.details.plans')->with([
+            'user' => $user,
+            'plans' => $plans,
+            'followers' => $followers,
         ]);
     }
 }

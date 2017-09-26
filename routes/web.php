@@ -38,12 +38,15 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/edit-password', 'Web\UserController@editPassword');
         Route::post('/update-password', 'Web\UserController@updatePassword');
     });
+
+    Route::group(['prefix' => '{id}'], function () {
+        Route::get('/', 'Web\UserController@showPlans');
+    });
 });
-
-
-Route::get('error', 'Web\HomeController@errorPage');
 
 Route::group(['prefix' => 'subject'], function () {
-   Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
-   Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
+    Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
+    Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
 });
+
+Route::get('error', 'Web\HomeController@errorPage');

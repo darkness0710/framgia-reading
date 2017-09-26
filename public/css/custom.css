@@ -721,3 +721,119 @@ ul.nav-mini li a {
     border-radius: 20%;
     object-fit: cover;
 }
+
+.no-margin: {
+    margin: 0px;
+}
+
+.user-info-panel {
+    width: 350px;
+}
+
+.plan-image {
+    width: 360px;
+    height: 240px;
+    object-fit: cover;
+}
+
+.sm-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+
+.user-info-row:not (:last-child) {
+    padding-bottom:.65rem;
+    margin-bottom:.65rem;
+    border-bottom:1px solid #ddd;
+    margin-bottom:0;
+}
+
+.user-info-row {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    margin-bottom:10px;
+}
+
+.user-card .user-info-row > div:first-child {
+    min-width:160px;
+    max-width:160px;
+    text-align:center;
+}
+
+.user-card .user-info-row > div:nth-child(2) {
+    margin-left:10px;
+    -webkit-box-flex:1;
+    -ms-flex-positive:1;
+    flex-grow:1;
+}
+
+.user-card .user-info-row .user-name {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center
+    ;justify-content:center;
+}
+
+.user-name {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center
+}
+
+.txt-blue {
+    color: #5488c7;
+}
+
+button.btn-follow {
+    border-color: #5488c7;
+    background-color: transparent;
+    color: #5488c7;
+}
+
+button.btn-follow:hover {
+    background-color: #5488c7 !important;
+    color: #fff !important;
+}
+
+.sidebar-box:not(:last-child) {
+    margin-bottom:20px;
+}
+
+.profile-stats {
+    padding: 1rem;
+    margin:1rem 0;
+    border:1px solid #d6d6d7;
+}
+
+a.link {
+    color : #5488c7 !important;
+}
+
+.footer {
+    background-color: #463d35 !important;
+}
+
+.btn-br-10 {
+    border-radius: 10%;
+}
+
+.p-20 {
+    padding: 20px;
+}

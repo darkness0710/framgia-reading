@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function userPlans()
     {
-        return $this->hasMany(UserPlan::class);
+        return $this->hasMany(UserPlan::class, 'assign_id');
     }
 
     public function userPlanItems()
