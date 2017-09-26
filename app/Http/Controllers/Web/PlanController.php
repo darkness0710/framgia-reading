@@ -27,8 +27,8 @@ class PlanController extends Controller
     {
         $plans = $this->planRepository
             ->getAllPlan(['user'] ,['*'], 12);
-
-        if($request->ajax()) {
+        
+        if($request->get('page')) {
             $html = view('plans._resultPlan')->with('plans', $plans)->render();
 
             return Response(['html' => $html]);
