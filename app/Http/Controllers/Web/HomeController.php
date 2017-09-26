@@ -10,7 +10,7 @@ use App\Repositories\Contracts\PlanRepositoryInterface as PlanRepository;
 use App\Models\Book;
 
 class HomeController extends Controller
-{   
+{
     private $bookRepository;
     private $subjectRepository;
 
@@ -41,5 +41,10 @@ class HomeController extends Controller
         $html = view('layouts._sections._search')->with('books', $books)->render();
 
         return Response(['html' => $html]);
+    }
+
+    public function errorPage()
+    {
+        return view('error');
     }
 }

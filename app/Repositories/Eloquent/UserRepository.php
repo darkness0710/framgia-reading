@@ -37,10 +37,10 @@ class UserRepository extends Repository implements UserRepositoryInterface
         return $user;
     }
 
-    public function updateProfile($id, $data)
+    public function updateProfile($data)
     {
         try {
-            $user = $this->find($id);
+            $user = $this->user();
             $user->fill($data);
             $user->save();
         } catch (Exception $e) {
@@ -48,10 +48,10 @@ class UserRepository extends Repository implements UserRepositoryInterface
         }
     }
 
-    public function updateAvatar($id, $avatar)
+    public function updateAvatar($avatar)
     {
-        $user = $this->find($id);
-        $avatarName = $id . '_' . config('app.name') . time() . '.' . $avatar->getClientOriginalExtension();
+        $user = $this->user();
+        $avatarName = $user->id . '_' . config('app.name') . time() . '.' . $avatar->getClientOriginalExtension();
 
         $avatarPath = public_path(config('custom.avatar.url'));
         upload_file($avatar, $avatarPath, $avatarName);
@@ -67,9 +67,9 @@ class UserRepository extends Repository implements UserRepositoryInterface
         return true;
     }
 
-    public function updatePassword($id, $password)
+    public function updatePassword($password)
     {
-        $user = $this->model->find($id);
+        $user = $this->user();
         $user->password = bcrypt($password);
         $user->save();
     }

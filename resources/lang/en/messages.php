@@ -35,4 +35,7 @@ return [
     'confirm_password' => 'Confirm Password',
     'save' => 'Save',
     'cancel' => 'Cancel',
+    'back_home_page' => 'Back to home page',
+    'unauthorized' => 'Oops... Unauthorized!',
+    '404' => '404',
 ];
