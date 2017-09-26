@@ -23,6 +23,20 @@ class PlanController extends Controller
         $this->userRepository = $userRepository;
     }
 
+    public function index(Request $request)
+    {
+        $plans = $this->planRepository
+            ->getAllPlan(['user'] ,['*'], 12);
+
+        if($request->ajax()) {
+            $html = view('plans._resultPlan')->with('plans', $plans)->render();
+
+            return Response(['html' => $html]);
+        }
+
+        return view('plans.index', compact('plans'));
+    }
+
     public function show($id)
     {
         $plan = $this->planRepository
@@ -34,5 +48,29 @@ class PlanController extends Controller
         $totalReviews = $reviewPlans->count();
 
         return view('plans.show', compact('plan', 'reviewPlans', 'user', 'totalReviews'));
+    }
+
+    public function searchData(Request $request)
+    {
+
+       $input = $request->all();
+       
+       if($input['title'] == null) {
+            $input['title'] = "";
+       }
+
+       $plans = $this->planRepository->getAllPlanByFilter($input['subject'], 
+            $input['title'], $input['sort'], ['user', 'subject'], ['*'], 12);
+
+       $plans->appends([
+            'subject' => $input['subject'],
+            'sort' => $input['sort'],
+            'title' => $input['title']
+        ]);
+
+       $html = view('plans._resultPlan')->with('plans', $plans)->render();
+
+       return Response(['html' => $html]);
+
     }
 }

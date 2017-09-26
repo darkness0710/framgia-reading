@@ -21,22 +21,29 @@ Route::group(['prefix' => 'book'], function () {
 });
 
 Route::group(['prefix' => 'plan'], function () {
+    Route::get('/search', 'Web\PlanController@searchData');
+    Route::get('/', 'Web\PlanController@index')->name('plan.index');
     Route::get('/{id}', 'Web\PlanController@show')->name('plan.show');
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');
+
 Route::group(['prefix' => 'user'], function () {
     Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
         Route::get('/', 'Web\UserController@dashboard');
-
         //Route Update Profile
         Route::get('/edit-profile', 'Web\UserController@editProfile');
         Route::post('/update-profile', 'Web\UserController@updateProfile');
-
         //Route Update Password
         Route::get('/edit-password', 'Web\UserController@editPassword');
         Route::post('/update-password', 'Web\UserController@updatePassword');
     });
 });
 
+
 Route::get('error', 'Web\HomeController@errorPage');
+
+Route::group(['prefix' => 'subject'], function () {
+   Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
+   Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
+});

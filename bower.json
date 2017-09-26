@@ -25,6 +25,9 @@
     "stroke-gap-icons-webfont": "Stroke-Gap-Icons-Webfont#^0.0.3",
     "flaticon-ventures": "*",
     "flaticon-travel": "*",
-    "rivolicons": "*"
+    "rivolicons": "*",
+    "vue": "^2.4.4",
+    "axios": "^0.16.2",
+    "jquery-pjax": "^2.0.1"
   }
 }
