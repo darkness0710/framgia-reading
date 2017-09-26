@@ -23,6 +23,7 @@ return [
     'view_more' => 'View More',
     'view' => 'View',
     'subjects' => 'SUBJECTS',
+    'subject' => 'Subject',
     'plan' => 'plan',
     'plans' => 'Plans',
     'framgia_reading' => 'Framgia-Reading',
@@ -41,4 +42,10 @@ return [
     'by' => 'By',
     'rate' => 'Rate',
     'comments' => 'Comments',
+    'banner_1' => 'Knowledge is power',
+    'banner_2' => 'Knowledge is power. Information is power. 
+        The secreting or hoarding of knowledge or 
+        information may be an act of tyranny camouflaged as humility.',
+    'advance_filter' => 'Advance Filter',
+    'not_found_lucky' => 'No results found! Please try other keywords. Good luck!',
 ];

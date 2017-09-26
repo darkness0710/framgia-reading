@@ -15,6 +15,9 @@
                     <a href="{{ route('home') }}">{{ trans('view.home') }}</a>
                 </li>
                 <li>
+                    <a href="{{ route('plan.index') }}">{{ trans('view.plans') }}</a>
+                </li>
+                <li>
                     <a href="#">{{ trans('view.about_us') }}</a>
                 </li>
             </ul>
