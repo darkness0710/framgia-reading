@@ -1,10 +1,6 @@
 var update_profile = function () {
-
-    this.user_id = null;
-
-    this.init = function (user_id) {
-        this.user_id = user_id;
-        post_url = "/user/" + user_id +"/detail/update-profile";
+    this.init = function () {
+        post_url = "/user/dashboard/update-profile";
         $("#btn_save").click(function(e) {
             e.preventDefault();
             var formData = new FormData($("#form_edit_profile")[0]);
@@ -24,7 +20,6 @@ var update_profile = function () {
                 },
                 error: function (data) {
                     alert('Update Fail!');
-                    console.log(data);
                 }
             });
         });

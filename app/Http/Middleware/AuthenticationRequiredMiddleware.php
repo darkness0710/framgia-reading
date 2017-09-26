@@ -18,9 +18,8 @@ class AuthenticationRequiredMiddleware
      */
     public function handle($request, Closure $next)
     {
-        Log::info(URL::previous());
         if (!Auth::check()) {
-            return redirect(URL::previous());
+            return redirect('error');
         }
 
         return $next($request);

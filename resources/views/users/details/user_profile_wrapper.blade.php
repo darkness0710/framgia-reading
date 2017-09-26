@@ -51,7 +51,6 @@
                             <li>
                                 <a href="#">
                                     {{ trans('dashboard-messages.plans') }}
-                                    <span>{{ $books->count() }}</span>
                                 </a>
                             </li>
                             @if(Auth::check())

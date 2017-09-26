@@ -18,7 +18,7 @@ class UserController extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function dashboard($id)
+    public function dashboard()
     {
         $user = $this->userRepository->user();
         $readBooks = $user->userPlanItems()->where('status', 'done')->get();
@@ -26,29 +26,29 @@ class UserController extends Controller
         return view('users.details.components.dashboard')->with([
             'user' => $user,
             'books' => $readBooks,
+            'id' => $user->id,
         ]);
     }
 
-    public function editProfile($id)
+    public function editProfile()
     {
         $user = $this->userRepository->user();
-        $readBooks = $user->userPlanItems()->where('status', 'done')->get();
 
         return view('users.details.components.edit_profile')->with([
             'user' => $user,
-            'books' => $readBooks,
+            'id' => $user->id,
         ]);
     }
 
-    public function updateProfile($id)
+    public function updateProfile()
     {
         try {
             $input = array_except(request()->all(), 'avatar');
             if (request()->hasFile('avatar')) {
-                $this->userRepository->updateAvatar($id, request()->avatar);
+                $this->userRepository->updateAvatar(request()->avatar);
             }
 
-            $this->userRepository->updateProfile($id, $input);
+            $this->userRepository->updateProfile($input);
 
             return response()->json([
                 'update' => 'success',
@@ -60,23 +60,19 @@ class UserController extends Controller
         }
     }
 
-    public function editPassword($id)
+    public function editPassword()
     {
-        $user = $this->userRepository->find($id);
-        $readBooks = $user->userPlanItems()->where('status', 'done')->get();
-        if ($id != Auth::user()->id) {
-            return false;
-        }
+        $user = $this->userRepository->user();
 
         return view('users.details.components.update_password')->with([
             'user' => $user,
-            'books' => $readBooks,
+            'id' => $user->id,
         ]);
     }
 
-    public function updatePassword($id)
+    public function updatePassword()
     {
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->user();
         $data = array_except(request()->all(), '_token');
 
         if (!Hash::check($data['current_password'], $user->password)) {
@@ -93,7 +89,7 @@ class UserController extends Controller
             ]);
         }
 
-        $this->userRepository->updatePassword($id, $data['new_password']);
+        $this->userRepository->updatePassword($data['new_password']);
         return Redirect::back()->with([
             'status' => 'success',
             'message' => 'Password Changed Successfully!',
