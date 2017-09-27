@@ -49,14 +49,16 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ action('Web\UserController@showPlans', [
+                                    'id' => $user->id,
+                                ]) }}">
                                     {{ trans('dashboard-messages.plans') }}
                                 </a>
                             </li>
                             @if(Auth::check())
-                            <li class="active">
-                                <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
-                            </li>
+                                <li>
+                                    <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
+                                </li>
                             @endif
                         </ul>       
                     </div>          

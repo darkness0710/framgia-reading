@@ -38,4 +38,13 @@ return [
     'back_home_page' => 'Back to home page',
     'unauthorized' => 'Oops... Unauthorized!',
     '404' => '404',
+    'plans' => 'plan',
+    'reviews' => 'Reviews',
+    'plans' => 'Plans',
+    'followers' => 'Follower',
+    'follow' => 'Follow',
+    'total_plan' => 'Total Plans :',
+    'details' => 'Details',
+    'due_date' => 'Due Date:',
+    'start_date' => 'Start Date:',
 ];

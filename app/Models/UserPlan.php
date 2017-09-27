@@ -15,6 +15,11 @@ class UserPlan extends Model
         'plan_id',
     ];
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'due_date' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

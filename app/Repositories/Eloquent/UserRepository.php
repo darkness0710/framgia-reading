@@ -5,7 +5,9 @@ namespace App\Repositories\Eloquent;
 use App\Models\User;
 use Auth;
 use Log;
+use DB;
 use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Models\Relation;
 
 class UserRepository extends Repository implements UserRepositoryInterface
 {
@@ -72,5 +74,16 @@ class UserRepository extends Repository implements UserRepositoryInterface
         $user = $this->user();
         $user->password = bcrypt($password);
         $user->save();
+    }
+
+    public function getFollowers($id)
+    {
+        return Relation::where('following_id', $id);
+    }
+
+    public function userPlansDone($paginate = 0)
+    {
+        return $this->user()->userPLans()
+            ->where('status', 'done')->paginate($paginate);
     }
 }
