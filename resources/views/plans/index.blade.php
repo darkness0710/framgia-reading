@@ -9,6 +9,7 @@
     {{ Html::script('bower_components/vue/dist/vue.js') }}
     {{ Html::script('js/plan.js') }}
     {{ Html::script('js/block.js') }}
+    {{ Html::script('js/paginate.js') }}
 @endpush
 
 <div class="main-wrapper scrollspy-container">
@@ -152,7 +153,7 @@
             <div class="pager-wrappper clearfix">
                 <div class="pager-innner">
                     <div class="clearfix">
-                        <div>
+                        <div id="paginate">
                             {{ $plans->links() }}
                         </div>
                     </div>
