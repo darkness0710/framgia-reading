@@ -18,6 +18,10 @@ Route::get('/', 'Web\HomeController@index')->name('home');
 
 Route::group(['prefix' => 'book'], function () {
     Route::get('/{id}', 'Web\BookController@show')->name('book.show');
+    Route::get('/add-to-cart/{id}', 'Web\BookController@getAddToCart')
+        ->name('book.addToCart');
+    Route::get('/cart-remove-book/{id}', 'Web\BookController@getRemoveToCart')
+        ->name('book.removeToCart');
 });
 
 Route::group(['prefix' => 'plan'], function () {

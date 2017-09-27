@@ -17,8 +17,8 @@
                 <li>
                     <a href="{{ route('plan.index') }}">{{ trans('view.plans') }}</a>
                 </li>
-                <li>
-                    <a href="#">{{ trans('view.about_us') }}</a>
+                <li id="cartAjax">
+                    @include('carts.show')
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" id="responsive-menu">

@@ -12,6 +12,9 @@
         {{ Html::style('css/plugin.css') }}
         {{ Html::style('css/style.css') }}
         {{ Html::style('css/custom.css') }}
+        {{ Html::style('bower_components/alertify-js/build/css/themes/default.css') }}
+        {{ Html::style('bower_components/alertify-js/build/css/alertify.css') }}
+        {{ Html::style('css/cart.css') }}
 
         @yield('styles')
     </head>
@@ -38,7 +41,11 @@
         {{ Html::script('js/search.js') }}
         <!-- Only in Home Page -->
         {{ Html::script('js/jquery.flexdatalist.js') }}
-        
+        <!-- End in Home Page -->
+        {{ Html::script('js/cart.js') }}
+        {{-- Alert --}}
+        {{ Html::script('bower_components/alertify-js/build/alertify.js') }}
+        {{--  End Alert --}}
         
 
         @stack('scripts')
