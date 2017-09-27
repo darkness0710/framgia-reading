@@ -8,8 +8,8 @@
     <div class="row">
         <div class="col-md-4">
             <div id="sidebar-sticky" class="col-md-4 mt-20">
-                <div class="ml-10 ml-0-xs mb-10">
-                    <a href="#" class="btn btn-primary btn-lgg btn-block btn-border">
+                <div class="ml-10 ml-0-xs mb-10" id="addBookToCart">
+                    <a href="{{ route('book.addToCart', $book->id) }}" class="btn btn-primary btn-lgg btn-block btn-border">
                     {{ $book->title }}
                     </a>
                 </div>

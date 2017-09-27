@@ -48,4 +48,7 @@ return [
         information may be an act of tyranny camouflaged as humility.',
     'advance_filter' => 'Advance Filter',
     'not_found_lucky' => 'No results found! Please try other keywords. Good luck!',
+    'cart_is_null' => 'No books found! Please add more. Good luck!',
+    'remove' => 'Remove',
+    'go_create_plan' => 'Go create plan!',
 ];
