@@ -1,13 +1,13 @@
 var update_profile = function () {
-    this.init = function () {
-        post_url = "/user/dashboard/update-profile";
+    this.init = function (id) {
+        post_url = "/user/" + id + "/dashboard/update-profile";
         $("#btn_save").click(function(e) {
             e.preventDefault();
             var formData = new FormData($("#form_edit_profile")[0]);
             $('#upload-avatar').bind('change', function() {
                 formData.append('avatar', document.getElementById("upload-avatar").files[0]);
             });
-            $.ajax({   
+            $.ajax({
                 type: "POST",
                 processData: false,
                 data: formData,

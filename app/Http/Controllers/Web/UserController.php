@@ -9,6 +9,7 @@ use Auth;
 use Redirect;
 use App\Models\UserPlan;
 use Hash;
+use View;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->user();
         $readBooks = $user->userPlanItems()->where('status', 'done')->get();
-        
+
         return view('users.details.components.dashboard')->with([
             'user' => $user,
             'books' => $readBooks,
@@ -97,17 +98,31 @@ class UserController extends Controller
         ]);
     }
 
-    public function showPlans($id)
+    public function showPlans(Request $request, $id)
     {
         $user = $this->userRepository->user();
         $plans = $this->userRepository
-            ->userPlansDone(config('custom.plan.pagination'));
+            ->userPlansDone(config('custom.plan.pagination'), true);
         $followers = $this->userRepository->getFollowers($id)->count();
+        if ($request->ajax()) {
+            return response()->json([
+                'pagination' => [
+                    'total'        => $plans->total(),
+                    'per_page'     => $plans->perPage(),
+                    'current_page' => $plans->currentPage(),
+                    'last_page'    => $plans->lastPage(),
+                    'from'         => $plans->firstItem(),
+                    'to'           => $plans->lastItem()
+                ],
+                'data' => $plans,
+            ]);
+        }
 
         return view('users.details.plans')->with([
             'user' => $user,
             'plans' => $plans,
             'followers' => $followers,
+            'id' => $id,
         ]);
     }
 }

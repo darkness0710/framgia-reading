@@ -34,7 +34,7 @@
 }
 #search-result .header-search img {
     width: 50px !important;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 #search-result .header-title {
@@ -81,11 +81,11 @@
 #exTab1 .tab-content {
     padding: 5px 15px;
 }
- 
+
 #exTab1 .nav-pills > li > a {
     border-radius: 0;
 }
- 
+
 #exTab3 .nav-pills > li > a {
     border-radius: 4px 4px 0 0;
 }
@@ -840,4 +840,16 @@ a.link {
 
 .page-title {
     height: 300px;
+}
+
+.mt--250 {
+	margin-top: -250px;
+}
+
+.mt-280 {
+	margin-top:280px;
+}
+
+.fs-140 {
+	font-size: 140%;
 }

@@ -28,11 +28,11 @@
                 @include('layouts._sections.navbar')
             </header>
             <div class="content">
-                @yield('content')  
+                @yield('content')
             </div>
 
             @include('layouts._sections.footer')
-            
+
         </div>
 
         {{ Html::script('js/core-plugins.js') }}
