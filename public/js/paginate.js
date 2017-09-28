@@ -6,6 +6,6 @@ $(document).on('click', '#ajax ul li a', function (e) {
         $('.result').html(response.data.html);
       })
       .catch(function (error) {
-       
+
       });
 });

@@ -11,7 +11,9 @@
 
             {!! Form::open([
                 'method' => 'POST',
-                'action' => 'Web\UserController@updatePassword',
+                'url' => action('Web\UserController@updatePassword', [
+                    'id' => $id,
+                ]),
             ]) !!}
                 @if (session('status') == 'success')
                     <div class="alert alert-success">

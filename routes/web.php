@@ -35,18 +35,18 @@ Route::group(['prefix' => 'plan'], function () {
 Route::get('search', 'Web\HomeController@searchData')->name('search');
 
 Route::group(['prefix' => 'user'], function () {
-    Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
-        Route::get('/', 'Web\UserController@dashboard');
-        //Route Update Profile
-        Route::get('/edit-profile', 'Web\UserController@editProfile');
-        Route::post('/update-profile', 'Web\UserController@updateProfile');
-        //Route Update Password
-        Route::get('/edit-password', 'Web\UserController@editPassword');
-        Route::post('/update-password', 'Web\UserController@updatePassword');
-    });
-
     Route::group(['prefix' => '{id}'], function () {
         Route::get('/', 'Web\UserController@showPlans');
+
+        Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
+            Route::get('/', 'Web\UserController@dashboard');
+            //Route Update Profile
+            Route::get('/edit-profile', 'Web\UserController@editProfile');
+            Route::post('/update-profile', 'Web\UserController@updateProfile');
+            //Route Update Password
+            Route::get('/edit-password', 'Web\UserController@editPassword');
+            Route::post('/update-password', 'Web\UserController@updatePassword');
+        });
     });
 });
 
