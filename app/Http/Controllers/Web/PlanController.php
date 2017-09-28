@@ -53,24 +53,21 @@ class PlanController extends Controller
     public function searchData(Request $request)
     {
 
-       $input = $request->all();
-       
-       if($input['title'] == null) {
+        $input = $request->all();
+        if($input['title'] == null) {
             $input['title'] = "";
-       }
+        }
 
-       $plans = $this->planRepository->getAllPlanByFilter($input['subject'], 
+        $plans = $this->planRepository->getAllPlanByFilter($input['subject'], 
             $input['title'], $input['sort'], ['user', 'subject'], ['*'], 12);
-
-       $plans->appends([
+        $plans->appends([
             'subject' => $input['subject'],
             'sort' => $input['sort'],
             'title' => $input['title']
         ]);
+        $html = view('plans._resultPlan')->with('plans', $plans)->render();
 
-       $html = view('plans._resultPlan')->with('plans', $plans)->render();
-
-       return Response(['html' => $html]);
+        return Response(['html' => $html]);
 
     }
 }

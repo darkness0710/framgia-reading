@@ -5,8 +5,6 @@
 @push('scripts')
     {{ Html::script('js/ion.rangeSlider.min.js') }}
     {{ Html::script('js/plan-star.js') }}
-    {{ Html::script('bower_components/axios/dist/axios.js') }}
-    {{ Html::script('bower_components/vue/dist/vue.js') }}
     {{ Html::script('js/plan.js') }}
     {{ Html::script('js/block.js') }}
     {{ Html::script('js/paginate.js') }}

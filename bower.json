@@ -28,6 +28,7 @@
     "rivolicons": "*",
     "vue": "^2.4.4",
     "axios": "^0.16.2",
-    "jquery-pjax": "^2.0.1"
+    "jquery-pjax": "^2.0.1",
+    "alertify-js": "^1.11.0"
   }
 }
