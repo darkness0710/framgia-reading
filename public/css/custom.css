@@ -837,3 +837,7 @@ a.link {
 .p-20 {
     padding: 20px;
 }
+
+.page-title {
+    height: 300px;
+}

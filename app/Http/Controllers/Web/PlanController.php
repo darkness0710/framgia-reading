@@ -28,10 +28,10 @@ class PlanController extends Controller
         $plans = $this->planRepository
             ->getAllPlan(['user'] ,['*'], 12);
         
-        if($request->get('page')) {
-            $html = view('plans._resultPlan')->with('plans', $plans)->render();
+        if($request->ajax()) {
+           $html = view('plans._resultPlan')->with('plans', $plans)->render();
 
-            return Response(['html' => $html]);
+           return Response(['html' => $html]);
         }
 
         return view('plans.index', compact('plans'));

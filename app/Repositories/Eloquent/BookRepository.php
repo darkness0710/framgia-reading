@@ -2,6 +2,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Book;
+use App\Models\Review;
 use App\Repositories\Contracts\BookRepositoryInterface;
 
 class BookRepository extends Repository implements BookRepositoryInterface
@@ -22,5 +23,18 @@ class BookRepository extends Repository implements BookRepositoryInterface
             ->get();
 
         return $result;
+    }
+
+    public function getAllBook($select = ['*'], $paginate = 12)
+    {
+        $books = Book::select($select)
+            ->paginate($paginate); 
+
+        foreach($books as $book) {
+            $book->reviews_count = Review::where('reviewable_id', '=', $book->id)
+                ->where('reviewable_type', '=', 'Book')->count();
+        }
+      
+        return $books;
     }
 }

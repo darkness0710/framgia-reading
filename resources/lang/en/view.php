@@ -51,4 +51,8 @@ return [
     'cart_is_null' => 'No books found! Please add more. Good luck!',
     'remove' => 'Remove',
     'go_create_plan' => 'Go create plan!',
+    'add_favourite' => 'Add Favourite',
+    'banner_3' => 'Books are invaluable knowledge',
+    'banner_4' => 'Books are the source of knowledge',
+    'sort_by' => 'Sort by',
 ];
