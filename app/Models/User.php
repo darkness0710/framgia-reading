@@ -84,4 +84,14 @@ class User extends Authenticatable
     {
         return strpos($name, config('app.name')) !== false;
     }
+
+    public function followers()
+    {
+        return Relation::where('following_id', $this->id);
+    }
+
+    public function following()
+    {
+        return Relation::where('follower_id', $this->id);
+    }
 }

@@ -37,7 +37,6 @@ Route::get('search', 'Web\HomeController@searchData')->name('search');
 Route::group(['prefix' => 'user'], function () {
     Route::group(['prefix' => '{id}'], function () {
         Route::get('/', 'Web\UserController@showPlans');
-
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
             Route::get('/', 'Web\UserController@dashboard');
             //Route Update Profile
@@ -47,6 +46,8 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('/edit-password', 'Web\UserController@editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
         });
+
+        Route::get('/profile', 'Web\UserController@profile');
     });
 });
 

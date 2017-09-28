@@ -121,7 +121,13 @@
                                         <div class="image">
                                             <img src="{{ $plan->user->avatar }}" class="img-circle" alt="images" />
                                         </div>
-                                        <p class="name">{{ trans('view.by') }}: <a href="">{{ $plan->user->name }}</a></p>
+                                        <p class="name">{{ trans('view.by') }}:
+                                            <a href="{{ action('Web\UserController@showPlans', [
+                                                'id' => $plan->user->id,
+                                            ]) }}">
+                                                {{ $plan->user->name }}
+                                            </a>
+                                        </p>
                                     </div>
                                     <div class="trip-guide-meta row gap-10">
                                         <div class="col-xs-6 col-sm-6">

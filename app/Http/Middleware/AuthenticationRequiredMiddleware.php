@@ -18,7 +18,7 @@ class AuthenticationRequiredMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::check()) {
+        if (!Auth::check() || $request->id != Auth::user()->id) {
             return redirect('error');
         }
 

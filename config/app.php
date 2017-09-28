@@ -180,8 +180,9 @@ return [
 
         App\Providers\BsCollectiveServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
-        
+
         Barryvdh\Debugbar\ServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
     ],
 
     /*
@@ -233,6 +234,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'BsForm' => App\BsCollective\BsFormFacade::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
     ],
 
 ];

@@ -81,9 +81,10 @@ class UserRepository extends Repository implements UserRepositoryInterface
         return Relation::where('following_id', $id);
     }
 
-    public function userPlansDone($paginate = 0, $withSubject = false)
+    public function userPlansDone($user, $paginate = 0, $withSubject = false)
     {
-        $plans = $this->user()->userPlans();
+        $plans = $user->userPlans()->orderBy('due_date', 'desc');
+
         if ($withSubject) {
             $plans = $plans->with('plan.subject');
         }
@@ -93,7 +94,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
         if ($paginate != 0) {
             $plans = $plans->paginate($paginate);
         }
-        
+
         return $plans;
     }
 }
