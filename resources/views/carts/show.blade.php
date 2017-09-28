@@ -1,5 +1,5 @@
 <div>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-star"></span> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }} {{ trans('view.book') }}<span class="caret"></span></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="ti-heart"></span> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }} {{ trans('view.book') }}<span class="caret"></span></a>
     <ul class="dropdown-menu dropdown-cart" role="menu">
         @if(Session::has('cart'))
             @foreach($cart->items as $product)

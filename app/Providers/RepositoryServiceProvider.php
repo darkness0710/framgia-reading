@@ -13,6 +13,8 @@ use App\Repositories\Contracts\ReviewRepositoryInterface;
 use App\Repositories\Eloquent\ReviewRepository;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
+use App\Repositories\Eloquent\CategoryRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -39,5 +41,6 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(PlanRepositoryInterface::class, PlanRepository::class);
         App::bind(ReviewRepositoryInterface::class, ReviewRepository::class);
         App::bind(UserRepositoryInterface::class, UserRepository::class);
+        App::bind(CategoryRepositoryInterface::class, CategoryRepository::class);
     }
 }

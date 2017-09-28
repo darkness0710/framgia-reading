@@ -17,6 +17,9 @@
                 <li>
                     <a href="{{ route('plan.index') }}">{{ trans('view.plans') }}</a>
                 </li>
+                <li>
+                    <a href="{{ route('book.index') }}">{{ trans('view.books') }}</a>
+                </li>
                 <li id="cartAjax">
                     @include('carts.show')
                 </li>

@@ -1,4 +1,4 @@
-$(document).on('click', '#paginate li a', function (e) {
+$(document).on('click', '#ajax ul li a', function (e) {
     var addressValue = $(this).attr("href");
     e.preventDefault();
     axios.get(addressValue)

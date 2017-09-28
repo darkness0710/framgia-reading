@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
+use App\Repositories\Contracts\CategoryRepositoryInterface as CategoryRepository;
 use App\Models\Book;
 use App\Models\Cart;
+use App\Models\Category;
 use Response;
 use Session;
 
@@ -14,9 +16,22 @@ class BookController extends Controller
 {
     private $bookRepository;
 
-    public function __construct(BookRepository $bookRepository)
-    {
+    public function __construct(
+        BookRepository $bookRepository,
+        CategoryRepository $categoryRepository
+    ) {
         $this->bookRepository = $bookRepository;
+        $this->categoryRepository = $categoryRepository;
+    }
+
+    public function index()
+    {
+        $books = $this->bookRepository
+            ->getAllBook(['*'], 12);
+        $sorts = ['Title', 'Rate'];
+        $categories = $this->categoryRepository->getAllCategory(['title']);
+
+        return view('books.index', compact('books', 'sorts', 'categories'));
     }
 
     public function show($id)

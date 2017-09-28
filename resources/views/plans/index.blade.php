@@ -41,7 +41,7 @@
                                         <div class="filter-item mmr">
                                             <div class="input-group input-group-addon-icon no-border no-br-xs">
                                                 <span class="input-group-addon input-group-addon-icon bg-white">
-                                                <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> Sort by:</label></span>
+                                                <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
                                                 <div id="list-sort">
                                                     <select class="selectpicker show-tick form-control" data-live-search="false">
                                                         <option v-for="sort in sorts" value="0">
@@ -153,7 +153,7 @@
             <div class="pager-wrappper clearfix">
                 <div class="pager-innner">
                     <div class="clearfix">
-                        <div id="paginate">
+                        <div id="ajax">
                             {{ $plans->links() }}
                         </div>
                     </div>

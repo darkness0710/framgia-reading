@@ -22,6 +22,7 @@ Route::group(['prefix' => 'book'], function () {
         ->name('book.addToCart');
     Route::get('/cart-remove-book/{id}', 'Web\BookController@getRemoveToCart')
         ->name('book.removeToCart');
+    Route::get('/', 'Web\BookController@index')->name('book.index');
 });
 
 Route::group(['prefix' => 'plan'], function () {
