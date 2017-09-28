@@ -3,8 +3,8 @@
 @section('content')
 
 @push('scripts')
-    {{ Html::script('js/plan.js') }}
     {{ Html::script('js/block.js') }}
+    {{ Html::script('js/book.js') }}
 @endpush
 
 <div class="main-wrapper scrollspy-container">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="btn-holder">
                             <div id="seach-sort">
-                                <input type="button" id="search" value="Search" class="form-control" v-on:click="search">
+                                <input type="button" id="searchBook" value="Search" class="form-control">
                             </div>
                         </div>
                     </div>

@@ -46,7 +46,8 @@
         {{-- Alert --}}
         {{ Html::script('bower_components/alertify-js/build/alertify.js') }}
         {{--  End Alert --}}
-        
+        {{ Html::script('bower_components/axios/dist/axios.js') }}
+        {{ Html::script('bower_components/vue/dist/vue.js') }}
 
         @stack('scripts')
         @yield('script')

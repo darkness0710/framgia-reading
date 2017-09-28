@@ -17,12 +17,13 @@ Auth::routes();
 Route::get('/', 'Web\HomeController@index')->name('home');
 
 Route::group(['prefix' => 'book'], function () {
+    Route::get('/search', 'Web\BookController@searchData');
     Route::get('/{id}', 'Web\BookController@show')->name('book.show');
+    Route::get('/', 'Web\BookController@index')->name('book.index');
     Route::get('/add-to-cart/{id}', 'Web\BookController@getAddToCart')
         ->name('book.addToCart');
     Route::get('/cart-remove-book/{id}', 'Web\BookController@getRemoveToCart')
         ->name('book.removeToCart');
-    Route::get('/', 'Web\BookController@index')->name('book.index');
 });
 
 Route::group(['prefix' => 'plan'], function () {

@@ -24,12 +24,18 @@ class BookController extends Controller
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $books = $this->bookRepository
             ->getAllBook(['*'], 12);
         $sorts = ['Title', 'Rate'];
         $categories = $this->categoryRepository->getAllCategory(['title']);
+
+        if($request->ajax()) {
+            $html = view('books._resultBook')->with('books', $books)->render();
+
+            return Response(['html' => $html]);
+        }
 
         return view('books.index', compact('books', 'sorts', 'categories'));
     }
@@ -80,6 +86,27 @@ class BookController extends Controller
             }
 
             $html = view('carts.show', compact('cart'))->render();
+
+            return Response(['html' => $html]);
+        }
+    }
+
+    public function searchData(Request $request)
+    {
+        if($request->ajax()) {
+            $input = $request->all();
+            if($input['title'] == null) {
+                $input['title'] = "";
+            }
+
+            $books = $this->bookRepository->getAllBookByFilter($input['subject'], 
+                $input['title'], $input['sort'], ['*'], 12);
+            $books->appends([
+                'subject' => $input['subject'],
+                'sort' => $input['sort'],
+                'title' => $input['title']
+            ]);
+            $html = view('books._resultBook')->with('books', $books)->render();
 
             return Response(['html' => $html]);
         }
