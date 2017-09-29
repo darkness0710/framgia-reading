@@ -15,6 +15,8 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\UserRepository;
 use App\Repositories\Contracts\CategoryRepositoryInterface;
 use App\Repositories\Eloquent\CategoryRepository;
+use App\Repositories\Contracts\PlanItemRepositoryInterface;
+use App\Repositories\Eloquent\PlanItemRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -42,5 +44,6 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(ReviewRepositoryInterface::class, ReviewRepository::class);
         App::bind(UserRepositoryInterface::class, UserRepository::class);
         App::bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        App::bind(PlanItemRepositoryInterface::class, PlanItemRepository::class);
     }
 }

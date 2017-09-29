@@ -183,7 +183,6 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*

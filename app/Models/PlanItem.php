@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PlanItem extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'note',
-        'start_date',
-        'due_date',
+        'plan_id',
+        'book_id',
+        'duration',
+        'summary',
     ];
- 
+
     public function userPlanItems()
     {
         return $this->hasMany(UserPlanItem::class);

@@ -60,7 +60,7 @@ class BookController extends Controller
                         return Response::json(array(
                         'code'      =>  404,
                         'message'   =>  'Book already in cart!'
-                        ), 404);       
+                        ), 404);
                     }
                 }
             }
@@ -99,7 +99,7 @@ class BookController extends Controller
                 $input['title'] = "";
             }
 
-            $books = $this->bookRepository->getAllBookByFilter($input['subject'], 
+            $books = $this->bookRepository->getAllBookByFilter($input['subject'],
                 $input['title'], $input['sort'], ['*'], 12);
             $books->appends([
                 'subject' => $input['subject'],
@@ -109,6 +109,16 @@ class BookController extends Controller
             $html = view('books._resultBook')->with('books', $books)->render();
 
             return Response(['html' => $html]);
+        }
+    }
+
+    public function searchByTitle(Request $request)
+    {
+        if ($request->ajax()) {
+            $title = $request->title;
+            $books = $this->bookRepository->getBookBySearch($title, 5);
+
+            return Response(['books' => $books]);
         }
     }
 }

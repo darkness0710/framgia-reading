@@ -9,11 +9,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Plan extends BaseModel
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'title',
         'start_date',
         'due_date',
+        'user_id',
+        'subject_id',
+        'summary',
+        'rate',
         'description',
     ];
 
