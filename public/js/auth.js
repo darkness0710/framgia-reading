@@ -8,7 +8,10 @@ $("#submit_btn").click(function(e) {
         url: "/register",
         success:function(data){
             $('#registerModal').modal('hide');
-            location.reload();
+            e.preventDefault();
+            var notification = alertify.notify('Login Success! Welcome to Framgia Reading', 'success', 5, function() {  
+            });
+            window.setTimeout(function() { location.reload()}, 800);
         },
         error: function (data) {
             errors = data['responseJSON'];
@@ -17,6 +20,8 @@ $("#submit_btn").click(function(e) {
                 err_id = '#error_' + index;
                 $(err_id).empty();
                 $(err_id).append(error_str);
+            });
+            var notification = alertify.notify('Oop!!!', 'error', 5, function() {  
             });
         }
     });
@@ -50,6 +55,8 @@ $("#btn_login").click(function(e) {
                 login_error_id = '#login_error_' + index;
                 $(login_error_id).empty();
                 $(login_error_id).html(error_str);
+            });
+            var notification = alertify.notify('Oop!!!', 'error', 5, function() {  
             });
         }
     });

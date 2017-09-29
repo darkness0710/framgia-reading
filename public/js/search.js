@@ -2,10 +2,7 @@ $(document).ready(function(e) {
     $('#search-result').hide();
 
     $(document).on('keyup', '#search', function() {
-        var url = '/search';
-        var keyword = $(this).val();
-
-        setTimeout(function() {
+        var ajaxSearch = function() {
             $.ajax({
                 method: 'GET',
                 url: url,
@@ -22,8 +19,25 @@ $(document).ready(function(e) {
                     }
                 },
             });
-        }, 1000);
+        }
 
+        var url = '/search';
+        var keyword = $(this).val().trim();
+        var timer;
+
+        if (keyword.length > 0) {
+            console.log(12);
+            if (timer) {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    ajaxSearch();
+                }, 1000);
+            } else {
+                timer = setTimeout(function() {
+                    ajaxSearch();
+                }, 1000);
+            }
+        }
     });
 
     $(window).click(function() {

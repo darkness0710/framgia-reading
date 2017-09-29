@@ -67,4 +67,14 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
 
             return $plans;
     }
+
+    public function getPlanBySearch($keyword, $with = [], $limit = 3) {
+        $plans = Plan::whereLike('title', $keyword)
+            ->with($with)
+            ->orderBy('created_at', 'DESC')
+            ->limit($limit)
+            ->get();
+
+        return $plans;
+    }
 }

@@ -11,4 +11,6 @@ interface PlanRepositoryInterface extends RepositoryInterface
 
     public function getAllPlanByFilter($subject, $title, $sort,
         $with = [], $select = ['*'], $paginate = 12);
+
+    public function getPlanBySearch($keyword, $with = [], $limit = 3);
 }
