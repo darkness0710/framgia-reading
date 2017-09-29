@@ -8,6 +8,7 @@ use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
 use App\Repositories\Contracts\SubjectRepositoryInterface as SubjectRepository;
 use App\Repositories\Contracts\PlanRepositoryInterface as PlanRepository;
 use App\Models\Book;
+use App\Models\Plan;
 
 class HomeController extends Controller
 {
@@ -36,9 +37,11 @@ class HomeController extends Controller
 
     public function searchData(Request $request)
     {
-        $search = strtolower(str_replace(' ', '', $request->keyword));
-        $books = $this->bookRepository->getBookBySearch($search);
-        $html = view('layouts._sections._search')->with('books', $books)->render();
+        $search = strtolower($request->keyword);
+        $search = preg_replace('!\s+!', ' ', $search);
+        $books = $this->bookRepository->getBookBySearch($search, 3);
+        $plans = $this->planRepository->getPlanBySearch($search, ['user'], 3);
+        $html = view('layouts._sections._search', compact('books', 'plans'))->render();
 
         return Response(['html' => $html]);
     }

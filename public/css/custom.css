@@ -32,6 +32,7 @@
     background: #ff4d4d;
     opacity: 0.8;
 }
+
 #search-result .header-search img {
     width: 50px !important;
     margin-right: 10px;
@@ -67,6 +68,11 @@
     display: inline-block;
     width: 300px;
     margin-top: 26px;
+}
+
+#header-search2 {
+    margin-left: 10px;
+    font-color: blue;
 }
 
 #sidebar-sticky {

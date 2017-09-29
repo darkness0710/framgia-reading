@@ -16,11 +16,11 @@ class BookRepository extends Repository implements BookRepositoryInterface
         return Book::class;
     }
 
-    public function getBookBySearch($keyword)
+    public function getBookBySearch($keyword, $limit = 3)
     {
         $result = Book::whereLike('title', $keyword)
             ->orderBy('created_at', 'DESC')
-            ->limit(5)
+            ->limit($limit)
             ->get();
 
         return $result;
