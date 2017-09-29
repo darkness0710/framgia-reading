@@ -10,6 +10,7 @@ use Redirect;
 use App\Models\UserPlan;
 use Hash;
 use View;
+use Lava;
 
 class UserController extends Controller
 {
@@ -100,10 +101,11 @@ class UserController extends Controller
 
     public function showPlans(Request $request, $id)
     {
-        $user = $this->userRepository->user();
+        $user = $this->userRepository->find($id);
         $plans = $this->userRepository
-            ->userPlansDone(config('custom.plan.pagination'), true);
-        $followers = $this->userRepository->getFollowers($id)->count();
+            ->userPlansDone($user, config('custom.plan.pagination'), true);
+        $followers = $this->userRepository->getFollowers($id);
+
         if ($request->ajax()) {
             return response()->json([
                 'pagination' => [
@@ -118,11 +120,58 @@ class UserController extends Controller
             ]);
         }
 
+        $subjectTendency = $this->makePieChart($plans);
+
         return view('users.details.plans')->with([
             'user' => $user,
             'plans' => $plans,
             'followers' => $followers,
             'id' => $id,
+            'subjectTendency' => $subjectTendency,
         ]);
+    }
+
+    public function profile($id)
+    {
+        $user = $this->userRepository->find($id);
+        $plans = $this->userRepository->userPlansDone($user)->get();
+        $user = $user->first();
+        $followers = $user->followers()->get();
+        $following = $user->following()->get();
+        $subjectTendency = $this->makePieChart($plans);
+
+        return view('users.details.profile')->with([
+            'user' => $user,
+            'plans' => $plans,
+            'followers' => $followers,
+            'following' => $following,
+            'id' => $id,
+            'subjectTendency' => $subjectTendency,
+        ]);
+    }
+
+    private function makePieChart($plans = [])
+    {
+        $subjects = [];
+        foreach ($plans as $plan) {
+            $subject = $plan->plan->subject;
+            if ($subject != null) {
+                if (array_has($subjects, $subject->title)) {
+                    $subjects[$subject->title] = $subjects[$subject->title] + 1;
+                } else {
+                    $subjects[$subject->title] = 0;
+                }
+            }
+        }
+
+        $dataTable = Lava::DataTable();
+        $dataTable->addStringColumn('title');
+        $dataTable->addNumberColumn('number');
+
+        foreach ($subjects as $key => $subject) {
+            $dataTable->addRow([$key, $subject]);
+        }
+
+         return Lava::PieChart('Subject Tendency', $dataTable);
     }
 }

@@ -20,3 +20,15 @@ if (! function_exists('upload_file')) {
         return false;
     }
 }
+
+if (! function_exists('count')) {
+    
+    function count($data)
+    {
+        if ($data instanceof Illuminate\Database\Eloquent\Collection) {
+            return $data->count();
+        }
+        
+        return count($data);
+    }
+}

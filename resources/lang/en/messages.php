@@ -47,4 +47,9 @@ return [
     'details' => 'Details',
     'due_date' => 'Due Date:',
     'start_date' => 'Start Date:',
+    'gender' => 'Gender',
+    'following' => 'Following',
+    'subjects-tendency' => 'Subjects Tendency',
+    'no-data' => 'NO DATA FOUND!',
+    'profile' => 'Profile',
 ];
