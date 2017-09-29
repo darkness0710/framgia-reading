@@ -131,8 +131,8 @@
                                                 <p class="block inline-block-xs">{{ $book->reviews_count }} {{ trans('view.reviews') }}</p>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 text-right text-left-xs" id="addBookToCart">
-                                            <a href="{{ route('book.addToCart', $book->id) }}" class="btn btn-primary"><i class="ti-heart"></i></a>
+                                        <div class="col-xs-12 col-sm-6 text-right text-left-xs">
+                                            <a href="{{ route('book.addToCart', $book->id) }}" class="btn btn-primary addBookToCart"><i class="ti-heart"></i></a>
                                             <a href="{{ route('book.show', $book->id) }}" class="btn btn-primary">{{ trans('view.view') }}</a>
                                         </div>
                                     </div>
