@@ -1,4 +1,4 @@
-$(document).on('click', '#addBookToCart a', function(e) {
+$(document).on('click', '.addBookToCart', function(e) {
     var addressValue = $(this).attr("href");
     e.preventDefault();
     $.ajax({
