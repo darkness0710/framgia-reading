@@ -46,7 +46,9 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('/edit-password', 'Web\UserController@editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
         });
-
+        Route::group(['prefix' => '/admin', 'middleware' => 'auth.admin'], function () {
+            Route::get('/', 'Web\AdminController@index');
+        });
         Route::get('/profile', 'Web\UserController@profile');
     });
 });

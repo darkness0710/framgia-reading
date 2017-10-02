@@ -55,4 +55,8 @@ return [
     'banner_3' => 'Books are invaluable knowledge',
     'banner_4' => 'Books are the source of knowledge',
     'sort_by' => 'Sort by',
+    'manage_subjects' => 'Manage Subjects',
+    'manage_books' => 'Manage Books',
+    'manage_users' => 'Manage Users',
+    'manage_categories' => 'Manage Categories'
 ];

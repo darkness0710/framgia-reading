@@ -94,4 +94,10 @@ class User extends Authenticatable
     {
         return Relation::where('follower_id', $this->id);
     }
+
+    public function isAdmin()
+    {
+        $role = $this->attributes['role'];
+        return $role === 'admin' ? true : false;
+    }
 }
