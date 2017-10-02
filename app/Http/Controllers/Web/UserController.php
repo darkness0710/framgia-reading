@@ -29,7 +29,6 @@ class UserController extends Controller
         return view('users.details.components.dashboard')->with([
             'user' => $user,
             'books' => $readBooks,
-            'id' => $user->id,
         ]);
     }
 

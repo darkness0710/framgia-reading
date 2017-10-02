@@ -45,7 +45,7 @@
                         <ul class="user-header-menu">
                             <li>
                                 <a href="{{ action('Web\UserController@profile', [
-                                    'id' => $id,
+                                    'id' => $user->id,
                                 ]) }}">
                                     {{ trans('dashboard-messages.profile') }}
                                 </a>
@@ -57,7 +57,7 @@
                                     {{ trans('dashboard-messages.plans') }}
                                 </a>
                             </li>
-                            @if(Auth::user()->id == $id)
+                            @if(Auth::user()->id == $user->id)
                                 <li>
                                     <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
                                 </li>
