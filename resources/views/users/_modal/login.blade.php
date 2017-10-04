@@ -17,6 +17,8 @@
                 </div>
             </div>
 
+            {{ csrf_field() }}
+            
             {!! Form::open([
                 'role' => 'form',
                 'id' => 'login_form'

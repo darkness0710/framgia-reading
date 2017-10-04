@@ -48,6 +48,14 @@
                                         {{ trans('view.dashboard') }}
                                     </a>
                                 </li>
+                                @if(Auth::user()->isAdmin())
+                                    <li>
+                                        <a class="normal" href="{{ route('user.dashboard', Auth::user()->id) }}">
+                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                            {{ trans('view.admin') }}
+                                        </a>
+                                    </li>
+                                 @endif
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         class="normal"
