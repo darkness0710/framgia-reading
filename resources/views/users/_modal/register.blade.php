@@ -16,6 +16,9 @@
                     <div><span>{{ trans('messages.or') }}</span></div>
                 </div>
             </div>
+            
+            {{ csrf_field() }}
+
             {!! Form::open([
                 'role' => 'form',
                 'id' => 'register_form'

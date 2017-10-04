@@ -61,4 +61,5 @@ return [
     'manage_categories' => 'Manage Categories',
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
+    'admin' => 'Admin',
 ];

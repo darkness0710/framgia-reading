@@ -47,7 +47,7 @@ Route::group(['prefix' => 'user'], function () {
             Route::post('/update-password', 'Web\UserController@updatePassword');
         });
         Route::group(['prefix' => '/admin', 'middleware' => 'auth.admin'], function () {
-            Route::get('/', 'Web\AdminController@index');
+            Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
         });
         Route::get('/profile', 'Web\UserController@profile');
     });

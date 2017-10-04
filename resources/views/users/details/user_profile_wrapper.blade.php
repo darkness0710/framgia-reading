@@ -61,6 +61,11 @@
                                 <li>
                                     <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
                                 </li>
+                                @if(Auth::user()->isAdmin())
+                                    <li>
+                                        <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('view.admin') }}</a>
+                                    </li>
+                                @endif
                             @endif
                         </ul>
                     </div>
