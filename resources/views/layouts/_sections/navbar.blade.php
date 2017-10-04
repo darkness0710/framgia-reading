@@ -32,7 +32,6 @@
             <ul id="search-result" >
             </ul>
         </div>
-       
         <!--/.nav-collapse -->
         <div class="nav-mini-wrapper">
             <ul class="margin-left-120">
@@ -44,11 +43,9 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a class="normal" href="{{ action('Web\UserController@dashboard', [
-                                        'id'=> Auth::user()->id,
-                                    ]) }}">
+                                    <a class="normal" href="{{ route('user.dashboard', Auth::user()->id) }}">
                                         <i class="fa fa-tachometer" aria-hidden="true"></i>
-                                        Dashboard
+                                        {{ trans('view.dashboard') }}
                                     </a>
                                 </li>
                                 <li>
@@ -57,7 +54,7 @@
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                        Logout
+                                        {{ trans('view.logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}

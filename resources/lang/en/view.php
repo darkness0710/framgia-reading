@@ -58,5 +58,7 @@ return [
     'manage_subjects' => 'Manage Subjects',
     'manage_books' => 'Manage Books',
     'manage_users' => 'Manage Users',
-    'manage_categories' => 'Manage Categories'
+    'manage_categories' => 'Manage Categories',
+    'dashboard' => 'Dashboard',
+    'logout' => 'Logout',
 ];

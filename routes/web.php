@@ -38,7 +38,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::group(['prefix' => '{id}'], function () {
         Route::get('/', 'Web\UserController@showPlans');
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
-            Route::get('/', 'Web\UserController@dashboard');
+            Route::get('/', 'Web\UserController@dashboard')->name('user.dashboard');
             //Route Update Profile
             Route::get('/edit-profile', 'Web\UserController@editProfile');
             Route::post('/update-profile', 'Web\UserController@updateProfile');
