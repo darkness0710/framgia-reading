@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 
 class AdminController extends Controller
 {

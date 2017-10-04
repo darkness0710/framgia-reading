@@ -6,7 +6,7 @@
                     <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
                 </li>
                 <li id="#">
-                    <a href="#">{{ trans('view.manage_subjects') }}</a>
+                    <a href="{{ route('admin.subject', $user->id) }}">{{ trans('view.manage_subjects') }}</a>
                 </li> 
                 <li id="#">
                     <a href="#">{{ trans('view.manage_categories') }}</a>

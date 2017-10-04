@@ -50,7 +50,7 @@
                                 </li>
                                 @if(Auth::user()->isAdmin())
                                     <li>
-                                        <a class="normal" href="{{ route('user.dashboard', Auth::user()->id) }}">
+                                        <a class="normal" href="{{ route('admin.dashboard', Auth::user()->id) }}">
                                             <i class="fa fa-cog" aria-hidden="true"></i>
                                             {{ trans('view.admin') }}
                                         </a>
