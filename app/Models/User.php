@@ -73,8 +73,9 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         $avatarName = $this->attributes['avatar'];
+
         if (!$this->isLocalAvatar($avatarName)) {
-            return $avatarName;
+            return $avatarName = asset(config('setup.user_avatar_path') . $avatarName);
         }
 
         return asset(config('custom.avatar.url') . $avatarName);

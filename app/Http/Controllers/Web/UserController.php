@@ -134,7 +134,6 @@ class UserController extends Controller
     {
         $user = $this->userRepository->find($id);
         $plans = $this->userRepository->userPlansDone($user)->get();
-        $user = $user->first();
         $followers = $user->followers()->get();
         $following = $user->following()->get();
         $subjectTendency = $this->makePieChart($plans);
