@@ -1,3 +1,4 @@
+//Admin Subject Edit Modal
 $(document).on('click', '#modal-edit', function(e) {
     var url = window.location.href.split('#')[0];
     var id = $(this.attributes.subject_id).val();
@@ -83,3 +84,80 @@ function validate(file) {
         $("#upload-avatar").val("");
     }
 }
+
+//Admin Subject New Modal
+$(document).on('click', '#modal-new', function(e) {
+    $('#upload-image').change(function(evt) {
+        var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function() {
+                document.getElementById('preview-image').src = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
+        }
+    });
+});
+
+function validateImageAll(file) {
+    var ext = file.split(".");
+    ext = ext[ext.length - 1].toLowerCase();
+    var arrayExtensions = ["jpg", "jpeg", "png", "bmp", "gif"];
+
+    if (arrayExtensions.lastIndexOf(ext) == -1) {
+        var notification = alertify.notify('Invalid format image', 'error', 5, function() {});
+        $("#upload-image").val("");
+    }
+
+    var file_data_size = $('#upload-image').prop('files')[0].size;
+    if (file_data_size > IMAGE_SIZE) {
+        var notification = alertify.notify('Size > 5 MB! ', 'error', 5, function() {});
+        $("#upload-image").val("");
+    }
+}
+
+$(document).on('click', '#new_subject', function(e) {
+    e.preventDefault();
+    var url = window.location.href.split('#')[0];
+    var file_data = $('#upload-image').prop('files')[0];
+
+    var form_data = new FormData();
+    var subject_title = $('#new_input_title').val();
+    var subject_description = $('#new_input_description').val();
+    var subject_trending = parseInt($('#new_input_trending').val()) || 0;
+
+    if (subject_title.length == 0 || subject_description.length == 0) {
+        var notification = alertify.notify('Title or Description null!!!', 'error', 5, function() {});
+        return false;
+    }
+
+    if (typeof file_data === 'undefined') {
+        var notification = alertify.notify('You must have image!!!', 'error', 5, function() {});
+        return false;
+    }
+
+    form_data.append('title', subject_title);
+    form_data.append('description', subject_description);
+    form_data.append('trending', subject_trending);
+    form_data.append('file', file_data);
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: url,
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        type: 'POST',
+        success: function(data) {
+            location.reload();
+        }, 
+        error: function(data) {
+            //Error
+        }
+    });
+});

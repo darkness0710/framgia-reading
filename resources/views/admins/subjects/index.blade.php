@@ -13,6 +13,7 @@
 </div>
 
 @include('admins.subjects._modal_edit')
+@include('admins.subjects._modal_new')
 
 @section('script')
     {{ Html::script('js/admin-subject.js') }}

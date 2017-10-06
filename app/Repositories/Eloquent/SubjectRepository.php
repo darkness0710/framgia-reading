@@ -26,4 +26,22 @@ class SubjectRepository extends Repository implements SubjectRepositoryInterface
 
         return $subjects;
     }
+
+    public function createSubjectByAjax($request)
+    {
+        $subject = Subject::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'trending' => $request->trending,
+            'cover' => '',
+        ]);
+
+        $subjectImageName = $request->file->getClientOriginalName();
+        $subjectImageName = $subject->id . '_' . $subjectImageName;
+        $request->file->move(public_path('uploads/subjects'), $subjectImageName);
+        $subject->cover = $subjectImageName;
+        $subject->save();
+
+        return true;
+    }
 }
