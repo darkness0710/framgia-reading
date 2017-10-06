@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-subjects.new') }}</button>
+                            <button class="btn btn-warning btn-block mb-10" data-toggle="modal" id="modal-new" data-target="#modal-new-subjects"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-subjects.new') }}</button>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control mb-10" placeholder="Ex: Php master" id="nameSearch" />

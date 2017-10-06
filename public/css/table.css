@@ -1136,7 +1136,7 @@ hr {
     height: 30%;
 }
 
-#imageSize2 {
+.image-upload-size {
     height: 10%;
     width: 100px;
 }

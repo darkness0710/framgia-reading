@@ -85,4 +85,13 @@ class SubjectController extends Controller
 
         return redirect()->route('admin.subject', $user_id);
     }
+
+    public function store(Request $request, $user_id)
+    {
+        if(!$request->ajax()) {
+            return fasle;
+        }
+
+        $this->subjectRepository->createSubjectByAjax($request);
+    }
 }

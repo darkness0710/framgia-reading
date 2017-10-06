@@ -50,6 +50,7 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
             Route::group(['prefix' => 'subjects'], function () {
                 Route::get('/', 'Web\SubjectController@index')->name('admin.subject');
+                Route::post('/', 'Web\SubjectController@store');
                 Route::post('/{subject}', 'Web\SubjectController@update')->name('admin.subject.update');
                 Route::get('/{subject_id}', 'Web\SubjectController@getData')->name('admin.subject.getData');
                 Route::delete('/{subject_id}', 'Web\SubjectController@destroy')->name('admin.subject.destroy');
