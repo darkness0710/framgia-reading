@@ -78,7 +78,7 @@ function validate(file) {
     }
 
     var file_data_size = $('#upload-avatar').prop('files')[0].size;
-    if (file_data_size > 5000000) {
+    if (file_data_size > IMAGE_SIZE) {
         var notification = alertify.notify('Size > 5 MB! ', 'error', 5, function() {});
         $("#upload-avatar").val("");
     }

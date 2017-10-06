@@ -1,0 +1,1 @@
+const IMAGE_SIZE = 5000000;

@@ -28,6 +28,7 @@ class SubjectController extends Controller
 
         if($request->ajax()) {
            $html = view('admins.subjects._table', compact('user', 'subjects'))->render();
+
            return Response(['html' => $html]);
         }
 
@@ -52,31 +53,36 @@ class SubjectController extends Controller
     {   
         if($request->ajax()) {
             $subject = $this->subjectRepository->find($subject_id);
+
             return response($subject);
         }
     }
 
     public function update(Request $request, $user_id, $subject_id)
-    {   
-        $subject = $this->subjectRepository->find($subject_id);
-        if($request->ajax()) {
-            if($request->hasFile('file')) {
-                $subjectImageName = $request->file->getClientOriginalName();
-                $subjectImageName = $subject_id . '_' . $subjectImageName;
-                $request->file->move(public_path('uploads/subjects'), $subjectImageName);
-                $subject->cover = $subjectImageName;
-            }
-            
-            $subject->title = $request->title;
-            $subject->description = $request->description;
-            $subject->trending = $request->trending;
-            $subject->save();
+    {
+        if(!$request->ajax()) {
+            return fasle;
         }
+
+        $subject = $this->subjectRepository->find($subject_id);
+
+        if($request->hasFile('file')) {
+            $subjectImageName = $request->file->getClientOriginalName();
+            $subjectImageName = $subject_id . '_' . $subjectImageName;
+            $request->file->move(public_path('uploads/subjects'), $subjectImageName);
+            $subject->cover = $subjectImageName;
+        }
+            
+        $subject->title = $request->title;
+        $subject->description = $request->description;
+        $subject->trending = $request->trending;
+        $subject->save();
     }
 
     public function destroy($user_id, $subject_id)
     {
         $this->subjectRepository->find($subject_id)->delete();
+
         return redirect()->route('admin.subject', $user_id);
     }
 }
