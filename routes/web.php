@@ -24,12 +24,15 @@ Route::group(['prefix' => 'book'], function () {
         ->name('book.addToCart');
     Route::get('/cart-remove-book/{id}', 'Web\BookController@getRemoveToCart')
         ->name('book.removeToCart');
+    Route::post('/search-by-title', 'Web\BookController@searchByTitle');
 });
 
 Route::group(['prefix' => 'plan'], function () {
     Route::get('/search', 'Web\PlanController@searchData');
     Route::get('/', 'Web\PlanController@index')->name('plan.index');
+    Route::get('/create', 'Web\PlanController@create')->middleware('guest');
     Route::get('/{id}', 'Web\PlanController@show')->name('plan.show');
+    Route::post('/store', 'Web\PlanController@store')->middleware('guest');
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');

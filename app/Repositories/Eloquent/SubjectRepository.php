@@ -17,7 +17,6 @@ class SubjectRepository extends Repository implements SubjectRepositoryInterface
 
     public function getSubjectByTrending($select = ['*'], $withCount = [], $limit)
     {
-
         $subjects = Subject::select($select)
             ->withCount($withCount)
             ->orderBy('trending', 'desc')

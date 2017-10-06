@@ -26,7 +26,6 @@ $(document).ready(function(e) {
         var timer;
 
         if (keyword.length > 0) {
-            console.log(12);
             if (timer) {
                 clearTimeout(timer);
                 timer = setTimeout(function() {

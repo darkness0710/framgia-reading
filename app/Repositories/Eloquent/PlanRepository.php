@@ -20,7 +20,7 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
         $results = Plan::select($select)
             ->whereId($id)
             ->with($with)
-            ->first(); 
+            ->first();
 
         return $results;
     }
@@ -30,7 +30,7 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
         $plans = Plan::select($select)
             ->with($with)
             ->limit($limit)
-            ->get(); 
+            ->get();
 
         foreach($plans as $plan) {
             $plan->reviews_count = Review::where('reviewable_id', '=', $plan->id)
@@ -43,13 +43,13 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
     public function getAllPlan($with = [], $select = ['*'], $paginate = 12)
     {
         $plans = Plan::select($select)
-            ->with($with)->paginate($paginate); 
+            ->with($with)->paginate($paginate);
 
         foreach($plans as $plan) {
             $plan->reviews_count = Review::where('reviewable_id', '=', $plan->id)
                 ->where('reviewable_type', '=', 'Plan')->count();
         }
-      
+
         return $plans;
     }
 

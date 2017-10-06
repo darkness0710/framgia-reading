@@ -29,13 +29,13 @@ class BookRepository extends Repository implements BookRepositoryInterface
     public function getAllBook($select = ['*'], $paginate = 12)
     {
         $books = Book::select($select)
-            ->paginate($paginate); 
+            ->paginate($paginate);
 
         foreach($books as $book) {
             $book->reviews_count = Review::where('reviewable_id', '=', $book->id)
                 ->where('reviewable_type', '=', 'Book')->count();
         }
-      
+
         return $books;
     }
 
@@ -50,7 +50,12 @@ class BookRepository extends Repository implements BookRepositoryInterface
                 $book->reviews_count = Review::where('reviewable_id', '=', $book->id)
                     ->where('reviewable_type', '=', 'Book')->count();
             }
-      
+
             return $books;
+    }
+
+    public function getByTitle($title)
+    {
+        return Book::where('title', 'like', $title);
     }
 }

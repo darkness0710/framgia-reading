@@ -1,5 +1,5 @@
 .div-margin-top {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 #search-result {
@@ -676,11 +676,11 @@
 }
 
 .avatar-height {
-	height: 150px;
+    height: 150px;
 }
 
 .dashboard-timeline-padding {
-	padding: 30px;
+    padding: 30px;
 }
 
 .dropdown-menu-right {
@@ -849,17 +849,46 @@ a.link {
 }
 
 .mt--250 {
-	margin-top: -250px;
+    margin-top: -250px;
 }
 
 .mt-280 {
-	margin-top:280px;
+    margin-top:280px;
 }
 
 .fs-140 {
-	font-size: 140%;
+    font-size: 140%;
 }
 
 .height-300 {
-	height: 300px;
+    height: 300px;
+}
+
+.scrollable {
+    overflow: scroll;
+}
+
+.btn-delete {
+    background-color: transparent;
+    color: #ff6565;
+    font-size: 170%;
+}
+
+.btn-delete:hover {
+    color: #f90000;
+    font-size: 200%;
+}
+
+.inline {
+    display: inline !important;
+}
+
+.suggest-item {
+    font-size: 160%;
+    padding:10px;
+    text-align: center;
+}
+
+.invisible {
+    visibility: hidden;
 }
