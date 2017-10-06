@@ -172,4 +172,12 @@ class UserController extends Controller
 
          return Lava::PieChart('Subject Tendency', $dataTable);
     }
+
+    public function indexDashboard(Request $request)
+    {
+        $user = $this->userRepository->user();
+        $users = $this->userRepository->paginate(10);
+
+        return view('admins.books.index', compact('user', 'users'));
+    }
 }
