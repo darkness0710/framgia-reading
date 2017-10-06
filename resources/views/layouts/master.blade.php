@@ -35,6 +35,7 @@
 
         </div>
 
+        {{ Html::script('js/config.js') }}
         {{ Html::script('js/core-plugins.js') }}
         {{ Html::script('js/customs.js') }}
         {{ Html::script('js/auth.js') }}

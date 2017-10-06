@@ -8,19 +8,19 @@
             <div class="col-sm-12 col-md-12">
                 <div class="form-group"> 
                     <label>{{ trans('admin-subjects.title_subject') }}</label>
-                    <input class="form-control" placeholder="Enter your new title" type="text" id="edit_input_title" value="" /> 
+                    <input class="form-control" type="text" id="edit_input_title" value="" /> 
                 </div>
             </div>
             <div class="col-sm-12 col-md-12">
                 <div class="form-group"> 
                     <label>{{ trans('admin-subjects.description_subject') }}</label>
-                    <input class="form-control" placeholder="Enter your new description" type="text" id="edit_input_description" value="" /> 
+                    <input class="form-control" type="text" id="edit_input_description" value="" /> 
                 </div>
             </div>
             <div class="col-sm-12 col-md-12">
                 <div class="form-group"> 
                     <label>{{ trans('admin-subjects.trending_subject') }}</label>
-                    <input class="form-control" placeholder="Enter your new trending" type="text" id="edit_input_trending" value="" /> 
+                    <input class="form-control" type="text" id="edit_input_trending" value="" /> 
                 </div>
             </div>
             <div class="col-sm-12 col-md-12">
