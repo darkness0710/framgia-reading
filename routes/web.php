@@ -30,9 +30,9 @@ Route::group(['prefix' => 'book'], function () {
 Route::group(['prefix' => 'plan'], function () {
     Route::get('/search', 'Web\PlanController@searchData');
     Route::get('/', 'Web\PlanController@index')->name('plan.index');
-    Route::get('/create', 'Web\PlanController@create')->middleware('guest');
+    Route::get('/create', 'Web\PlanController@create')->middleware('authenticated');
     Route::get('/{id}', 'Web\PlanController@show')->name('plan.show');
-    Route::post('/store', 'Web\PlanController@store')->middleware('guest');
+    Route::post('/store', 'Web\PlanController@store')->middleware('authenticated');
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');

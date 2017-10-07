@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'unauthenticated' => \App\Http\Middleware\AuthenticationRequiredMiddleware::class,
         'auth.admin' => \App\Http\Middleware\CheckAdmin::class,
+        'authenticated' => \App\Http\Middleware\RedirectIfUnauthenticated::class,
     ];
 }
