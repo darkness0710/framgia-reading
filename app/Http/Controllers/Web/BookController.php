@@ -15,7 +15,8 @@ use Session;
 class BookController extends Controller
 {
     private $bookRepository;
-
+    private $categoryRepository;
+    
     public function __construct(
         BookRepository $bookRepository,
         CategoryRepository $categoryRepository
@@ -120,5 +121,13 @@ class BookController extends Controller
 
             return Response(['books' => $books]);
         }
+    }
+
+    public function indexDashboard(Request $request)
+    {
+        $user = $this->userRepository->user();
+        $book = $this->bookRepository->paginate(10);
+
+        return view('admins.books.index', compact('user', 'books'));
     }
 }

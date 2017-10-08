@@ -127,4 +127,12 @@ class PlanController extends Controller
 
         return redirect()->route('plan.show', ['id' => $plan->id]);
     }
+
+    public function indexDashboard(Request $request)
+    {
+        $user = $this->userRepository->user();
+        $plans = $this->planRepository->paginate(10);
+
+        return view('admins.plans.index', compact('user', 'plans'));
+    }
 }

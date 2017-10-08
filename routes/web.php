@@ -58,6 +58,18 @@ Route::group(['prefix' => 'user'], function () {
                 Route::get('/{subject_id}', 'Web\SubjectController@getData')->name('admin.subject.getData');
                 Route::delete('/{subject_id}', 'Web\SubjectController@destroy')->name('admin.subject.destroy');
             });
+            Route::group(['prefix' => 'categories'], function () {
+                Route::get('/', 'Web\CategoryController@indexDashboard')->name('admin.category');
+            });
+            Route::group(['prefix' => 'users'], function () {
+                Route::get('/', 'Web\UserController@indexDashboard')->name('admin.user');
+            });
+            Route::group(['prefix' => 'books'], function () {
+                Route::get('/', 'Web\BookController@indexDashboard')->name('admin.book');
+            });
+            Route::group(['prefix' => 'plans'], function () {
+                Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');
+            });
         });
         Route::get('/profile', 'Web\UserController@profile');
     });
