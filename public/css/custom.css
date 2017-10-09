@@ -900,4 +900,29 @@ a.link {
     margin-bottom: 10px;
     margin-right: 10px;
     margin-left: 32px;
+
+.subject-cover {
+    width:360px;
+    height: 230px;
+    object-fit: cover;
+}
+
+.relative-container {
+    position: relative;
+    text-align: center;
+}
+
+.relative-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.small-text {
+    font-size: 80% !important;
+}
+
+.normal-text {
+    font-size: 100% !important;
 }

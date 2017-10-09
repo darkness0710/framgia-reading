@@ -11,9 +11,9 @@
 					<a href="{{ action('Web\UserController@editProfile', [
 						'id' => $user->id,
 					]) }}">{{ trans('dashboard-messages.edit_profile') }}</a>
-				</li> 
+				</li>
 				<li id="item_my_plans">
-					<a href="#">{{ trans('dashboard-messages.my_plans') }}</a>
+					<a href="{{ route('user.personal-plan', $user->id) }}">{{ trans('dashboard-messages.my_plans') }}</a>
 				</li>
 				<li id="item_change_password">
 					<a href="{{ action('Web\UserController@editPassword', [
@@ -24,7 +24,7 @@
 					<a href="{{ route('logout') }}" class="normal" id="btn_logout">{{ trans('dashboard-messages.logout') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
-					</form> 
+					</form>
 				</li>
 			</ul>
 		</div>

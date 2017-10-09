@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Log;
 
 class Subject extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'title',
         'description',
@@ -25,8 +26,7 @@ class Subject extends Model
 
     public function getCoverAttribute()
     {
-        return $this->attributes['cover'] = asset(config('setup.subject_cover_path')
-            . $this->attributes['cover']);
+        return asset(config('setup.subject_cover_path') . $this->attributes['cover']);
     }
 
     public function userPlans()

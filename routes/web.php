@@ -46,7 +46,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/search', 'Web\UserController@searchData');
     Route::get('/', 'Web\UserController@index')->name('user.index');
     Route::group(['prefix' => '{id}'], function () {
-        Route::get('/', 'Web\UserController@showPlans');
+        Route::get('/', 'Web\UserController@showPlans')->name('user.plans');
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
             Route::get('/', 'Web\UserController@dashboard')->name('user.dashboard');
             //Route Update Profile
@@ -55,6 +55,7 @@ Route::group(['prefix' => 'user'], function () {
             //Route Update Password
             Route::get('/edit-password', 'Web\UserController@editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
+            Route::get('/plans', 'Web\UserController@showPersonalPlans')->name('user.personal-plan');
         });
         Route::group(['prefix' => '/admin', 'middleware' => 'auth.admin'], function () {
             Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
