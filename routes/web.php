@@ -30,9 +30,14 @@ Route::group(['prefix' => 'book'], function () {
 Route::group(['prefix' => 'plan'], function () {
     Route::get('/search', 'Web\PlanController@searchData');
     Route::get('/', 'Web\PlanController@index')->name('plan.index');
-    Route::get('/create', 'Web\PlanController@create')->middleware('authenticated');
     Route::get('/{id}', 'Web\PlanController@show')->name('plan.show');
-    Route::post('/store', 'Web\PlanController@store')->middleware('authenticated');
+    Route::post('/store', 'Web\PlanController@store')->middleware('guest');
+    Route::group(['middleware' => 'authenticated'], function () {
+        Route::get('/{id}/fork', 'Web\UserPlanController@showForkForm')->name('fork-form');
+        Route::post('/{id}/fork', 'Web\UserPlanController@fork')->name('fork');
+        Route::post('/store', 'Web\PlanController@store');
+        Route::get('/create', 'Web\PlanController@create');
+    });
 });
 
 Route::get('search', 'Web\HomeController@searchData')->name('search');
@@ -72,6 +77,7 @@ Route::group(['prefix' => 'user'], function () {
             });
         });
         Route::get('/profile', 'Web\UserController@profile');
+        Route::get('/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
     });
 });
 
