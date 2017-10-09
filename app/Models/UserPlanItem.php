@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserPlanItem extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'status',
         'user_id',
-        'plan_item_id',
         'user_plan_id',
+        'start_date',
+        'due_date',
+        'note',
+        'duration',
+        'book_id',
     ];
 
     protected $casts = [
