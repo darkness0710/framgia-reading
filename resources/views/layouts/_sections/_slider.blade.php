@@ -14,8 +14,8 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-9 text-left">
-                            <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
-                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4>
+                            {{-- <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
+                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4> --}}
                         </div>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-7 text-left">
-                            <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
-                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4>
+                            {{-- <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
+                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4> --}}
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-7 text-left">
-                            <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
-                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4>
+                            {{-- <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
+                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4> --}}
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-7 text-left">
-                            <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
-                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4>
+                            {{-- <h3 data-animation="animated bounceInDown">{{ trans('slider.cct') }}</h3>
+                            <h4 data-animation="animated bounceInUp">{{ trans('slider.cct') }}</h4> --}}
                         </div>
                     </div>
                 </div>
