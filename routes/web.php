@@ -32,7 +32,7 @@ Route::group(['prefix' => 'plan'], function () {
     Route::get('/', 'Web\PlanController@index')->name('plan.index');
     // Route::post('/store', 'Web\PlanController@store')->middleware('guest');
     Route::group(['middleware' => 'authenticated'], function () {
-        Route::get('/create', 'Web\PlanController@create');
+        Route::get('/create', 'Web\PlanController@create')->name('plan.create');
         Route::get('/{id}/fork', 'Web\UserPlanController@showForkForm')->name('fork-form');
         Route::post('/{id}/fork', 'Web\UserPlanController@fork')->name('fork');
         Route::post('/store', 'Web\PlanController@store');

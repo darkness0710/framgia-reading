@@ -59,7 +59,7 @@
                             </li>
                             @if(Auth::user()->id == $user->id)
                                 <li>
-                                    <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
+                                    <a href="{{ route('user.dashboard', Auth::user()->id) }}">{{ trans('dashboard-messages.dashboard') }}</a>
                                 </li>
                                 @if(Auth::user()->isAdmin())
                                     <li>

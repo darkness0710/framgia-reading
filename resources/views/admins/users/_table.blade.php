@@ -2,7 +2,7 @@
     <div class="row">
         <div id="tbl">
             <div class="text-center">
-                <h1><span class="fontSize">Manage Users</span></h1>
+                <h1><span class="fontSize">{{ trans('admin-users.manage_users') }}</span></h1>
             </div>
             <div class="animatedParent no-more-tables">
                 <div class="container">
