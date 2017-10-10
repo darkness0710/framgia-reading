@@ -1,6 +1,10 @@
 <div class="mt-40">
     <div class="icon ml-25">
-        <i class="ri ri-location"></i>{{ trans('view.plans') }}
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="section-title">
+                <h2>{{ trans('view.plans') }}</h2> 
+            </div>
+        </div>
     </div>
     <ul class="grid cs-style-1">
         @foreach ($subjects as $subject)
@@ -17,11 +21,4 @@
         </li>
         @endforeach
     </ul>
-    <div class="codrops-demos-mt">
-        <div class="text-center">
-            <nav class="codrops-demos">
-                <a class="current-demo" href="#">{{ trans('view.view_more') }}</a>
-            </nav>
-        </div>
-    </div>
 </div>

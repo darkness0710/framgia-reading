@@ -8,7 +8,7 @@
     {{ Html::style('css/table.css') }}
 @endsection
 
-<div id="ajax_table_plans">
+<div id="ajax_table_plans" class="col-md-9">
     @include('admins.plans._table')
 </div>
 

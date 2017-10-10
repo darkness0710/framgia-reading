@@ -1,7 +1,6 @@
-
 <div class="container mt-20">
     <div class="icon ml-15">
-        <i class="ri ri-location"></i>{{ trans('view.hot_plans') }}
+        <div class="section-title"><h2>{{ trans('view.hot_plans') }}</h2></div>
     </div>
     <div class="trip-guide-wrapper mb-30 mt-10">
         <div class="GridLex-gap-20 GridLex-gap-15-mdd GridLex-gap-10-xs">
@@ -43,13 +42,6 @@
                 </div>
                 @endforeach
             </div>
-        </div>
-    </div>
-    <div class="codrops-demos-mt mt-20">
-        <div class="text-center">
-            <nav class="codrops-demos">
-                <a class="current-demo" href="#">{{ trans('view.view_more') }}</a>
-            </nav>
         </div>
     </div>
 </div>

@@ -3,19 +3,19 @@
         <div class="common-menu-wrapper">
             <ul class="common-menu-list">
                 <li id="item_dashboard">
-                    <a href="#">{{ trans('dashboard-messages.dashboard') }}</a>
+                    <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('dashboard-messages.dashboard') }}</a>
                 </li>
                 <li id="#">
                     <a href="{{ route('admin.subject', $user->id) }}">{{ trans('view.manage_subjects') }}</a>
                 </li> 
                 <li id="#">
-                    <a href="#">{{ trans('view.manage_categories') }}</a>
+                    <a href="{{ route('admin.category', $user->id) }}">{{ trans('view.manage_categories') }}</a>
                 </li>
                 <li id="#">
-                    <a href="#">{{ trans('view.manage_users') }}</a>
+                    <a href="{{ route('admin.user', $user->id) }}">{{ trans('view.manage_users') }}</a>
                 </li>
                 <li id="#">
-                    <a href="#">{{ trans('view.manage_books') }}</a>
+                    <a href="{{ route('admin.book', $user->id) }}">{{ trans('view.manage_books') }}</a>
                 </li>
                 <li>
                     <a href="{{ route('logout') }}" class="normal" id="btn_logout">{{ trans('dashboard-messages.logout') }}</a>

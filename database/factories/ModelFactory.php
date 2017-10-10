@@ -121,7 +121,8 @@ $factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
     return [
-        'cover' => '5.png',
+        'cover' => 
+            $faker->randomElement($array = array ('postgresql.jpg', 'java.jpg', 'ruby.jpg', 'react.jpg')),
         'title' => $faker->text(5),
         'description' => $faker->text(20),
         'trending' => $faker->numberBetween(0, 3),
