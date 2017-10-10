@@ -48,6 +48,12 @@
                                         {{ trans('view.dashboard') }}
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="normal" href="{{ route('plan.create') }}">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        {{ trans('view.create_plan') }}
+                                    </a>
+                                </li>
                                 @if(Auth::user()->isAdmin())
                                     <li>
                                         <a class="normal" href="{{ route('admin.dashboard', Auth::user()->id) }}">

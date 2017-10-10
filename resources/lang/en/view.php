@@ -62,4 +62,5 @@ return [
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'admin' => 'Admin',
+    'create_plan' => 'Create Plan'
 ];

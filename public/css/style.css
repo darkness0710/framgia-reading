@@ -94,6 +94,7 @@
 
 .logo-wrapper {
     width: 15%;
+    margin-left: -20px;
 }
 
 .navbar-nav-wrapper {
@@ -374,7 +375,7 @@ ul.nav-mini li i {
  */
 
 .navbar-sticky {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #1C1C1F;
     padding: 10px 0;
     z-index: 999999;
 }
@@ -2383,7 +2384,7 @@ ul.featured-list-with-h.no-last-bb li:last-child {
 }
 
 .user-item-02 .user-meta {
-    background: #ECF0F1;
+    /*background: #ECF0F1;*/
     padding: 10px 15px;
     margin: 20px 0 0;
 }
