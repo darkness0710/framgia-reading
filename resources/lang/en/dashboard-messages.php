@@ -27,4 +27,10 @@ return [
     'terms' => 'Terms',
     'blogs' => 'Blogs',
     'segment' => ':segment',
+    'admin_dashboard' => 'Admin Dashboard',
+    'subjects' => 'Subjects',
+    'books' => 'Books',
+    'categories' => 'Categories',
+    'users' => 'Users',
+    'view_details' => 'View Details'
 ];

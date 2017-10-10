@@ -183,6 +183,6 @@ class UserController extends Controller
         $user = $this->userRepository->user();
         $users = $this->userRepository->paginate(10);
 
-        return view('admins.books.index', compact('user', 'users'));
+        return view('admins.users.index', compact('user', 'users'));
     }
 }

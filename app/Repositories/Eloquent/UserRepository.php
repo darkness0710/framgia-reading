@@ -97,4 +97,11 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
         return $plans;
     }
+
+    public function countUser($select = ['*'])
+    {
+        $count = User::select($select)->count();
+
+        return $count;
+    }
 }

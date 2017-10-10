@@ -20,4 +20,11 @@ class CategoryRepository extends Repository implements CategoryRepositoryInterfa
 
         return $categories;
     }
+
+    public function countCategory($select = ['*'])
+    {
+        $count = Category::select($select)->count();
+
+        return $count;
+    }
 }

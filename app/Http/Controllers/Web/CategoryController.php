@@ -23,8 +23,8 @@ class CategoryController extends Controller
     public function indexDashboard(Request $request)
     {
         $user = $this->userRepository->user();
-        $book = $this->bookRepository->paginate(10);
+        $categories = $this->categoryRepository->paginate(10);
 
-        return view('admins.books.index', compact('user', 'books'));
+        return view('admins.categories.index', compact('user', 'categories'));
     }
 }
