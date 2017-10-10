@@ -3,7 +3,7 @@
         <div class="common-menu-wrapper">
             <ul class="common-menu-list">
                 <li id="item_dashboard">
-                    <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('dashboard-messages.dashboard') }}</a>
+                    <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('dashboard-messages.admin_dashboard') }}</a>
                 </li>
                 <li id="#">
                     <a href="{{ route('admin.subject', $user->id) }}">{{ trans('view.manage_subjects') }}</a>

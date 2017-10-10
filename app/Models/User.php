@@ -75,8 +75,8 @@ class User extends Authenticatable
     {
         $avatarName = $this->attributes['avatar'];
 
-        if (!$this->isLocalAvatar($avatarName)) {
-            return $avatarName = $avatarName;
+        if ($this->isLocalAvatar($avatarName)) {
+            return $avatarName;
         }
 
         return asset(config('custom.avatar.url') . $avatarName);
@@ -84,7 +84,13 @@ class User extends Authenticatable
 
     public function isLocalAvatar($name)
     {
-        return strpos($name, config('app.name')) !== false;
+        $length = strlen(strstr($name, 'https://'));
+
+        if($length > 0 ) {
+            return true;
+        }
+        
+        return false;
     }
 
     public function followers()

@@ -2,7 +2,7 @@
     <div class="row">
         <div id="tbl">
             <div class="text-center">
-                <h1><span class="fontSize">{{ trans('admin-subjects.manage_subject') }}</span></h1>
+                <h1><span class="fontSize">Manage Users</span></h1>
             </div>
             <div class="animatedParent no-more-tables">
                 <div class="container">
@@ -38,20 +38,20 @@
                                                     <div class="mt-30">{{ $loop->iteration }}</div>
                                                 </td>
                                                 <td>
-                                                    <div class="mt-30">{{ $users->name }}</div>
+                                                    <div class="mt-30">{{ $user->name }}</div>
                                                 </td>
-                                                <td><img src="{{ $users->avatar }}" id="imageSize"></td>
+                                                <td><img src="{{ $user->avatar }}" id="imageSize"></td>
                                                 <td>
-                                                    <div class="mt-30">{{ $users->email }}</div>
+                                                    <div class="mt-30">{{ $user->email }}</div>
                                                 </td>
                                                 <td>
-                                                    <div class="mt-30">{{ $users->role }}</div>
+                                                    <div class="mt-30">{{ $user->role }}</div>
                                                 </td>
                                                 <td> 
-                                                    <button type="submit" class="fa fa-trash mt-30"></button>
+                                                    <button type="submit" class="fa fa-eye mt-30"></button>
                                                 </td>
                                                 <td> 
-                                                    <button type="submit" class="fa fa-trash mt-30"></button>
+                                                    <button type="submit" class="fa fa-pencil mt-30"></button>
                                                 </td>
                                                 <td>
                                                     <button type="submit" class="fa fa-trash mt-30"></button>

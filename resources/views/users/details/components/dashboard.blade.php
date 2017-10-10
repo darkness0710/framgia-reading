@@ -19,7 +19,7 @@
                         @endif
 
                         <div class="timeline-badge">
-                            <img src="{{ $boo$readBookk->book->cover }}"/>
+                            <img src="{{ $readBook->book->cover }}"/>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">

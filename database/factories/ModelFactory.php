@@ -22,7 +22,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
         'dob' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'role' => 'member',
-        'avatar' => $faker->imageUrl($width = 640, $height = 480),
+        'avatar' => 'default-avatar.jpg',
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,
         'gender' =>  $faker->randomElement($array = array ('male', 'female')),

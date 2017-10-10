@@ -58,4 +58,11 @@ class BookRepository extends Repository implements BookRepositoryInterface
     {
         return Book::where('title', 'like', $title);
     }
+
+    public function countBook($select = ['*'])
+    {
+        $count = Book::select($select)->count();
+
+        return $count;
+    }
 }

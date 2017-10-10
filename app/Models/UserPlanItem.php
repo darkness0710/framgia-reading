@@ -11,7 +11,6 @@ class UserPlanItem extends Model
 
     protected $fillable = [
         'status',
-        'user_id',
         'user_plan_id',
         'start_date',
         'due_date',

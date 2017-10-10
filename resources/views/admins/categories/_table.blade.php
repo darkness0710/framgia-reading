@@ -2,19 +2,19 @@
     <div class="row">
         <div id="tbl">
             <div class="text-center">
-                <h1><span class="fontSize">{{ trans('admin-subjects.manage_subject') }}</span></h1>
+                <h1><span class="fontSize">{{ trans('admin-categories.manage_categories') }}</span></h1>
             </div>
             <div class="animatedParent no-more-tables">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10" data-toggle="modal" id="modal-new" data-target="#modal-new-subjects"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-subjects.new') }}</button>
+                            <button class="btn btn-warning btn-block mb-10" data-toggle="modal" id="modal-new" data-target="#modal-new-subjects"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-categories.new') }}</button>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control mb-10" placeholder="Ex: Php master" id="nameSearch" />
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10">{{ trans('admin-subjects.search') }}</button>
+                            <button class="btn btn-warning btn-block mb-10">{{ trans('admin-categories.search') }}</button>
                         </div>
                         <div class="col-md-8">
                             <div class="table-responsive tbl-four">
@@ -22,13 +22,10 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ trans('admin-subjects.title') }}</th>
-                                            <th>{{ trans('admin-subjects.image') }}</th>
-                                            <th>{{ trans('admin-subjects.description') }}</th>
-                                            <th>{{ trans('admin-subjects.trending') }}</th>
-                                            <th>{{ trans('admin-subjects.create_date') }}</th>
-                                            <th>{{ trans('admin-subjects.edit') }}</th>
-                                            <th>{{ trans('admin-subjects.delete') }}</th>
+                                            <th>{{ trans('admin-categories.title') }}</th>
+                                            <th>{{ trans('admin-categories.description') }}</th>
+                                            <th>{{ trans('admin-categories.edit') }}</th>
+                                            <th>{{ trans('admin-categories.delete') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody class="thum-photo">
@@ -40,12 +37,11 @@
                                                 <td>
                                                     <div class="mt-30">{{ $category->title }}</div>
                                                 </td>
-                                                <td><img src="{{ $category->cover }}" id="imageSize"></td>
                                                 <td>
                                                     <div class="mt-30">{{ $category->description }}</div>
                                                 </td>      
                                                 <td> 
-                                                    <button type="submit" class="fa fa-trash mt-30"></button>
+                                                    <button type="submit" class="fa fa-pencil mt-30"></button>
                                                 </td>
                                                 <td>
                                                     <button type="submit" class="fa fa-trash mt-30"></button>
@@ -59,7 +55,7 @@
                                 <div class="pager-innner">
                                     <div class="clearfix">
                                         <div id="paginate">
-                                            {{ $books->links() }}
+                                            {{ $categories->links() }}
                                         </div>
                                     </div>
                                 </div>
