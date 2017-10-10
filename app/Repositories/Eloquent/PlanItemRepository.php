@@ -13,4 +13,9 @@ class PlanItemRepository extends Repository implements PlanItemRepositoryInterfa
     {
         return PlanItem::class;
     }
+
+    public function getByPlanId($id)
+    {
+        return PlanItem::where('plan_id', $id);
+    }
 }
