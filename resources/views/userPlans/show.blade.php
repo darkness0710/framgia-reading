@@ -12,28 +12,36 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="form">
                     <div class="create-tour-inner">
-                        <h4 class="section-title">Plan {{ $originalPlan->title }}</h4>
+                        <h4 class="section-title">
+                            {{ trans('messages.plan_') . $originalPlan->title }}
+                        </h4>
                         <div class="mb-20 col-md-8 float-left">
                             <div class="form-group inline">
-                                <label class="col-md-4 no-padding">Forked at</label>
+                                <label class="col-md-4 no-padding">{{ trans('messages.forked_at') }}</label>
                                 <p class="col-md-8">{{ $forkedPlan->created_at }}</p>
                             </div>
                             <div class="clearfix"></div>
 
                             <div class="form-group inline">
-                                <label class="col-md-4 no-padding">Description</label>
+                                <label class="col-md-4 no-padding">
+                                    {{ trans('messages.description') }}
+                                </label>
                                 <p class="col-md-8">{{ $originalPlan->description }}</p>
                             </div>
                             <div class="clearfix"></div>
 
                             <div class="form-group inline">
-                                <label class="col-md-4 no-padding">Summary</label>
+                                <label class="col-md-4 no-padding">
+                                    {{ trans('messages.summary') }}
+                                </label>
                                 <p class="col-md-8">{{ $originalPlan->summary }}</p>
                             </div>
 
                             <div class="mt-30 row gap-20">
                                 <div class="form-group">
-                                    <label class="float-left col-md-4">Plan Start Date</label>
+                                    <label class="float-left col-md-4">
+                                        {{ trans('messages.plan_start_date') }}
+                                    </label>
                                     <div class='input-group date pl-20'>
                                         <i class="glyphicon glyphicon-time top-3"></i>
                                         {{ $forkedPlan->start_date }}
@@ -41,7 +49,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="float-left col-md-4">Plan Due Date</label>
+                                    <label class="float-left col-md-4">
+                                        {{ trans('messages.plan_due_date') }}
+                                    </label>
                                     <div class='input-group date pl-20'>
                                         <i class="glyphicon glyphicon-time top-3"></i>
                                         {{ $forkedPlan->due_date }}
@@ -54,9 +64,13 @@
                                 <img src="{{ $originalPlan->user->avatar }}" class="big-thumb center"/>
                             </div>
                             <div>
-                                <p class="small-text text-mute no-padding no-margin">Created By</p>
+                                <p class="small-text text-mute no-padding no-margin">
+                                    {{ trans('messages.create_by') }}
+                                </p>
                                 <h4 class="no-margin">{{ $originalPlan->user->name }}</h4>
-                                <p class="small-text text-mute  no-margin">Created at:</p>
+                                <p class="small-text text-mute  no-margin">
+                                    {{ trans('messages.create_at') }}
+                                </p>
                                 <p class=" no-margin">{{ $originalPlan->created_at }}</p>
                             </div>
                         </div>
@@ -69,7 +83,9 @@
                                     <div class="row gap-20">
                                         <div class="col-xss-12 col-xs-2 col-sm-2 col-md-1">
                                             <div class="day">
-                                                <h6 class="text-uppercase mb-0 mt-5 text-muted">Item</h6>
+                                                <h6 class="text-uppercase mb-0 mt-5 text-muted">
+                                                    {{ trans('messages.item') }}
+                                                </h6>
                                                 <span class="text-primary block number spacing-1">
                                                     {{ $key + 1 }}
                                                 </span>
@@ -89,20 +105,28 @@
 
                                                     <div class="col-md-10 text-center">
                                                         <div class="inline small-text">
-                                                            <label>Author</label>
+                                                            <label>
+                                                                {{ trans('messages.author') }}
+                                                            </label>
                                                             <p>{{ $item->book->author }}</p>
                                                         </div>
                                                         <div class="clearfix"></div>
 
                                                         <div class="inline small-text">
-                                                            <label>Pages</label>
+                                                            <label>
+                                                                {{ trans('messages.pages') }}
+                                                            </label>
                                                             <p>{{ $item->book->pages }}</p>
                                                         </div>
                                                         <div class="clearfix"></div>
 
                                                         <div class="inline small-text">
                                                             <label>Duration</label>
-                                                            <p>{{ $item->duration }} Days</p>
+                                                            <p>
+                                                                {{ trans('messages.days', [
+                                                                    'duration' => $item->duration,
+                                                                ]) }}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +135,9 @@
 
                                             <div class="mt-30">
                                                 <div class="form-group">
-                                                    <label class="float-left col-md-4">Start Date</label>
+                                                    <label class="float-left col-md-4">
+                                                        {{ trans('messages.start_date') }}
+                                                    </label>
                                                     <div class='input-group date pl-20'>
                                                         <i class="glyphicon glyphicon-time top-3"></i>
                                                         {{ $item->start_date }}
@@ -119,7 +145,9 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="float-left col-md-4">Due Date</label>
+                                                    <label class="float-left col-md-4">
+                                                        {{ trans('messages.due_date') }}
+                                                    </label>
                                                     <div class='input-group date pl-20'>
                                                         <i class="glyphicon glyphicon-time top-3"></i>
                                                         {{ $item->due_date }}
@@ -127,7 +155,9 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="pull-left col-md-4">Status</label>
+                                                    <label class="pull-left col-md-4">
+                                                        {{ trans('messages.status') }}
+                                                    </label>
                                                     <div class='input-group date pl-20'>
                                                         <p class="uppercase">{{ $item->status }}</p>
                                                     </div>
@@ -138,7 +168,7 @@
 
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Note</label>
+                                                    <label>{{ trans('messages.note') }}</label>
                                                     <p>{{ $item->note }}</p>
                                                 </div>
                                             </div>
