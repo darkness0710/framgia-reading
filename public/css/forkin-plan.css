@@ -1,0 +1,54 @@
+.book-cover {
+    width: 30%;
+    height: 150px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.small-text {
+    font-size: 80%;
+}
+
+.normal-input-group-addon {
+    background: #eeeeee !important;
+    border-color: #e7e7e7 !important;
+    color: #000 !important;
+}
+
+.small-avatar {
+    width: 30%;
+    height: 175px;
+    border-radius: 20%;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-thumb {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.detail-panel {
+    border-left: solid #eee;
+    padding: 10px;
+}
+
+.small-book-cover {
+    width: 160px;
+    height: 150px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.top-3 {
+    top: 3px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
+use App\Repositories\Contracts\UserPlanItemRepositoryInterface as UserPlanItemRepository;
 use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
@@ -16,19 +17,23 @@ class UserController extends Controller
 {
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(
+        UserRepository $userRepository,
+        UserPlanItemRepository $userPlanItemRepository
+    )
     {
         $this->userRepository = $userRepository;
+        $this->userPlanItemRepository = $userPlanItemRepository;
     }
 
     public function dashboard()
     {
         $user = $this->userRepository->user();
-        $readBooks = $user->userPlanItems()->where('status', 'done')->get();
+        $readBooks = $this->userPlanItemRepository->findBy('status', 'done')->get();
 
         return view('users.details.components.dashboard')->with([
             'user' => $user,
-            'books' => $readBooks,
+            'readBooks' => $readBooks,
         ]);
     }
 

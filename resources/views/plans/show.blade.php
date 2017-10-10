@@ -178,7 +178,7 @@
                                 <a href="#" class="btn btn-primary btn-block">{{ trans('view.viewProfile') }} <i class="ion-android-arrow-forward"></i></a>
                             </div>
                         </div>
-                        <a href="#" class="add-fav-btn mt-30">
+                        <a href="{{ route('fork-form', ['id' => $plan->id,]) }}" class="add-fav-btn mt-30">
                             <div class="inner">
                                 <i class="ti-heart"></i> {{ trans('view.fork') }}
                             </div>
