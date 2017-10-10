@@ -54,6 +54,8 @@ return [
     'add_favourite' => 'Add Favourite',
     'banner_3' => 'Books are invaluable knowledge',
     'banner_4' => 'Books are the source of knowledge',
+    'banner_5' => 'Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid',
+    'banner_6' => 'Albert Einstein',
     'sort_by' => 'Sort by',
     'manage_subjects' => 'Manage Subjects',
     'manage_books' => 'Manage Books',
@@ -62,5 +64,12 @@ return [
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'admin' => 'Admin',
-    'create_plan' => 'Create Plan'
+    'cart_book' => 'Favorite Books',
+    'create_plan' => 'Create Plan',
+    'page_plans' => 'PLANS',
+    'page_books' => 'BOOKS',
+    'page_subjects' => 'SUBJECTS',
+    'page_users' => 'USERS',
+    'profile' => 'Profile',
+    'search_user' => 'Ex: Trinh Duc Toan',
 ];

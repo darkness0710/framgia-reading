@@ -4,7 +4,7 @@
 
     <div class="col-xs-12 col-sm-7 col-md-8 mt-20">
         <h4 class="section-title">{{ trans('messages.profile') }}</h4>
-        <div class="bt mt-30 mb-30"></div>
+{{--         <div class="bt mt-30 mb-30"></div> --}}
         <ul class="featured-list-with-h">
             <li>
                 <div class="row">
@@ -75,10 +75,7 @@
                 </div>
             </li>
         </ul>
-
-
         <div class="mb-30"></div>
-
     </div>
 
     <div class="pull-right user-info-panel">
@@ -87,14 +84,12 @@
                 <div class="col-md-6">
                     <img src="{{ $user->avatar }}" class='sm-avatar mt-20'/>
                 </div>
-
                 <div class="user-name underline-on-hover">
                     <h3>
                         <a href="" class="txt-blue">
                             {{ $user->name }}
                         </a>
                     </h3>
-
                     <div class="mt-10">
                         {{ trans('messages.total_plan') }}
                         {{ count($plans) }}

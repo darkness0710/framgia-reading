@@ -5916,3 +5916,10 @@ ul.social-share-sm.for-useful li a:after {
 .img-bg-how-it-work {
 	background-image:url('../images/how-it-work-1.jpg.html');
 }
+
+#cartAjax {
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
