@@ -36,6 +36,11 @@
                             <div class="filter-item-wrapper">
                                 <div class="row">
                                     <div class="col-sm-3">
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="Ex: Php master" id="nameSearch">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
                                         <div class="filter-item mmr">
                                             <div class="input-group input-group-addon-icon no-border no-br-xs">
                                                 <span class="input-group-addon input-group-addon-icon bg-white">
@@ -62,11 +67,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div>
-                                            <input type="text" class="form-control" placeholder="Ex: Php master" id="nameSearch">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">

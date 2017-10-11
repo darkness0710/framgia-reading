@@ -8,6 +8,7 @@ use Log;
 use DB;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Models\Relation;
+use App\Models\Review;
 
 class UserRepository extends Repository implements UserRepositoryInterface
 {
@@ -103,5 +104,59 @@ class UserRepository extends Repository implements UserRepositoryInterface
         $count = User::select($select)->count();
 
         return $count;
+    }
+
+    public function getData($select = ['*'], $withCount = [])
+    {
+        $users = User::select($select)
+            ->withCount($withCount)
+            ->paginate(9);
+
+        foreach($users as $user) {
+            $user->reviews_count = Review::where('reviewable_id', '=', $user->id)
+                ->where('reviewable_type', '=', 'Plan')->count();
+        }
+
+        return $users;
+    }
+
+    public function searchData($select = ['*'], $withCount = [], $input)
+    {   
+        $input['title'] = preg_replace('!\s+!', ' ', $input['title']);
+
+        if($input['title'] == null) {
+            $input['title'] = "";
+        }
+
+        switch ($input['sort']) {
+            case 'Name':
+                $input['sort'] = 'name';
+                break;
+            case 'Total Plans':
+                $input['sort'] = 'plans_count';
+                break;
+        }
+
+        switch ($input['typeSort']) {
+            case 'Up':
+                $input['typeSort'] = 'ASC';
+                break;
+            case 'Down':
+                $input['typeSort'] = 'DESC';
+                break;
+        }
+
+        $users = User::select($select)
+            ->whereLike('name', $input['title'])
+            ->withCount($withCount)
+            ->orderBy($input['sort'], $input['typeSort'])
+            ->paginate(9);
+
+        foreach($users as $user) {
+            $user->reviews_count = Review::where('reviewable_id', '=', $user->id)
+                ->where('reviewable_type', '=', 'Plan')->count();
+        }
+
+        return $users;
     }
 }

@@ -15,10 +15,29 @@
                     <a href="{{ route('home') }}">{{ trans('view.home') }}</a>
                 </li>
                 <li>
-                    <a href="{{ route('plan.index') }}">{{ trans('view.plans') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('book.index') }}">{{ trans('view.books') }}</a>
+                    <a href="#">{{ trans('view.pages') }} <b class="caret"></b></a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('plan.index') }}">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i> {{ trans('view.page_plans') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('book.index') }}">
+                                <i class="fa fa-book" aria-hidden="true"></i> {{ trans('view.page_books') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-star-o" aria-hidden="true"></i> {{ trans('view.page_subjects') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('user.index') }}">
+                                <i class="fa fa-user" aria-hidden="true"></i> {{ trans('view.page_users') }}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li id="cartAjax">
                     @include('carts.show')

@@ -43,6 +43,8 @@ Route::group(['prefix' => 'plan'], function () {
 Route::get('search', 'Web\HomeController@searchData')->name('search');
 
 Route::group(['prefix' => 'user'], function () {
+    Route::get('/search', 'Web\UserController@searchData');
+    Route::get('/', 'Web\UserController@index')->name('user.index');
     Route::group(['prefix' => '{id}'], function () {
         Route::get('/', 'Web\UserController@showPlans');
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
@@ -76,7 +78,7 @@ Route::group(['prefix' => 'user'], function () {
                 Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');
             });
         });
-        Route::get('/profile', 'Web\UserController@profile');
+        Route::get('/profile', 'Web\UserController@profile')->name('user.profile');
         Route::get('/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
     });
 });

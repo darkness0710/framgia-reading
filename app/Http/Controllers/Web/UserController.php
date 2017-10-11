@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
 use App\Models\UserPlan;
+use App\Models\User;
 use Hash;
 use View;
 use Lava;
@@ -184,5 +185,34 @@ class UserController extends Controller
         $users = $this->userRepository->paginate(10);
 
         return view('admins.users.index', compact('user', 'users'));
+    }
+
+    public function index(Request $request)
+    {
+        $sorts = ['Name', 'Total Plans'];
+        $typeSorts = ['Up', 'Down'];
+
+        $users = $this->userRepository->getData(['*'], 'plans');
+
+        if($request->ajax()) {
+            $html = view('users._resultUser', compact('users'))->render();
+
+            return Response(['html' => $html]);
+        }
+
+        return view('users.index', compact('users', 'sorts', 'typeSorts'));
+    }
+
+    public function searchData(Request $request) {
+        if(!$request->ajax()) {
+            return false;
+        }
+
+        $input = $request->all();
+        $users = $this->userRepository->searchData(['*'], 'plans', $input);
+        $users->appends($input);
+        $html = view('users._resultUser', compact('users'))->render();
+
+        return Response(['html' => $html]);
     }
 }
