@@ -144,13 +144,21 @@
                                                                 <div class="review-content" id="{{ 'content_review_' . $reviewPlan->id }}">
                                                                     <p>{{ $reviewPlan->content }}</p>
                                                                 </div>
-                                                                <a href="#" class="review-load-more">{{ trans('view.load_more_comments') }}</a>
+                                                                @if ($reviewPlan->first()->comments->first())
+                                                                    <a href="#" class="pull-right underline-on-hover">
+                                                                        <i class="ion-chatboxes"></i>
+                                                                        {{ trans('view.view_more_replies') }}
+                                                                    </a>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </li>
                                                     @endforeach
                                                 </ul>
-                                                <a href="#" class="review-load-more mb-40">{{ trans('view.load_more_reviews') }}</a>
+                                                <a href="#" class="underline-on-hover">
+                                                    <i class="ion-chatboxes"></i>
+                                                    {{ trans('view.view_more_replies') }}
+                                                </a>
                                             </div>
                                             {{-- Include form comment if logged --}}
                                         </div>

@@ -19,7 +19,7 @@ return [
     'summary' => 'Summary',
     'introduction' => 'Introduction',
     'details' => 'Details',
-    'reviews' => 'Reviews',
+    'reviews' => 'Reviews: ',
     'view_more' => 'View More',
     'view' => 'View',
     'viewText' => 'View',
@@ -46,8 +46,8 @@ return [
     'rate' => 'Rate',
     'comments' => 'Comments',
     'banner_1' => 'Knowledge is power',
-    'banner_2' => 'Knowledge is power. Information is power. 
-        The secreting or hoarding of knowledge or 
+    'banner_2' => 'Knowledge is power. Information is power.
+        The secreting or hoarding of knowledge or
         information may be an act of tyranny camouflaged as humility.',
     'advance_filter' => 'Advance Filter',
     'not_found_lucky' => 'No results found! Please try other keywords. Good luck!',
@@ -82,4 +82,5 @@ return [
     'due_date' => 'Due Date',
     'my_plans' => 'My Plans',
     'not_have_data' => 'NOT HAVE DATA!',
+    'view_more_replies' => 'View more replies',
 ];

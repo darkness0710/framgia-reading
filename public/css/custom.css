@@ -934,3 +934,11 @@ a.link {
 .breadcrumb-bg-link {
     background-image:url('http://cdn30.us1.fansshare.com/image/wallpaperblue/engineering-wallpaper-hd-wallpapers-wallpaper-1528541881.jpg');
 }
+
+.underline-on-hover:hover {
+    text-decoration: underline;
+}
+
+.img-fit {
+    object-fit: cover;
+}

@@ -6,7 +6,7 @@
 
 @push('scripts')
     {{ Html::script('js/jquery.star-rating-svg.js') }}
-    {{ Html::script('js/book_review_handler.js') }}
+    {{ Html::script('js/show_book_review.js') }}
 @endpush
 
 @section('title', $book->title)
@@ -18,13 +18,8 @@
     <div class="row">
         <div class="col-md-4">
             <div id="sidebar-sticky" class="col-md-4 mt-20">
-                <div class="ml-10 ml-0-xs mb-10" id="addBookToCart">
-                    <a href="{{ route('book.addToCart', $book->id) }}" class="btn btn-primary btn-lgg btn-block btn-border">
-                        <i class="ti-heart"> {{ trans('view.add_favourite') }}</i>
-                    </a>
-                </div>
                 <aside class="sidebar-wrapper with-box-shadow fix-image">
-                    <img src="{{ $book->cover }}" alt="Mountain View">
+                    <img src="{{ $book->cover }}" alt="Mountain View" class="img-fit">
                 </aside>
             </div>
         </div>
@@ -48,6 +43,13 @@
                 <div class="mt-5">
                     <span><i class="ti-bookmark text-primary mr-5"></i> {{ trans('view.summary') }}: </span>
                     <span>{{ $book->summary }}</span>
+                </div>
+
+                <div class="ml-10 ml-0-xs mb-10 mt-20" id="addBookToCart">
+                    <a href="{{ route('book.addToCart', $book->id) }}"
+                        class="btn btn-primary btn-border">
+                        <i class="ti-heart"> {{ trans('view.add_favourite') }}</i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -139,7 +141,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="3a">
-                        <div class="col-xs-12 col-sm-7 col-md-8 mt-20">
+                        <div class="col-md-10">
                             @if (Auth::check())
                                 <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
                             @endif
@@ -165,7 +167,48 @@
                                                 </div>
                                                 <div class="GridLex-col-3_sm-4_xs-12_xss-12">
                                                     <div class="GridLex-inner">
-                                                        <a href="#review-form" class="btn btn-primary btn-block anchor">{{ trans('view.write_review') }}</a>
+                                                        <a href="#review-form" id="btn_review"
+                                                            class="btn btn-primary btn-block anchor">
+                                                            {{ trans('view.write_review') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="review-content">
+                                                    <ul class="review-list" id="list_review">
+                                                        @foreach($reviews as $review)
+                                                        <li class="clearfix">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="review-header">
+                                                                        <h6>{{ $review->user->name }}</h6>
+                                                                        <span class="review-date"> {{ $review->created_at }}</span>
+                                                                        <div class="rating-item">
+                                                                            <div class="my-rating" id="{{ 'review_' . $review->id }}" value="{{ $review->rate }}"></div>
+                                                                        </div>
+                                                                        <a href="#" class="btn btn-primary">{{ trans('view.reply') }}</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="review-content" id="{{ 'content_review_' . $review->id }}">
+                                                                        <p>{{ $review->content }}</p>
+                                                                    </div>
+                                                                    @if ($reviews->first()->comments->first())
+                                                                        <a href="#" class="pull-right underline-on-hover">
+                                                                            <i class="ion-chatboxes"></i>
+                                                                            {{ trans('view.view_more_replies') }}
+                                                                        </a>
+                                                                    @endif
+
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
+                                                    <div class="mb-20">
+                                                        <a href="#" class="center">
+                                                            <i class="ion-chatboxes"></i>
+                                                            {{ trans('view.view_more_replies') }}
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,13 +227,9 @@
 
 @section('script')
 <script type="text/javascript">
-    $(".my-rating").starRating({
-        starSize: 25,
-        callback: function(currentRating, $el){
-            // make a server call here
-        }
+    var show_book_review = new show_book_review();
+    show_book_review.init({
+        book_rate: {{ $book->rate }},
     });
-
-    $("div[id*='rate_']").starRating('setRating', {{ $book->rate }});
 </script>
 @endsection

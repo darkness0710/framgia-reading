@@ -21,7 +21,7 @@ $("#btn-submit").click(function (event) {
                     plan_id = $("#target_id").val();
                     $('#rate_' + plan_id).starRating('setRating', data.data.rate);
                     $("#modal-review").modal('hide');
-                    document.getElementById('total_review_' + plan_id).innerHTML = data.data.reviewNumber;
+                    $('#total_review_' + plan_id).html(data.data.reviewNumber);
                     var notification = alertify.notify(data.message, 'success', 5, function() {
                     });
                 },
