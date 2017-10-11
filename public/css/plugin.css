@@ -2578,6 +2578,7 @@ body.modal-open,
     overflow: hidden;
     width: 100%;
     text-align: left
+    margin-left: 5px;
 }
 
 .bootstrap-select.btn-group .dropdown-toggle .caret {

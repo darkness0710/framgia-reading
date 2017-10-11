@@ -23,6 +23,7 @@ return [
     'view_more' => 'View More',
     'view' => 'View',
     'subjects' => 'SUBJECTS',
+    'subjects_upcase' => 'Subjects',
     'subject' => 'Subject',
     'plan' => 'plan',
     'plans' => 'Plans',
@@ -39,6 +40,7 @@ return [
     'reviews_low' => 'reviews',
     'details_book' => 'Detail Books',
     'hot_plans' => 'Hot Plans',
+    'hot_subjects' => 'Hot Subjects',
     'by' => 'By',
     'rate' => 'Rate',
     'comments' => 'Comments',
@@ -72,4 +74,6 @@ return [
     'page_users' => 'USERS',
     'profile' => 'Profile',
     'search_user' => 'Ex: Trinh Duc Toan',
+    'search_subject' => 'Ex: PHP',
+    'search' => 'Search',
 ];

@@ -23,6 +23,15 @@ class SubjectController extends Controller
 
     public function index(Request $request)
     {
+        $sorts = ['Number of Plans', 'Hot'];
+        $subjects = $this->subjectRepository->paginate(9);
+        $count_subjects = $subjects->count();
+
+        return view('subject.index', compact('subjects', 'count_subjects', 'sorts'));
+    }
+
+    public function indexDashboard(Request $request)
+    {
         $user = $this->userRepository->user();
         $subjects = $this->subjectRepository->paginate(10);
 
@@ -44,7 +53,7 @@ class SubjectController extends Controller
 
     public function getAllSortByFilter()
     {   
-        $sorts = ['Title', 'Rate'];
+        $sorts = ['Name', 'Rate'];
 
         return $sorts;
     }

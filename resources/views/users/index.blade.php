@@ -47,7 +47,7 @@
                                                     <div id="list-sort">
                                                         <select class="selectpicker show-tick form-control" data-live-search="false">
                                                             @foreach($sorts as $sort)
-                                                            <option>{{ $sort }}</option>
+                                                                <option>{{ $sort }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
