@@ -15,7 +15,7 @@
                         <h3>{{ $subject->title }}</h3>
                         <span>{{ $subject->description }}</span>
                         <p class="text-white">{{ $subject->plans_count }} {{ trans('view.plan') }}</p>
-                        <a href="#">{{ trans('view.view') }}</a>
+                        <a href="{{ route('subject.show', $subject->id) }}">{{ trans('view.viewText') }}</a>
                     </figcaption>
                 </figure>
             </li>

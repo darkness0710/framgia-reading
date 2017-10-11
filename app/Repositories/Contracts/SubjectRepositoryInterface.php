@@ -8,4 +8,6 @@ interface SubjectRepositoryInterface extends RepositoryInterface
     public function createSubjectByAjax($request);
     
     public function countSubject($select = ['*']);
+
+    public function getName($select = ['*']);
 }

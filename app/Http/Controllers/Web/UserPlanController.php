@@ -15,7 +15,13 @@ use Carbon;
 
 class UserPlanController extends Controller
 {
+    private $planRepository;
     private $userRepository;
+    private $subjectRepository;
+    private $planItemRepository;
+    private $bookRepository;
+    private $userPlanItemRepository;
+    private $userPlanRepository;
 
     public function __construct(
         PlanRepository $planRepository,

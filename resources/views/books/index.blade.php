@@ -40,12 +40,11 @@
                                         <div class="col-sm-3">
                                             <div class="filter-item mmr">
                                                 <div class="input-group input-group-addon-icon no-border no-br-xs">
-                                                    <span class="input-group-addon input-group-addon-icon bg-white">
-                                                    <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
-                                                    <div id="list-sort">
+                                                    <span class="input-group-addon input-group-addon-icon bg-white"><label><i class="fa fa-sort-amount-asc"></i> {{ trans('view.categories') }}:</label></span>
+                                                    <div id="list-subject">
                                                         <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                            @foreach($sorts as $sort)
-                                                                <option>{{ $sort }}</option>
+                                                            @foreach($categories as $category)
+                                                                <option>{{ $category->title }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -55,11 +54,12 @@
                                         <div class="col-sm-3">
                                             <div class="filter-item mmr">
                                                 <div class="input-group input-group-addon-icon no-border no-br-xs">
-                                                    <span class="input-group-addon input-group-addon-icon bg-white"><label><i class="fa fa-sort-amount-asc"></i> {{ trans('view.categories') }}:</label></span>
-                                                    <div id="list-subject">
+                                                    <span class="input-group-addon input-group-addon-icon bg-white">
+                                                    <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
+                                                    <div id="list-sort">
                                                         <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                            @foreach($categories as $category)
-                                                                <option>{{ $category->title }}</option>
+                                                            @foreach($sorts as $sort)
+                                                                <option>{{ $sort }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>

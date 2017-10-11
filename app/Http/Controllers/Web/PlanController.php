@@ -16,7 +16,12 @@ use App\Models\Book;
 class PlanController extends Controller
 {
     private $planRepository;
-
+    private $reviewRepository;
+    private $userRepository;
+    private $subjectRepository;
+    private $planItemRepository;
+    private $bookRepository;
+    
     public function __construct(
         PlanRepository $planRepository,
         ReviewRepository $reviewRepository,
@@ -34,7 +39,9 @@ class PlanController extends Controller
     }
 
     public function index(Request $request)
-    {
+    {   
+        $sorts = ['Name', 'Rate'];
+        $subjects = $this->subjectRepository->getName(['id', 'title']);
         $plans = $this->planRepository
             ->getAllPlan(['user'] ,['*'], 9);
 
@@ -44,7 +51,7 @@ class PlanController extends Controller
            return Response(['html' => $html]);
         }
 
-        return view('plans.index', compact('plans'));
+        return view('plans.index', compact('plans', 'sorts', 'subjects'));
     }
 
     public function show($id)

@@ -6,19 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\SubjectRepositoryInterface as SubjectRepository;
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
+use App\Repositories\Contracts\PlanRepositoryInterface as PlanRepository;
 use App\Models\Subject;
+use App\Models\Plan;
 
 class SubjectController extends Controller
 {
     private $subjectRepository;
     private $userRepository;
+    private $planRepository;
 
     public function __construct(
         SubjectRepository $subjectRepository,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        PlanRepository $planRepository
     ) {
         $this->subjectRepository = $subjectRepository;
         $this->userRepository = $userRepository;
+        $this->planRepository = $planRepository;
     }
 
     public function index(Request $request)
@@ -28,6 +33,14 @@ class SubjectController extends Controller
         $count_subjects = $subjects->count();
 
         return view('subject.index', compact('subjects', 'count_subjects', 'sorts'));
+    }
+
+    public function show($id)
+    {
+        $subject = $this->subjectRepository->find($id);
+        $plans = $this->planRepository->findPlanBySubject('subject_id', $id, 9);
+        $count_plans = $plans->count();
+        return view('subject.show', compact('subject', 'plans', 'count_plans'));
     }
 
     public function indexDashboard(Request $request)

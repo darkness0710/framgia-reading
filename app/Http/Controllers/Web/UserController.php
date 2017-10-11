@@ -17,6 +17,7 @@ use Lava;
 class UserController extends Controller
 {
     private $userRepository;
+    private $userPlanItemRepository;
 
     public function __construct(
         UserRepository $userRepository,

@@ -109,4 +109,11 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
 
         return $plans;
     }
+
+    public function findPlanBySubject($condition, $id, $paginate = 9)
+    {
+        $plans = Plan::where($condition, $id)->paginate($paginate);
+        
+        return $plans;
+    }
 }
