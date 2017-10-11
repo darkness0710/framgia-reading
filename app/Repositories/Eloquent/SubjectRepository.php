@@ -44,10 +44,17 @@ class SubjectRepository extends Repository implements SubjectRepositoryInterface
         return true;
     }
 
-     public function countSubject($select = ['*'])
+    public function countSubject($select = ['*'])
     {
         $count = Subject::select($select)->count();
 
         return $count;
+    }
+
+    public function getName($select = ['*'])
+    {
+        $subjects = Subject::select($select)->get();
+
+        return $subjects;
     }
 }

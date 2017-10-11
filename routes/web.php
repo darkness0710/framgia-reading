@@ -59,7 +59,7 @@ Route::group(['prefix' => 'user'], function () {
         Route::group(['prefix' => '/admin', 'middleware' => 'auth.admin'], function () {
             Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
             Route::group(['prefix' => 'subjects'], function () {
-                Route::get('/', 'Web\SubjectController@index')->name('admin.subject');
+                Route::get('/', 'Web\SubjectController@indexDashboard')->name('admin.subject');
                 Route::post('/', 'Web\SubjectController@store');
                 Route::post('/{subject}', 'Web\SubjectController@update')->name('admin.subject.update');
                 Route::get('/{subject_id}', 'Web\SubjectController@getData')->name('admin.subject.getData');
@@ -84,6 +84,8 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::group(['prefix' => 'subject'], function () {
+    Route::get('/', 'Web\SubjectController@index')->name('subject.index');
+    Route::get('/{id}', 'Web\SubjectController@show')->name('subject.show');
     Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
     Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
 });

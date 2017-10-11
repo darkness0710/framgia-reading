@@ -34,9 +34,11 @@ class PlanController extends Controller
     }
 
     public function index(Request $request)
-    {
+    {   
+        $sorts = ['Name', 'Rate'];
+        $subjects = $this->subjectRepository->getName(['id', 'title']);
         $plans = $this->planRepository
-            ->getAllPlan(['user'] ,['*'], 12);
+            ->getAllPlan(['user'] ,['*'], 9);
 
         if($request->ajax()) {
            $html = view('plans._resultPlan')->with('plans', $plans)->render();
@@ -44,7 +46,7 @@ class PlanController extends Controller
            return Response(['html' => $html]);
         }
 
-        return view('plans.index', compact('plans'));
+        return view('plans.index', compact('plans', 'sorts', 'subjects'));
     }
 
     public function show($id)
@@ -63,17 +65,18 @@ class PlanController extends Controller
     public function searchData(Request $request)
     {
         $input = $request->all();
+        
         if($input['title'] == null) {
             $input['title'] = "";
         }
 
-        $plans = $this->planRepository->getAllPlanByFilter($input['subject'],
-            $input['title'], $input['sort'], ['user', 'subject'], ['*'], 12);
-        $plans->appends([
-            'subject' => $input['subject'],
-            'sort' => $input['sort'],
-            'title' => $input['title']
-        ]);
+        if($input['subject'] == null) {
+            $input['subject'] = "";
+        }
+
+        $plans = $this->planRepository->searchData(['*'], ['user', 'subject'], $input, 9);
+        $plans->appends($input);
+
         $html = view('plans._resultPlan')->with('plans', $plans)->render();
 
         return Response(['html' => $html]);

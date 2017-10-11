@@ -143,7 +143,7 @@
 }
 
 .nav.navbar-nav > li > a:after {
-    content: "";
+  /*  content: "";*/
     position: absolute;
     top: 18px;
     right: -3px;

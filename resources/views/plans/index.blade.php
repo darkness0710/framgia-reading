@@ -43,13 +43,13 @@
                                     <div class="col-sm-3">
                                         <div class="filter-item mmr">
                                             <div class="input-group input-group-addon-icon no-border no-br-xs">
-                                                <span class="input-group-addon input-group-addon-icon bg-white">
-                                                <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
-                                                <div id="list-sort">
+                                                <span class="input-group-addon input-group-addon-icon bg-white"><label><i class="fa fa-sort-amount-asc"></i> {{ trans('view.subject') }}:</label></span>
+                                                <div id="list-subject">
                                                     <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                        <option v-for="sort in sorts" value="0">
-                                                            @{{ sort }}
-                                                        </option>
+                                                        <option></option>
+                                                        @foreach($subjects as $subject)
+                                                            <option>{{ $subject->title }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -58,12 +58,13 @@
                                     <div class="col-sm-3">
                                         <div class="filter-item mmr">
                                             <div class="input-group input-group-addon-icon no-border no-br-xs">
-                                                <span class="input-group-addon input-group-addon-icon bg-white"><label><i class="fa fa-sort-amount-asc"></i> {{ trans('view.subject') }}:</label></span>
-                                                <div id="list-subject">
+                                                <span class="input-group-addon input-group-addon-icon bg-white">
+                                                <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
+                                                <div id="list-sort">
                                                     <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                        <option v-for="subject in subjects" value="0">
-                                                            @{{ subject.title }}
-                                                        </option>
+                                                        @foreach($sorts as $sort)
+                                                            <option>{{ $sort }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -104,66 +105,6 @@
 </form>
 </div>
 <div class="pt-30 pb-50 result">
-    <div class="container">
-        <div class="trip-guide-wrapper">
-            <div class="trip-guide-wrapper mb-30 mt-10">
-                <div class="GridLex-gap-20 GridLex-gap-15-mdd GridLex-gap-10-xs">
-                    <div class="GridLex-grid-noGutter-equalHeight">
-                        @foreach($plans as $plan)
-                        <div class="GridLex-col-4_mdd-4_sm-6_xs-6_xss-12">
-                            <div class="trip-guide-item">
-                                <div class="trip-guide-content">
-                                    <h3>{{ $plan->title }}</h3>
-                                    <p>{{ $plan->summary }}</p>
-                                </div>
-                                <div class="trip-guide-bottom">
-                                    <div class="trip-guide-person clearfix">
-                                        <div class="image">
-                                            <img src="{{ $plan->user->avatar }}" class="img-circle" alt="images" />
-                                        </div>
-                                        <p class="name">{{ trans('view.by') }}:
-                                            <a href="{{ action('Web\UserController@showPlans', [
-                                                'id' => $plan->user->id,
-                                            ]) }}">
-                                                {{ $plan->user->name }}
-                                            </a>
-                                        </p>
-                                    </div>
-                                    <div class="trip-guide-meta row gap-10">
-                                        <div class="col-xs-6 col-sm-6">
-                                            <div class="rating-item">
-                                                <input type="hidden" class="rating" data-filled="fa fa-star rating-rated" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.5"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row gap-10">
-                                        <div class="col-xs-12 col-sm-6">
-                                            <div class="trip-guide-price">
-                                                {{ trans('view.rate') }}: {{ $plan->rate }}
-                                                <p class="block inline-block-xs">{{ $plan->reviews_count }} {{ trans('view.reviews') }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 text-right text-left-xs">
-                                            <a href="{{ route('plan.show', $plan->id) }}" class="btn btn-primary">{{ trans('view.view') }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <div class="pager-wrappper clearfix">
-                <div class="pager-innner">
-                    <div class="clearfix">
-                        <div id="ajax">
-                            {{ $plans->links() }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('plans._resultPlan');
 </div>
 @endsection
