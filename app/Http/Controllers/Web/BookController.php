@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
 use App\Repositories\Contracts\CategoryRepositoryInterface as CategoryRepository;
+use App\Repositories\Contracts\ReviewRepositoryInterface as ReviewRepository;
 use App\Models\Book;
 use App\Models\Cart;
 use App\Models\Category;
@@ -16,13 +17,15 @@ class BookController extends Controller
 {
     private $bookRepository;
     private $categoryRepository;
-    
+
     public function __construct(
         BookRepository $bookRepository,
-        CategoryRepository $categoryRepository
+        CategoryRepository $categoryRepository,
+        ReviewRepository $reviewRepository
     ) {
         $this->bookRepository = $bookRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->reviewRepository = $reviewRepository;
     }
 
     public function index(Request $request)
@@ -44,8 +47,9 @@ class BookController extends Controller
     public function show($id)
     {
         $book = $this->bookRepository->find($id);
+        $totalReview = $this->reviewRepository->getReviewNumber($id, 'Book');
 
-        return view('books.show', compact('book'));
+        return view('books.show', compact('book'))->with('totalReview', $totalReview);
     }
 
     public function getAddToCart(Request $request, $id)

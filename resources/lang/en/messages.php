@@ -85,4 +85,6 @@ return [
     'next' => '»',
     'previous' => '«',
     'creator' => 'Creator',
+    'write_review' => 'Write your review',
+    'comment' => 'Comment',
 ];

@@ -1,12 +1,20 @@
 @extends('layouts.master')
 @section('title', 'Book ')
+
+@section('styles')
+    {{ Html::style('css/star-rating-svg.css') }}
+@endsection
+
 @section('content')
 
 @push('scripts')
     {{ Html::script('js/block.js') }}
     {{ Html::script('js/book.js') }}
+    {{ Html::script('js/jquery.star-rating-svg.js') }}
+    {{ Html::script('js/book_review_handler.js') }}
 @endpush
 
+@include('books.review-modal')
 <div class="main-wrapper scrollspy-container">
 <!-- start breadcrumb -->
 <div class="breadcrumb-image-bg" style="background-image:url('https://orig01.deviantart.net/c54c/f/2012/281/d/1/story_time_by_alectorfencer-d5h7ntv.jpg');">
@@ -119,8 +127,11 @@
                                 <div class="trip-guide-bottom mb-30">
                                     <div class="trip-guide-meta row gap-10">
                                         <div class="col-xs-6 col-sm-6">
+                                            @if (Auth::check())
+                                                <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
+                                            @endif
                                             <div class="rating-item">
-                                                <input type="hidden" class="rating" data-filled="fa fa-star rating-rated" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.5"/>
+                                                <div class="my-rating" id="{{ 'rate_' . $book->id }}"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -155,4 +166,16 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $(".my-rating").starRating({
+        starSize: 20,
+        disableAfterRate: false,
+        callback: function(currentRating, $el){
+            // make a server call here
+        }
+    });
+</script>
 @endsection

@@ -25,6 +25,7 @@ Route::group(['prefix' => 'book'], function () {
     Route::get('/cart-remove-book/{id}', 'Web\BookController@getRemoveToCart')
         ->name('book.removeToCart');
     Route::post('/search-by-title', 'Web\BookController@searchByTitle');
+    Route::post('/review', 'Web\ReviewController@reviewBook')->name('book.review');
 });
 
 Route::group(['prefix' => 'plan'], function () {

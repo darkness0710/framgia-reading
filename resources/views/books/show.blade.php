@@ -1,8 +1,18 @@
 @extends('layouts.master')
 
+@section('styles')
+    {{ Html::style('css/star-rating-svg.css') }}
+@endsection
+
+@push('scripts')
+    {{ Html::script('js/jquery.star-rating-svg.js') }}
+    {{ Html::script('js/book_review_handler.js') }}
+@endpush
+
 @section('title', $book->title)
 
 @section('content')
+@include('books.review-modal')
 
 <div class="container mt-10">
     <div class="row">
@@ -130,10 +140,38 @@
                     </div>
                     <div class="tab-pane" id="3a">
                         <div class="col-xs-12 col-sm-7 col-md-8 mt-20">
-                            <p>{{ trans('view.reviews') }}</p>
-                            <div class="rating-item rating-item-lg">
-                                <input type="hidden" class="rating" data-filled="fa fa-star rating-rated" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.5"/>
-                                <span class="block line14">{{ trans('view.basedOn') }} <a href="#"> {{ trans('view.reviews') }}</a></span>
+                            @if (Auth::check())
+                                <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
+                            @endif
+                            <div class="tab-inner mb-20">
+                                <h3 class="section-title">{{ trans('view.reviews') }}</h3>
+                                <div class="review-wrapper">
+                                    <div class="review-header">
+                                        <div class="GridLex-gap-30">
+                                            <div class="GridLex-grid-noGutter-equalHeight GridLex-grid-middle">
+                                                <div class="GridLex-col-9_sm-8_xs-12_xss-12">
+                                                    <div class="review-rating">
+                                                        <div class="number" id="total_rate">{{ $book->rate }}</div>
+                                                        <div class="rating-wrapper">
+                                                            <div class="rating-item rating-item-lg">
+                                                                <div class="rating-item">
+                                                                    <div class="my-rating" id="{{ 'rate_' . $book->id }}"></div>
+                                                                </div>
+                                                                <p id="total_review" class="col-md-2 no-padding mr-10">{{ $totalReview }}</p>
+                                                                {{ trans('view.reviews_low') }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="GridLex-col-3_sm-4_xs-12_xss-12">
+                                                    <div class="GridLex-inner">
+                                                        <a href="#review-form" class="btn btn-primary btn-block anchor">{{ trans('view.write_review') }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,4 +180,17 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $(".my-rating").starRating({
+        starSize: 25,
+        callback: function(currentRating, $el){
+            // make a server call here
+        }
+    });
+
+    $("div[id*='rate_']").starRating('setRating', {{ $book->rate }});
+</script>
 @endsection
