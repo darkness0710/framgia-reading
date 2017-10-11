@@ -58,21 +58,21 @@ class SubjectController extends Controller
     }
 
     public function getAllSubjectByFilter()
-    {   
+    {
         $subjects = Subject::select('title')->get();
 
         return $subjects->toArray();
     }
 
     public function getAllSortByFilter()
-    {   
+    {
         $sorts = ['Name', 'Rate'];
 
         return $sorts;
     }
 
     public function getData(Request $request, $id, $subject_id)
-    {   
+    {
         if($request->ajax()) {
             $subject = $this->subjectRepository->find($subject_id);
 
@@ -94,7 +94,7 @@ class SubjectController extends Controller
             $request->file->move(public_path('uploads/subjects'), $subjectImageName);
             $subject->cover = $subjectImageName;
         }
-            
+
         $subject->title = $request->title;
         $subject->description = $request->description;
         $subject->trending = $request->trending;

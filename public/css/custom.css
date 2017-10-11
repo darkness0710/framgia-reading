@@ -926,3 +926,11 @@ a.link {
 .normal-text {
     font-size: 100% !important;
 }
+
+.float-right {
+    float: right !important;
+}
+
+.breadcrumb-bg-link {
+    background-image:url('http://cdn30.us1.fansshare.com/image/wallpaperblue/engineering-wallpaper-hd-wallpapers-wallpaper-1528541881.jpg');
+}

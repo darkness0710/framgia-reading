@@ -1,7 +1,17 @@
 @extends('layouts.master')
+
+@push('scripts')
+    {{ Html::script('js/jquery.star-rating-svg.js') }}
+    {{ Html::script('js/show_plan_review.js') }}
+@endpush
+
+@section('styles')
+    {{ Html::style('css/star-rating-svg.css') }}
+@endsection
+
 @section('title', $plan->title)
 @section('content')
-
+@include('books.review-modal')
 <div class="main-wrapper scrollspy-container">
     <div class="breadcrumb-image-bg detail-breadcrumb" style="background-color:red">
         <div class="container">
@@ -33,6 +43,9 @@
                                         <p class="lead">{{ $plan->description }}</p>
                                     </div>
                                 </div>
+                                @if (Auth::check())
+                                    <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
+                                @endif
                                 <div class="tab-pane fade" id="tab-style-01-03">
                                     <div class="tab-inner">
                                         <h3 class="section-title font-lg">{{ trans('view.processRead') }}</h3>
@@ -95,22 +108,25 @@
                                                                 <div class="number">{{ $plan->rate }}</div>
                                                                 <div class="rating-wrapper">
                                                                     <div class="rating-item rating-item-lg">
-                                                                        <input type="hidden" class="rating" data-filled="fa fa-star rating-rated" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.5"/>
+                                                                        <div class="my-rating" id="{{ 'rate_' . $plan->id }}" value="{{ $plan->rate }}"></div>
                                                                     </div>
-                                                                    {{ $totalReviews }} {{ trans('view.reviews_low') }}
+                                                                    <p id="{{ 'total_review_' . $plan->id }}" class="col-md-2 no-padding mr-10">{{ $totalReviews }}</p> {{ trans('view.reviews_low') }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="GridLex-col-3_sm-4_xs-12_xss-12">
                                                             <div class="GridLex-inner">
-                                                                <a href="#review-form" class="btn btn-primary btn-block anchor">{{ trans('view.write_review') }}</a>
+                                                                <a href="#review-form" id="btn_review"
+                                                                    class="btn btn-primary btn-block anchor">
+                                                                    {{ trans('view.write_review') }}
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="review-content">
-                                                <ul class="review-list">
+                                                <ul class="review-list" id="list_review">
                                                     @foreach($reviewPlans as $reviewPlan)
                                                     <li class="clearfix">
                                                         <div class="row">
@@ -119,13 +135,13 @@
                                                                     <h6>{{ $reviewPlan->user->name }}</h6>
                                                                     <span class="review-date"> {{ $reviewPlan->created_at }}</span>
                                                                     <div class="rating-item">
-                                                                        <input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+                                                                        <div class="my-rating" id="{{ 'review_' . $reviewPlan->id }}" value="{{ $reviewPlan->rate }}"></div>
                                                                     </div>
                                                                     <a href="#" class="btn btn-primary">{{ trans('view.reply') }}</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-8 col-md-9">
-                                                                <div class="review-content">
+                                                                <div class="review-content" id="{{ 'content_review_' . $reviewPlan->id }}">
                                                                     <p>{{ $reviewPlan->content }}</p>
                                                                 </div>
                                                                 <a href="#" class="review-load-more">{{ trans('view.load_more_comments') }}</a>
@@ -189,4 +205,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    var show_plan_review = new show_plan_review();
+    show_plan_review.init({
+        plan_rate: {{ $plan->rate }},
+    });
+</script>
 @endsection

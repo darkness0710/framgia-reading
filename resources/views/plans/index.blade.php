@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('styles')
+    {{ Html::style('css/star-rating-svg.css') }}
+@endsection
+
 @section('title', 'Knowledge is power')
 @section('content')
 
@@ -8,11 +13,14 @@
     {{ Html::script('js/plan.js') }}
     {{ Html::script('js/block.js') }}
     {{ Html::script('js/paginate.js') }}
+    {{ Html::script('js/jquery.star-rating-svg.js') }}
+    {{ Html::script('js/plan_review_handler.js') }}
 @endpush
 
+@include('books.review-modal')
 <div class="main-wrapper scrollspy-container">
 <!-- start breadcrumb -->
-<div class="breadcrumb-image-bg" style="background-image:url('http://cdn30.us1.fansshare.com/image/wallpaperblue/engineering-wallpaper-hd-wallpapers-wallpaper-1528541881.jpg');">
+<div class="breadcrumb-image-bg breadcrumb-bg-link">
     <div class="container">
         <div class="page-title">
             <div class="row">

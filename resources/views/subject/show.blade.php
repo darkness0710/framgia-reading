@@ -17,7 +17,7 @@
         <div class="icon ml-25">
             <img src="{{ $subject->cover }}" alt="{{ $subject->title }}" id="imageSize70">
             <div>
-                <h2>{{ $subject->title }}</h2> 
+                <h2>{{ $subject->title }}</h2>
                 <div>
                     <b>{{ $count_plans }}</b>: {{ trans('view.plans') }}
                 </div>

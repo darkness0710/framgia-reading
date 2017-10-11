@@ -4,6 +4,9 @@
             <div class="trip-guide-wrapper mb-30 mt-10">
                 <div class="GridLex-gap-20 GridLex-gap-15-mdd GridLex-gap-10-xs">
                     <div class="GridLex-grid-noGutter-equalHeight">
+                        @if (Auth::check())
+                            <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
+                        @endif
                         @foreach($plans as $plan)
                         <div class="GridLex-col-4_mdd-4_sm-6_xs-6_xss-12">
                             <div class="trip-guide-item">
@@ -21,15 +24,19 @@
                                     <div class="trip-guide-meta row gap-10">
                                         <div class="col-xs-6 col-sm-6">
                                             <div class="rating-item">
-                                                <input type="hidden" class="rating" data-filled="fa fa-star rating-rated" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.5"/>
+                                                <div class="my-rating" id="{{ 'rate_' . $plan->id }}" value="{{ $plan->rate }}"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row gap-10">
                                         <div class="col-xs-12 col-sm-6">
                                             <div class="trip-guide-price">
-                                                {{ trans('view.rate') }}: {{ $plan->rate }}
-                                                <p class="block inline-block-xs">{{ $plan->reviews_count }} {{ trans('view.reviews') }}</p>
+                                                <div class="col-md-6 no-padding">
+                                                    <p class="col-md-2 no-padding">{{ trans('view.reviews') }}</p>
+                                                    <p class="pull-right" id="{{ 'total_review_' . $plan->id }}">
+                                                        {{ $plan->reviews_count }}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-right text-left-xs">

@@ -98,24 +98,27 @@
                 if(this.settings.disableAfterRate){
                   this.$stars.off();
                 }
-
                 $("#rate").val(rating);
             } else {
-                var book_id = e.currentTarget.parentNode.attributes.id.value.replace('rate_', '');
+                var book_id = e.currentTarget.parentNode.attributes.id.value.replace( /\D+/g, '');
                 $('#modal-review').modal('show');
                 $('#target_id').val(book_id);
             }
         } else {
-            var notification = alertify.notify('Please Login first!', 'error', 5, function() {
-            });
+            var notification = alertify.notify('Please Login first!', 'error', 5, function() {});
         }
     },
 
     applyRating: function(rating){
-      var index = rating - 1;
-      // paint selected and remove hovered color
-      this.paintStars(index, 'active');
-      this._state.rating = index + 1;
+        var index = rating - 1;
+        console.log(index);
+        if (index > -0.5) {
+            // paint selected and remove hovered color
+            this.paintStars(index, 'active');
+            this._state.rating = index + 1;
+        } else {
+            var notification = alertify.notify('Minimum rate is 1!', 'error', 5, function() {});
+        }
     },
 
     restoreState: function(e){

@@ -3,6 +3,8 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Review;
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\Book;
 use App\Repositories\Contracts\ReviewRepositoryInterface;
 
 class ReviewRepository extends Repository implements ReviewRepositoryInterface
@@ -19,7 +21,7 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
     {
         $reviews = Review::select($select)
             ->where('reviewable_id', $id)
-            ->where('reviewable_type', 'Plan')
+            ->whereLike('reviewable_type', 'Plan')
             ->with($with)
             ->get();
 
@@ -28,10 +30,10 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
 
     public function getAverage($id, $type)
     {
-        $reviews = Review::where('reviewable_type', 'LIKE', '%' . $type . '%')
+        $reviews = Review::whereLike('reviewable_type', $type)
             ->where('reviewable_id', $id)->get();
         $sum = 0;
-        
+
         if ($reviews->count() == 0) {
             return 0;
         }
@@ -53,12 +55,13 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
 
     public function setReview($data, $id, $type)
     {
-        $userReview = Review::where('reviewable_type', 'LIKE', '%' . $type .'%')
+        $userReview = Review::whereLike('reviewable_type', $type)
             ->where('user_id', $data['user_id'])
             ->where('reviewable_id', $id)->get();
         $review = null;
+
         if($userReview->count() == 0) {
-            $review = $this->reviewRepository->create([
+            $review = $this->create([
                 'user_id' => $data['user_id'],
                 'reviewable_id' => $id,
                 'reviewable_type' => $type,
@@ -72,11 +75,26 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
             $review->save();
         }
 
-        return $this->getAverage($id, $type);
+        $averageResult = $this->getAverage($id, $type);
+        if (strpos(strtolower($type), 'plan')) {
+            $plan = Plan::find($id);
+            $plan->rate = $averageResult;
+            $plan->save();
+        } else {
+            $book = Book::find($id);
+            $book->rate = $averageResult;
+            $book->save();
+        }
+
+        return [
+            'review' => $review,
+            'rate' => $averageResult,
+            'reviewNumber' => $this->getReviewNumber($id, 'plan'),
+        ];
     }
     public function getReviewNumber($id, $type)
     {
-        return Review::where('reviewable_type', 'LIKE', '%' . $type . '%')
+        return Review::whereLike('reviewable_type', $type)
             ->where('reviewable_id', $id)->count();
     }
 }

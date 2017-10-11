@@ -1763,11 +1763,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/css-selector",
@@ -1820,11 +1816,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/debug",
@@ -1880,11 +1872,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1947,11 +1935,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/finder",
@@ -2000,11 +1984,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/http-foundation",
@@ -2057,11 +2037,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-05T23:10:23+00:00"
-=======
             "time": "2017-10-05 23:10:23"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/http-kernel",
@@ -2147,11 +2123,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-05T23:40:19+00:00"
-=======
             "time": "2017-10-05 23:40:19"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2259,11 +2231,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/routing",
@@ -2341,11 +2309,7 @@
                 "uri",
                 "url"
             ],
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T07:25:00+00:00"
-=======
             "time": "2017-10-02 07:25:00"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/translation",
@@ -2410,11 +2374,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "symfony/var-dumper",
@@ -2482,11 +2442,7 @@
                 "debug",
                 "dump"
             ],
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-02T06:42:24+00:00"
-=======
             "time": "2017-10-02 06:42:24"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -2583,11 +2539,7 @@
                 "env",
                 "environment"
             ],
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2016-09-01T10:05:43+00:00"
-=======
             "time": "2016-09-01 10:05:43"
->>>>>>> Task 010: Forkin Plan
         }
     ],
     "packages-dev": [
@@ -4012,11 +3964,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-<<<<<<< ae9c603719624c18708c940ec65ef7338e49cbe8
-            "time": "2017-10-05T14:43:42+00:00"
-=======
             "time": "2017-10-05 14:43:42"
->>>>>>> Task 010: Forkin Plan
         },
         {
             "name": "webmozart/assert",
