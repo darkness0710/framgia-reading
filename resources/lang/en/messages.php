@@ -66,7 +66,7 @@ return [
     'author' => 'Author',
     'pages' => 'Pages',
     'duration' => 'Duration',
-    'days' => ':duration-Days',
+    'days' => ':duration Days',
     'time-from' => 'Time from',
     'time-to' => 'Time to',
     'status' => 'Status',
@@ -74,4 +74,9 @@ return [
     'in_progress' => 'In Progress',
     'done' => 'Done',
     'note' => 'Note',
+    'forked_at' => 'Forked at',
+    'due_date' => 'Due Date',
+    'start_date' => 'Start Date',
+    'create_at' => 'Created at:',
+    'created_by' => 'Created By',
 ];

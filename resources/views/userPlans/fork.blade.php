@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <div class="form">
-                    <form class="form-group" action="{{ route('fork', [
+                    <form class="form-group" action="{{ action('Web\UserPlanController@fork', [
                         'id' => $plan->id,
                     ]) }}" method="post">
                     {{ csrf_field() }}
@@ -223,7 +223,7 @@
 @endsection
 
 @section('script')
-{!! Html::script('js/moment.min.js') !!}
-{!! Html::script('js/bootstrap-datetimepicker.min.js') !!}
-{!! Html::script('js/forked-plan-datetime.js') !!}
+    {!! Html::script('js/moment.min.js') !!}
+    {!! Html::script('js/bootstrap-datetimepicker.min.js') !!}
+    {!! Html::script('js/forked-plan-datetime.js') !!}
 @endsection
