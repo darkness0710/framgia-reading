@@ -77,4 +77,36 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
 
         return $plans;
     }
+
+    public function searchData($select = ['*'], $with = [], $input, $paginate = 9)
+    {
+        $input['title'] = preg_replace('!\s+!', ' ', $input['title']);
+        $subject = $input['subject'];
+
+        switch ($input['sort']) {
+            case 'Name':
+                $input['sort'] = 'title';
+                break;
+            case 'Rate':
+                $input['sort'] = 'rate';
+                break;
+        }
+
+        if($input['subject'] == '') {
+            $plans = Plan::select($select)->orderBy($input['sort'], 'DESC')
+                ->with($with)->whereLike('title', $input['title'])->paginate($paginate);
+        } else {
+            $plans = Plan::select($select)->orderBy($input['sort'], 'DESC')
+                ->with($with)->whereHas('subject', function($query) use ($subject) {
+                    $query->where('title', $subject);
+                })->whereLike('title', $input['title'])->paginate($paginate);
+        }
+
+        foreach($plans as $plan) {
+            $plan->reviews_count = Review::where('reviewable_id', '=', $plan->id)
+                ->where('reviewable_type', '=', 'Plan')->count();
+        }
+
+        return $plans;
+    }
 }
