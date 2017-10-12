@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 use App\Repositories\Contracts\UserPlanItemRepositoryInterface as UserPlanItemRepository;
+use App\Repositories\Contracts\UserPlanRepositoryInterface as UserPlanRepository;
 use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
@@ -21,11 +22,13 @@ class UserController extends Controller
 
     public function __construct(
         UserRepository $userRepository,
-        UserPlanItemRepository $userPlanItemRepository
+        UserPlanItemRepository $userPlanItemRepository,
+        UserPlanRepository $userPlanRepository
     )
     {
         $this->userRepository = $userRepository;
         $this->userPlanItemRepository = $userPlanItemRepository;
+        $this->userPlanRepository = $userPlanRepository;
     }
 
     public function dashboard()
@@ -204,7 +207,8 @@ class UserController extends Controller
         return view('users.index', compact('users', 'sorts', 'typeSorts'));
     }
 
-    public function searchData(Request $request) {
+    public function searchData(Request $request)
+    {
         if(!$request->ajax()) {
             return false;
         }
@@ -215,5 +219,31 @@ class UserController extends Controller
         $html = view('users._resultUser', compact('users'))->render();
 
         return Response(['html' => $html]);
+    }
+
+    public function showPersonalPlans(Request $request, $id)
+    {
+        $user = $this->userRepository->user();
+        $plans = $this->userPlanRepository->getByAssignId($id)
+            ->with(['plan.user', 'plan.subject'])->paginate(config('user_personal_plan.pagination'));
+
+        if ($request->ajax()) {
+            return response()->json([
+                'pagination' => [
+                    'total'        => $plans->total(),
+                    'per_page'     => $plans->perPage(),
+                    'current_page' => $plans->currentPage(),
+                    'last_page'    => $plans->lastPage(),
+                    'from'         => $plans->firstItem(),
+                    'to'           => $plans->lastItem()
+                ],
+                'data' => $plans,
+            ]);
+        }
+
+        return view('users.details.personal_plans')->with([
+            'user' => $user,
+            'forkedPlans' => $plans,
+        ]);
     }
 }

@@ -79,4 +79,10 @@ return [
     'start_date' => 'Start Date',
     'create_at' => 'Created at:',
     'created_by' => 'Created By',
+    'personal_plan' => 'Personal Plan',
+    'not_found' => ':item Not Found!',
+    'subject' => 'Subject',
+    'next' => '»',
+    'previous' => '«',
+    'creator' => 'Creator',
 ];

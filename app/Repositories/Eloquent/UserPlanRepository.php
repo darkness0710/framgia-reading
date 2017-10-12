@@ -20,4 +20,9 @@ class UserPlanRepository extends Repository implements UserPlanRepositoryInterfa
             ->where('assign_id', $user_id)
             ->where('plan_id', $plan_id);
     }
+
+    public function getByAssignId($id)
+    {
+        return $this->model->where('assign_id', $id);
+    }
 }
