@@ -892,3 +892,12 @@ a.link {
 .invisible {
     visibility: hidden;
 }
+
+#imageSize70 {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 32px;
+}

@@ -85,6 +85,7 @@ Route::group(['prefix' => 'user'], function () {
 
 Route::group(['prefix' => 'subject'], function () {
     Route::get('/', 'Web\SubjectController@index')->name('subject.index');
+    Route::get('/{id}', 'Web\SubjectController@show')->name('subject.show');
     Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
     Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
 });

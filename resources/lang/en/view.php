@@ -22,6 +22,7 @@ return [
     'reviews' => 'Reviews',
     'view_more' => 'View More',
     'view' => 'View',
+    'viewText' => 'View',
     'subjects' => 'SUBJECTS',
     'subjects_upcase' => 'Subjects',
     'subject' => 'Subject',

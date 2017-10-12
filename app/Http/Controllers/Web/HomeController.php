@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     private $bookRepository;
     private $subjectRepository;
+    private $planRepository;
 
     public function __construct(
         BookRepository $bookRepository,

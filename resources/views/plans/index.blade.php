@@ -47,9 +47,9 @@
                                                 <div id="list-subject">
                                                     <select class="selectpicker show-tick form-control" data-live-search="false">
                                                         <option></option>
-                                                        <option v-for="subject in subjects" value="0">
-                                                            @{{ subject.title }}
-                                                        </option>
+                                                        @foreach($subjects as $subject)
+                                                            <option>{{ $subject->title }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -62,9 +62,9 @@
                                                 <label class="block-xs"><i class="fa fa-sort-amount-asc"></i> {{ trans('view.sort_by') }}:</label></span>
                                                 <div id="list-sort">
                                                     <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                        <option v-for="sort in sorts" value="0">
-                                                            @{{ sort }}
-                                                        </option>
+                                                        @foreach($sorts as $sort)
+                                                            <option>{{ $sort }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
