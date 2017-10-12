@@ -65,4 +65,11 @@ class BookRepository extends Repository implements BookRepositoryInterface
 
         return $count;
     }
+
+    public function setRate($id, $value)
+    {
+        $book = $this->findBy('id', $id);
+        $book->rate = $value;
+        $book->save();
+    }
 }
