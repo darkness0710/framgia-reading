@@ -58,7 +58,7 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
             ->where('reviewable_id', $id)->get();
         $review = null;
         if($userReview->count() == 0) {
-            $review = $this->reviewRepository->create([
+            $review = $this->create([
                 'user_id' => $data['user_id'],
                 'reviewable_id' => $id,
                 'reviewable_type' => $type,

@@ -51,10 +51,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
             Route::get('/', 'Web\UserController@dashboard')->name('user.dashboard');
             //Route Update Profile
-            Route::get('/edit-profile', 'Web\UserController@editProfile');
+            Route::get('/edit-profile', 'Web\UserController@editProfile')->name('user.editProfile');
             Route::post('/update-profile', 'Web\UserController@updateProfile');
             //Route Update Password
-            Route::get('/edit-password', 'Web\UserController@editPassword');
+            Route::get('/edit-password', 'Web\UserController@editPassword')->name('user.editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
             Route::get('/plans', 'Web\UserController@showPersonalPlans')->name('user.personal-plan');
         });

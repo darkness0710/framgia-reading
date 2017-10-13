@@ -29,7 +29,7 @@
                         </li>
                         <li>
                             <a href="{{ route('subject.index') }}">
-                                <i class="fa fa-star-o" aria-hidden="true"></i> {{ trans('view.page_subjects') }}
+                                <i class="fa university" aria-hidden="true"></i> {{ trans('view.page_subjects') }}
                             </a>
                         </li>
                         <li>

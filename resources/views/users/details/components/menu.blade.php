@@ -3,25 +3,19 @@
 		<div class="common-menu-wrapper">
 			<ul class="common-menu-list">
 				<li id="item_dashboard">
-					<a href="{{ action('Web\UserController@dashboard', [
-						'id' => $user->id,
-					]) }}">{{ trans('dashboard-messages.dashboard') }}</a>
+					<a href="{{ route('user.dashboard', $user->id) }}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{ trans('dashboard-messages.dashboard') }}</a>
 				</li>
 				<li id="item_edit_profile">
-					<a href="{{ action('Web\UserController@editProfile', [
-						'id' => $user->id,
-					]) }}">{{ trans('dashboard-messages.edit_profile') }}</a>
+					<a href="{{ route('user.editProfile', $user->id) }}"><i class="fa fa-edit" aria-hidden="true"></i> {{ trans('dashboard-messages.edit_profile') }}</a>
 				</li>
 				<li id="item_my_plans">
-					<a href="{{ route('user.personal-plan', $user->id) }}">{{ trans('dashboard-messages.my_plans') }}</a>
+					<a href="{{ route('user.personal-plan', $user->id) }}"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{ trans('dashboard-messages.my_plans') }}</a>
 				</li>
 				<li id="item_change_password">
-					<a href="{{ action('Web\UserController@editPassword', [
-						'id' => $user->id,
-					]) }}">{{ trans('dashboard-messages.change_password') }}</a>
+					<a href="{{ route('user.editPassword', $user->id) }}"><i class="fa fa-lock" aria-hidden="true"></i> {{ trans('dashboard-messages.change_password') }}</a>
 				</li>
 				<li>
-					<a href="{{ route('logout') }}" class="normal" id="btn_logout">{{ trans('dashboard-messages.logout') }}</a>
+					<a href="{{ route('logout') }}" class="normal" id="btn_logout"><i class="fa fa-sign-out" aria-hidden="true"></i> {{ trans('dashboard-messages.logout') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>

@@ -77,4 +77,7 @@ return [
     'search_user' => 'Ex: Trinh Duc Toan',
     'search_subject' => 'Ex: PHP',
     'search' => 'Search',
+    'trash' => 'Trash',
+    'start_date' => 'Start Date',
+    'due_date' => 'Due Date',
 ];
