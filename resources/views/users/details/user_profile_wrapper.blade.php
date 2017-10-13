@@ -43,26 +43,22 @@
                 <div class="container">
                     <div class="inner-bottom">
                         <ul class="user-header-menu">
-                            <li>
-                                <a href="{{ action('Web\UserController@profile', [
-                                    'id' => $user->id,
-                                ]) }}">
+                            <li id="user_profile">
+                                <a href="{{ route('user.profile', $user->id) }}">
                                     {{ trans('dashboard-messages.profile') }}
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ action('Web\UserController@showPlans', [
-                                    'id' => $user->id,
-                                ]) }}">
+                            <li id="user_plan">
+                                <a href="{{ route('user.plans', $user->id) }}">
                                     {{ trans('dashboard-messages.plans') }}
                                 </a>
                             </li>
                             @if(Auth::user()->id == $user->id)
-                                <li>
+                                <li id="user_dashboard">
                                     <a href="{{ route('user.dashboard', Auth::user()->id) }}">{{ trans('dashboard-messages.dashboard') }}</a>
                                 </li>
                                 @if(Auth::user()->isAdmin())
-                                    <li>
+                                    <li id="user_admin">
                                         <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('view.admin') }}</a>
                                     </li>
                                 @endif

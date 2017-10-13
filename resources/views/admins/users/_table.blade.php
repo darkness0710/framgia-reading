@@ -22,13 +22,13 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Avatar</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>View</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>{{ trans('admin-users.name') }}</th>
+                                            <th>{{ trans('admin-users.avatar') }}</th>
+                                            <th>{{ trans('admin-users.email') }}</th>
+                                            <th>{{ trans('admin-users.role') }}</th>
+                                            <th>{{ trans('admin-users.view') }}</th>
+                                            <th>{{ trans('admin-users.edit') }}</th>
+                                            <th>{{ trans('admin-users.delete') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody class="thum-photo">
@@ -40,7 +40,8 @@
                                                 <td>
                                                     <div class="mt-30">{{ $user->name }}</div>
                                                 </td>
-                                                <td><img src="{{ $user->avatar }}" id="imageSize"></td>
+                                                <td>
+                                                    <div class="admin-user-avatar"><img src="{{ $user->avatar }}" id="avatarUser" ></div></td>
                                                 <td>
                                                     <div class="mt-30">{{ $user->email }}</div>
                                                 </td>

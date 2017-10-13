@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
 use App\Repositories\Contracts\CategoryRepositoryInterface as CategoryRepository;
 use App\Repositories\Contracts\ReviewRepositoryInterface as ReviewRepository;
+use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 use App\Models\Book;
 use App\Models\Cart;
 use App\Models\Category;
@@ -17,15 +18,19 @@ class BookController extends Controller
 {
     private $bookRepository;
     private $categoryRepository;
+    private $reviewRepository;
+    private $userRepository;
 
     public function __construct(
         BookRepository $bookRepository,
         CategoryRepository $categoryRepository,
-        ReviewRepository $reviewRepository
+        ReviewRepository $reviewRepository,
+        UserRepository $userRepository
     ) {
         $this->bookRepository = $bookRepository;
         $this->categoryRepository = $categoryRepository;
         $this->reviewRepository = $reviewRepository;
+         $this->userRepository = $userRepository;
     }
 
     public function index(Request $request)
@@ -130,7 +135,7 @@ class BookController extends Controller
     public function indexDashboard(Request $request)
     {
         $user = $this->userRepository->user();
-        $book = $this->bookRepository->paginate(10);
+        $books = $this->bookRepository->paginate(10);
 
         return view('admins.books.index', compact('user', 'books'));
     }

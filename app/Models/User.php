@@ -82,6 +82,11 @@ class User extends Authenticatable
         return asset(config('custom.avatar.url') . $avatarName);
     }
 
+    public function getRoleAttribute()
+    {
+        return ucfirst($this->attributes['role']);
+    }
+
     public function isLocalAvatar($name)
     {
         $length = strlen(strstr($name, 'https://'));

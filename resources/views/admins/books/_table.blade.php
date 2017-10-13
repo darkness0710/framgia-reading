@@ -22,13 +22,12 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ trans('admin-subjects.title') }}</th>
-                                            <th>{{ trans('admin-subjects.image') }}</th>
-                                            <th>{{ trans('admin-subjects.description') }}</th>
-                                            <th>{{ trans('admin-subjects.trending') }}</th>
-                                            <th>{{ trans('admin-subjects.create_date') }}</th>
-                                            <th>{{ trans('admin-subjects.edit') }}</th>
-                                            <th>{{ trans('admin-subjects.delete') }}</th>
+                                            <th>{{ trans('admin-books.title') }}</th>
+                                            <th>{{ trans('admin-books.image') }}</th>
+                                            <th>{{ trans('admin-books.author') }}</th>
+                                            <th>{{ trans('admin-books.view') }}</th>
+                                            <th>{{ trans('admin-books.edit') }}</th>
+                                            <th>{{ trans('admin-books.delete') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody class="thum-photo">
@@ -44,13 +43,15 @@
                                                 <td>
                                                     <div class="mt-30">{{ $book->author }}</div>
                                                 </td>
-                                                
                                                 <td> 
-                                                    <button type="submit" class="fa fa-trash mt-30"></button>
+                                                    <button type="submit" class="fa fa-eye mt-30"></button>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class="fa fa-edit mt-30"></button>
                                                 </td>
                                                 <td>
                                                     <button type="submit" class="fa fa-trash mt-30"></button>
-                                               </td>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

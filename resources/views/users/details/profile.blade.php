@@ -103,7 +103,6 @@
                         {{ trans('messages.follow') }}
                     </button>
                 </div>
-
                 <div class="user-name">
 
                 </div>
@@ -145,8 +144,10 @@
                 </div>
 
             </div>
-            <div class="height-300" id="subject-tendency">
-            </div>
+            @if ($count_plans))
+                <div class="height-300" id="subject-tendency">
+                </div>
+            @endif
         </div>
     </div>
 @endsection
