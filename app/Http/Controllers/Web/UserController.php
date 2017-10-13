@@ -19,6 +19,7 @@ class UserController extends Controller
 {
     private $userRepository;
     private $userPlanItemRepository;
+    private $userPlanRepository;
 
     public function __construct(
         UserRepository $userRepository,
@@ -147,6 +148,7 @@ class UserController extends Controller
         $followers = $user->followers()->get();
         $following = $user->following()->get();
         $subjectTendency = $this->makePieChart($plans);
+        $count_plans = $plans->count();
 
         return view('users.details.profile')->with([
             'user' => $user,
@@ -155,6 +157,7 @@ class UserController extends Controller
             'following' => $following,
             'id' => $id,
             'subjectTendency' => $subjectTendency,
+            'count_plans' => $count_plans
         ]);
     }
 
@@ -180,7 +183,7 @@ class UserController extends Controller
             $dataTable->addRow([$key, $subject]);
         }
 
-         return Lava::PieChart('Subject Tendency', $dataTable);
+        return Lava::PieChart('Subject Tendency', $dataTable);
     }
 
     public function indexDashboard(Request $request)

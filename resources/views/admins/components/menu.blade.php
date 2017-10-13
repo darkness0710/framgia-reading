@@ -2,32 +2,32 @@
     <aside class="sidebar-wrapper pr-15 pr-0-xs">
         <div class="common-menu-wrapper">
             <ul class="common-menu-list">
-                <li id="item_dashboard">
+                <li id="admin_dashboard">
                     <a href="{{ route('admin.dashboard', $user->id) }}">
                         <i class="fa fa-tachometer" aria-hidden="true"></i> {{ trans('dashboard-messages.admin_dashboard') }}
                     </a>
                 </li>
-                <li id="#">
+                <li id="admin_subjects">
                     <a href="{{ route('admin.subject', $user->id) }}">
                         <i class="fa fa-university " aria-hidden="true"></i> {{ trans('view.manage_subjects') }}
                     </a>
                 </li> 
-                <li id="#">
+                <li id="admin_categories">
                     <a href="{{ route('admin.category', $user->id) }}">
                         <i class="fa fa-slack" aria-hidden="true"></i> {{ trans('view.manage_categories') }}
                     </a>
                 </li>
-                <li id="#">
+                <li id="admin_users">
                     <a href="{{ route('admin.user', $user->id) }}">
                         <i class="fa fa-user" aria-hidden="true"></i> {{ trans('view.manage_users') }}
                     </a>
                 </li>
-                <li id="#">
+                <li id="admin_books">
                     <a href="{{ route('admin.book', $user->id) }}">
                         <i class="fa fa-book" aria-hidden="true"></i> {{ trans('view.manage_books') }}
                     </a>
                 </li>
-                <li id="#">
+                <li id="admin_trash">
                     <a href="#">
                         <i class="fa fa-trash" aria-hidden="true"></i> {{ trans('view.trash') }}
                     </a>

@@ -20,4 +20,5 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'avatar' => 'Avatar',
+    'author' => 'Author'
 ];

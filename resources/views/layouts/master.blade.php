@@ -15,7 +15,8 @@
         {{ Html::style('bower_components/alertify-js/build/css/themes/default.css') }}
         {{ Html::style('bower_components/alertify-js/build/css/alertify.css') }}
         {{ Html::style('css/cart.css') }}
-
+        {{ Html::style('css/admin.css') }}
+        
         @yield('styles')
     </head>
     <body class="home">
