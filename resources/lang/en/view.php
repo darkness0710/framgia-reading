@@ -80,4 +80,6 @@ return [
     'trash' => 'Trash',
     'start_date' => 'Start Date',
     'due_date' => 'Due Date',
+    'my_plans' => 'My Plans',
+    'not_have_data' => 'NOT HAVE DATA!',
 ];

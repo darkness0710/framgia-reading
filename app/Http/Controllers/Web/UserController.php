@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 use App\Repositories\Contracts\UserPlanItemRepositoryInterface as UserPlanItemRepository;
 use App\Repositories\Contracts\UserPlanRepositoryInterface as UserPlanRepository;
+use App\Repositories\Contracts\PlanRepositoryInterface as PlanRepository;
 use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
 use App\Models\UserPlan;
 use App\Models\User;
+use App\Models\Plan;
 use Hash;
 use View;
 use Lava;
@@ -20,16 +22,19 @@ class UserController extends Controller
     private $userRepository;
     private $userPlanItemRepository;
     private $userPlanRepository;
+    private $planRepository;
 
     public function __construct(
         UserRepository $userRepository,
         UserPlanItemRepository $userPlanItemRepository,
-        UserPlanRepository $userPlanRepository
+        UserPlanRepository $userPlanRepository,
+        PlanRepository $planRepository
     )
     {
         $this->userRepository = $userRepository;
         $this->userPlanItemRepository = $userPlanItemRepository;
         $this->userPlanRepository = $userPlanRepository;
+        $this->planRepository = $planRepository;
     }
 
     public function dashboard()
@@ -224,29 +229,27 @@ class UserController extends Controller
         return Response(['html' => $html]);
     }
 
-    public function showPersonalPlans(Request $request, $id)
+    public function showMyPlans(Request $request, $id)
     {
         $user = $this->userRepository->user();
-        $plans = $this->userPlanRepository->getByAssignId($id)
-            ->with(['plan.user', 'plan.subject'])->paginate(config('user_personal_plan.pagination'));
+        $plans = $this->planRepository->findPlansOwned($user->id, ['user'], 10);
+        $filterPlans = ['Created', 'Forked'];
 
-        if ($request->ajax()) {
-            return response()->json([
-                'pagination' => [
-                    'total'        => $plans->total(),
-                    'per_page'     => $plans->perPage(),
-                    'current_page' => $plans->currentPage(),
-                    'last_page'    => $plans->lastPage(),
-                    'from'         => $plans->firstItem(),
-                    'to'           => $plans->lastItem()
-                ],
-                'data' => $plans,
-            ]);
+        if($request->ajax()) {
+            $input = $request->all();
+
+            if($input['filterPlans'] == 'Created') {
+                $html = view('users.details._created_plans', compact('user', 'plans', 'filterPlans'))
+                    ->render();
+            } else {
+                $userPlans = $this->userPlanRepository->getPlanForked($id, 10);
+                $html = view('users.details._forked_plans', compact('user', 'userPlans', 'filterPlans'))
+                    ->render();
+            }
+
+            return Response(['html' => $html]);
         }
 
-        return view('users.details.personal_plans')->with([
-            'user' => $user,
-            'forkedPlans' => $plans,
-        ]);
+        return view('users.details.myPlans', compact('user', 'plans', 'filterPlans'));
     }
 }

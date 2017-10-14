@@ -25,4 +25,13 @@ class UserPlanRepository extends Repository implements UserPlanRepositoryInterfa
     {
         return $this->model->where('assign_id', $id);
     }
+
+    public function getPlanForked($id, $paginate) 
+    {
+        $userPlans = UserPlan::where('assign_id', $id)
+            ->with('plan', 'plan.user')
+            ->paginate($paginate);
+
+    return $userPlans;
+    }
 }

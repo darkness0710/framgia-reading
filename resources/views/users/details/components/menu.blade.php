@@ -10,7 +10,7 @@
 					<a href="{{ route('user.editProfile', $user->id) }}"><i class="fa fa-edit" aria-hidden="true"></i> {{ trans('dashboard-messages.edit_profile') }}</a>
 				</li>
 				<li id="user_dashboard_plan">
-					<a href="{{ route('user.personal-plan', $user->id) }}"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{ trans('dashboard-messages.my_plans') }}</a>
+					<a href="{{ route('user.myPlans', $user->id) }}"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{ trans('dashboard-messages.my_plans') }}</a>
 				</li>
 				<li id="user_dashboard_edit_password">
 					<a href="{{ route('user.editPassword', $user->id) }}"><i class="fa fa-lock" aria-hidden="true"></i> {{ trans('dashboard-messages.change_password') }}</a>

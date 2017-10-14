@@ -1,3 +1,9 @@
 .admin-user-avatar {
     height: 60px;
 }
+
+.filter-my-plans {
+    width: 300px;
+    margin-left: 565px;
+    margin-bottom: -22px;
+}

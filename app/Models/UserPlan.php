@@ -36,4 +36,9 @@ class UserPlan extends Model
     {
         return $this->hasMany(UserPlanItem::class);
     }
+
+    public function getStatusAttribute()
+    {
+        return ucfirst($this->attributes['status']);
+    }
 }
