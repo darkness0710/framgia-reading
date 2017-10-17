@@ -13,8 +13,7 @@
                         <label>{{ trans('messages.comment') }}</label>
                         <input type="hidden" name="rate" id="rate"/>
                         <input type="hidden" name="target_id" id="target_id"/>
-                        <textarea class="form-control" rows="5"
-                            name="comment" id="comment" required></textarea>
+                        <textarea class="form-control" rows="5" name="comment" id="comment" required='required'></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">

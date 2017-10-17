@@ -47,7 +47,7 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
 
         foreach($plans as $plan) {
             $plan->reviews_count = Review::where('reviewable_id', '=', $plan->id)
-                ->where('reviewable_type', '=', 'Plan')->count();
+                ->whereLike('reviewable_type', 'Plan')->count();
         }
 
         return $plans;
@@ -113,7 +113,14 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
     public function findPlanBySubject($condition, $id, $paginate = 9)
     {
         $plans = Plan::where($condition, $id)->paginate($paginate);
-        
+
         return $plans;
+    }
+
+    public function setRate($id, $value)
+    {
+        $plan = $this->findBy('id', $id);
+        $plan->rate = $value;
+        $plan->save();
     }
 }

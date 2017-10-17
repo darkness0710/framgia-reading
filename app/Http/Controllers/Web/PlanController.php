@@ -21,7 +21,7 @@ class PlanController extends Controller
     private $subjectRepository;
     private $planItemRepository;
     private $bookRepository;
-    
+
     public function __construct(
         PlanRepository $planRepository,
         ReviewRepository $reviewRepository,
@@ -39,7 +39,7 @@ class PlanController extends Controller
     }
 
     public function index(Request $request)
-    {   
+    {
         $sorts = ['Name', 'Rate'];
         $subjects = $this->subjectRepository->getName(['id', 'title']);
         $plans = $this->planRepository
@@ -70,7 +70,7 @@ class PlanController extends Controller
     public function searchData(Request $request)
     {
         $input = $request->all();
-        
+
         if($input['title'] == null) {
             $input['title'] = "";
         }

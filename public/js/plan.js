@@ -3,7 +3,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 new Vue({
     el: '#boss',
     data: {
-        sorts: [], 
+        sorts: [],
         subjects: []
     },
     mounted: function() {
@@ -31,14 +31,13 @@ new Vue({
                             $('.result').html(response.data.html);
                           })
                           .catch(function (error) {
-                           
+
                           });
                     });
                 })
                 .catch(function(error) {
-                    
+
                 });
         },
     }
 });
-
