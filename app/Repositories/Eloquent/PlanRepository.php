@@ -117,10 +117,18 @@ class PlanRepository extends Repository implements PlanRepositoryInterface
         return $plans;
     }
 
+
     public function setRate($id, $value)
     {
         $plan = $this->findBy('id', $id);
         $plan->rate = $value;
         $plan->save();
+    }
+
+    public function findPlansOwned($user_id, $with = [], $paginate = 10)
+    {
+        $plans = Plan::where('user_id', $user_id)->with($with)->paginate($paginate);
+
+        return $plans;
     }
 }

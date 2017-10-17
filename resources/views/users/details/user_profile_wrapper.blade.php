@@ -38,7 +38,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="content-bottom">
                 <div class="container">
                     <div class="inner-bottom">
@@ -53,11 +52,13 @@
                                     {{ trans('dashboard-messages.plans') }}
                                 </a>
                             </li>
-                            @if(Auth::user()->id == $user->id)
+                            @if(Auth::user())
+                               @if(Auth::user()->id == $user->id)
                                 <li id="user_dashboard">
                                     <a href="{{ route('user.dashboard', Auth::user()->id) }}">{{ trans('dashboard-messages.dashboard') }}</a>
                                 </li>
-                                @if(Auth::user()->isAdmin())
+                                @endif
+                                @if(Auth::user()->id == $user->id && Auth::user()->isAdmin())
                                     <li id="user_admin">
                                         <a href="{{ route('admin.dashboard', $user->id) }}">{{ trans('view.admin') }}</a>
                                     </li>

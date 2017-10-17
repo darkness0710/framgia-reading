@@ -4,7 +4,6 @@
 
     <div class="col-xs-12 col-sm-7 col-md-8 mt-20">
         <h4 class="section-title">{{ trans('messages.profile') }}</h4>
-{{--         <div class="bt mt-30 mb-30"></div> --}}
         <ul class="featured-list-with-h">
             <li>
                 <div class="row">
@@ -144,7 +143,7 @@
                 </div>
 
             </div>
-            @if ($count_plans))
+            @if($count_plans)
                 <div class="height-300" id="subject-tendency">
                 </div>
             @endif

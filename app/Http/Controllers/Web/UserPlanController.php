@@ -12,6 +12,7 @@ use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon;
+use App\Models\UserPlan;
 
 class UserPlanController extends Controller
 {
@@ -50,7 +51,7 @@ class UserPlanController extends Controller
         return view('userPlans.fork')->with([
             'plan' => $plan,
             'items' => $planItems,
-            'forked' => $this->userPlanRepository->findBy('plan_id', $plan->id)->count(),
+            'forked' => count(UserPlan::where('plan_id', $id)->get()),
         ]);
     }
 

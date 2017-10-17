@@ -57,9 +57,9 @@ Route::group(['prefix' => 'user'], function () {
             //Route Update Password
             Route::get('/edit-password', 'Web\UserController@editPassword')->name('user.editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
-            Route::get('/plans', 'Web\UserController@showPersonalPlans')->name('user.personal-plan');
+            Route::get('/plans', 'Web\UserController@showMyPlans')->name('user.myPlans');
         });
-        Route::group(['prefix' => '/admin', 'middleware' => 'auth.admin'], function () {
+        Route::group(['prefix' => '/admin', 'middleware' => ['auth.admin', 'unauthenticated']], function () {
             Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
             Route::group(['prefix' => 'subjects'], function () {
                 Route::get('/', 'Web\SubjectController@indexDashboard')->name('admin.subject');
@@ -82,7 +82,7 @@ Route::group(['prefix' => 'user'], function () {
             });
         });
         Route::get('/profile', 'Web\UserController@profile')->name('user.profile');
-        Route::get('/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
+        Route::get('/forked/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
     });
 });
 
