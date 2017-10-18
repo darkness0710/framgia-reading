@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'manage_books' => 'Manage Books',
@@ -21,5 +21,11 @@ return [
     'delete' => 'Delete',
     'avatar' => 'Avatar',
     'author' => 'Author',
-    'search_placeholder' => 'Search by title or author books'
+    'search_placeholder' => 'Search by title or author books',
+    'publisher' => 'Publisher',
+    'cover' => 'Cover',
+    'book_created_success' => 'Book Created Successfully!',
+    'language' => 'Language',
+    'year' => 'Year',
+    'category' => 'Category',
 ];

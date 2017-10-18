@@ -138,6 +138,12 @@ class BookController extends Controller
     {
         $user = $this->userRepository->user();
         $books = $this->bookRepository->paginate(10);
+        $allCategories = $this->categoryRepository->all();
+        $categories = [];
+
+        foreach($allCategories as $category) {
+            $categories = array_add($categories, $category->id, $category->title);
+        }
 
         if($request->ajax()) {
            $html = view('admins.books._book', compact('user', 'books'))->render();
@@ -145,7 +151,7 @@ class BookController extends Controller
            return Response(['html' => $html]);
         }
 
-        return view('admins.books.index', compact('user', 'books'));
+        return view('admins.books.index', compact('user', 'books', 'categories'));
     }
 
     public function adminSearchData(Request $request)
