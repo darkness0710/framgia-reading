@@ -996,7 +996,7 @@ input[type='checkbox']:checked + label:before {
 }
 
 
-/* 
+/*
     User Default Style
     Change the following styles to modify the appearance of the menu.
 */
@@ -1281,7 +1281,7 @@ input[type='checkbox']:checked + label:before {
  *
  * Copyright Jordan Schroter
  * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0    
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Boostrap 3 patch for for bootstrap-modal. Include BEFORE bootstrap-modal.css!
  */
@@ -1537,7 +1537,7 @@ input[type='checkbox']:checked + label:before {
  *
  * Copyright Jordan Schroter
  * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0    
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Boostrap 3 patch for for bootstrap-modal. Include BEFORE bootstrap-modal.css!
  */
@@ -3041,7 +3041,7 @@ body.modal-open,
 
 /*!
  * bootstrap-tokenfield
- * https://github.com/sliptree/bootstrap-tokenfield  
+ * https://github.com/sliptree/bootstrap-tokenfield
  * Copyright 2013-2014 Sliptree and other contributors; Licensed MIT
 
 /* General Typeahead styling, from http://jsfiddle.net/ragulka/Dy9au/1 */
@@ -3863,7 +3863,7 @@ body.modal-open,
 /*
  *  Bootstrap TouchSpin - v3.0.1
  *  A mobile and touch friendly input spinner component for Bootstrap 3.
- *  http://www.virtuosoft.eu/code/bootstrap-touchspin/  
+ *  http://www.virtuosoft.eu/code/bootstrap-touchspin/
  *
  *  Made by IstvÃ¡n Ujj-MÃ©szÃ¡ros
  *  Under Apache License v2.0 License
@@ -3969,7 +3969,7 @@ body.modal-open,
 
 /**
  * jQuery Date Range Picker Plugin
- * https://github.com/longbill/jquery-date-range-picker 
+ * https://github.com/longbill/jquery-date-range-picker
  */
 
 .date-picker {
@@ -5365,7 +5365,7 @@ ul.date-range-label li.not-available > span > span {
  * Built for Yii Framework 2.0
  * Author: Kartik Visweswaran
  * Year: 2015
- * For more Yii related demos visit http://demos.krajee.com or http://plugins.krajee.com/file-preview-icons-demo     
+ * For more Yii related demos visit http://demos.krajee.com or http://plugins.krajee.com/file-preview-icons-demo
  */
 
 .file-preview-frame,
@@ -5771,7 +5771,7 @@ ul.date-range-label li.not-available > span > span {
 
 /**
  * Bootstrap3 WYSIHTML5
- * bootstrap3-wysihtml5-bower 
+ * bootstrap3-wysihtml5-bower
  * http://waxolunist.github.io/bootstrap3-wysihtml5-bower/
  */
 
@@ -6545,7 +6545,7 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value=orange] {
 /*
  * Timepicker stylesheet
  * Highly inspired from datepicker
- * FG - Nov 2010 - Web3R 
+ * FG - Nov 2010 - Web3R
  *
  * version 0.0.3 : Fixed some settings, more dynamic
  * version 0.0.4 : Removed width:100% on tables

@@ -121,7 +121,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
     }
 
     public function searchData($select = ['*'], $withCount = [], $input)
-    {   
+    {
         $input['title'] = preg_replace('!\s+!', ' ', $input['title']);
 
         if($input['title'] == null) {

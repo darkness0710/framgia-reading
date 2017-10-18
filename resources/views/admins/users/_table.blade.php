@@ -1,4 +1,4 @@
-@if(!$users->isEmpty())    
+@if(!$users->isEmpty())
     <div class="row">
         <div id="tbl">
             <div class="text-center">

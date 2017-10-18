@@ -1,4 +1,4 @@
-@if(!$users->isEmpty())    
+@if(!$users->isEmpty())
     <div class="col-md-8">
         <div class="table-responsive tbl-four">
             <table class="table table-bordered bor-bot four-color">
@@ -10,7 +10,6 @@
                         <th>{{ trans('admin-users.email') }}</th>
                         <th>{{ trans('admin-users.role') }}</th>
                         <th>{{ trans('admin-users.view') }}</th>
-                        <th>{{ trans('admin-users.edit') }}</th>
                         <th>{{ trans('admin-users.delete') }}</th>
                     </tr>
                 </thead>
@@ -31,11 +30,10 @@
                             <td>
                                 <div class="mt-30">{{ $user->role }}</div>
                             </td>
-                            <td> 
-                                <button class="fa fa-eye mt-30"></button>
-                            </td>
-                            <td> 
-                                <button class="fa fa-pencil mt-30"></button>
+                            <td>
+                                <a href="{{ route('user.profile', $user->id) }}">
+                                    <button type="submit" class="fa fa-eye mt-30"></button>
+                                </a>
                             </td>
                             <td>
                                 <button class="fa fa-trash mt-30"></button>

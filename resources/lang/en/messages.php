@@ -87,4 +87,9 @@ return [
     'creator' => 'Creator',
     'write_review' => 'Write your review',
     'comment' => 'Comment',
+    'mobile' => 'Mobile',
+    'create' => 'Create',
+    'clear' => 'Clear',
+    'confirm-password' => 'Confirm Password',
+    'user_created_success' => 'User Created Successfully!',
 ];
