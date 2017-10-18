@@ -21,6 +21,11 @@ class Book extends BaseModel
         'summary',
     ];
 
+     public function getCoverAttribute()
+    {
+        return asset(config('setup.book_cover_path') . $this->attributes['cover']);
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);

@@ -87,10 +87,16 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::group(['prefix' => 'subject'], function () {
+    Route::get('/search', 'Web\SubjectController@searchData');
+    Route::get('/admin-search', 'Web\SubjectController@adminSearchData');
     Route::get('/', 'Web\SubjectController@index')->name('subject.index');
     Route::get('/{id}', 'Web\SubjectController@show')->name('subject.show');
     Route::get('/get-subject', 'Web\SubjectController@getAllSubjectByFilter');
     Route::get('/get-sort', 'Web\SubjectController@getAllSortByFilter');
+});
+
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/admin-search', 'Web\CategoryController@adminSearchData');
 });
 
 Route::get('error', 'Web\HomeController@errorPage');

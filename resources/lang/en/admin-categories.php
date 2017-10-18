@@ -18,4 +18,5 @@ return [
     'image_subject' =>'Image Subject',
     'update' => 'Update',
     'close' => 'Close',
+    'search_placeholder' => 'Search by title of categories'
 ];

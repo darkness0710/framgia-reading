@@ -46,7 +46,7 @@ $factory->define(App\Models\Book::class, function (Faker\Generator $faker) {
         'status' => $faker->randomElement($array = array ('1', '2')),
         'publisher' => $faker->company,
         'pages' => $faker->numberBetween(100, 1000),
-        'cover' => $faker->imageUrl($width = 640, $height = 480),
+        'cover' => 'book.jpg',
         'rate' => $faker->numberBetween(1, 5),
         'summary' => $faker->text(150),
     ];

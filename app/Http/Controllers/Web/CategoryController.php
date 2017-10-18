@@ -27,4 +27,17 @@ class CategoryController extends Controller
 
         return view('admins.categories.index', compact('user', 'categories'));
     }
+
+    public function adminSearchData(Request $request)
+    {
+        if(!$request->ajax()) {
+            return fasle;
+        }
+
+        $user = $this->userRepository->user();
+        $categories = $this->categoryRepository->adminSearchData($request, 10);
+        $html = view('admins.categories._category', compact('categories', 'user'))->render();
+
+        return Response(['html' => $html]);    
+    }
 }

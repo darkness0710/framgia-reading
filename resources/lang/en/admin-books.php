@@ -20,5 +20,6 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'avatar' => 'Avatar',
-    'author' => 'Author'
+    'author' => 'Author',
+    'search_placeholder' => 'Search by title of subjects'
 ];

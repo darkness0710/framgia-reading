@@ -10,4 +10,6 @@ interface SubjectRepositoryInterface extends RepositoryInterface
     public function countSubject($select = ['*']);
 
     public function getName($select = ['*']);
+
+    public function adminSearchData($request, $paginate);
 }

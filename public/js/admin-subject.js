@@ -1,4 +1,3 @@
-//Admin Subject Edit Modal
 $(document).on('click', '#modal-edit', function(e) {
     var url = window.location.href.split('#')[0];
     var id = $(this.attributes.subject_id).val();
@@ -85,8 +84,8 @@ function validate(file) {
     }
 }
 
-//Admin Subject New Modal
 $(document).on('click', '#modal-new', function(e) {
+    $('#preview-image').hide();
     $('#upload-image').change(function(evt) {
         var tgt = evt.target || window.event.srcElement,
             files = tgt.files;
@@ -115,6 +114,8 @@ function validateImageAll(file) {
         var notification = alertify.notify('Size > 5 MB! ', 'error', 5, function() {});
         $("#upload-image").val("");
     }
+
+    $('#preview-image').show();
 }
 
 $(document).on('click', '#new_subject', function(e) {
@@ -159,5 +160,19 @@ $(document).on('click', '#new_subject', function(e) {
         error: function(data) {
             //Error
         }
+    });
+});
+
+$(document).on('click', '#admin-search-subjects', function(e) {
+    axios.get('/subject/admin-search', {
+        params: {
+            title: $('#nameSearch').val().trim()
+        }
+    })
+    .then(function (response) {
+        $('#ajax_table_subjects').html(response.data.html);
+    })
+    .catch(function (error) {
+        //Error
     });
 });
