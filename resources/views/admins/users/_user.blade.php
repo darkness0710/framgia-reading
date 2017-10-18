@@ -58,3 +58,4 @@
         <div class="text-center">{{ trans('view.not_found_lucky') }}</div>
     </div>
 @endif
+

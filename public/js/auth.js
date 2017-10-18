@@ -45,8 +45,10 @@ $("#btn_login").click(function(e) {
         redirect_url: window.location.href,
         url: "/login",
         success:function(data){
+            var notification = alertify.notify('Login Success! Welcome to Framgia Reading', 'success', 5, function() {  
+            });
             $('#loginModal').modal('hide');
-            location.reload();
+            window.setTimeout(function() { location.reload()}, 800);
         },
         error: function (data) {
             errors = data['responseJSON'];

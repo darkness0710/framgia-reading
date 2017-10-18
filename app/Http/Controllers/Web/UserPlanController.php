@@ -95,9 +95,14 @@ class UserPlanController extends Controller
         ]);
     }
 
-    public function show($id, $plan_id)
+    public function show($user_id, $userPlan_id)
     {
-        $forkedPlan = $this->userPlanRepository->findBy('id', $plan_id);
+        $forkedPlan = $this->userPlanRepository->findPlanForked($user_id, $userPlan_id);
+
+        if(empty($forkedPlan)) {
+            return redirect()->route('error');
+        }
+
         $originalPlan = $forkedPlan->plan;
         $items = $this->userPlanItemRepository->findAllBy('user_plan_id', $forkedPlan->id);
 

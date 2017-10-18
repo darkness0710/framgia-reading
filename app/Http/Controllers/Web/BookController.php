@@ -151,7 +151,7 @@ class BookController extends Controller
     public function adminSearchData(Request $request)
     {
         if(!$request->ajax()) {
-            return redirect()->route('error');;
+            return redirect()->route('error');
         }
 
         $user = $this->userRepository->user();

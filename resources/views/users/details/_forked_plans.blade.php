@@ -30,7 +30,7 @@
                                 <div class="GridLex-inner text-right">
                                     <a href="{{ route('plan.show', $userPlan->plan->id) }}" class="btn btn-primary btn-sm">{{ trans('view.viewText') }}</a>
                                 </div>
-                                <a href="#" class="btn btn-primary btn-sm">{{ trans('view.details') }}</a>
+                                <a href="{{ route('forked-plan', ['id' => $user->id, 'userPlan_id' => $userPlan->id ]) }}" class="btn btn-primary btn-sm">{{ trans('view.details') }}</a>
                             </div>
                         </div>
                     </div>

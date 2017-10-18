@@ -24,11 +24,6 @@ class UserPlanItem extends Model
         'due_date' => 'datetime',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function userPlan()
     {
         return $this->belongsTo(UserPlan::class);

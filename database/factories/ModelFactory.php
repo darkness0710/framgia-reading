@@ -131,16 +131,6 @@ $factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\UserPlanItem::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => function () {
-            return App\Models\User::pluck('id')
-                ->random(1)
-                ->first();
-        },
-        'plan_item_id' => function () {
-            return App\Models\PlanItem::pluck('id')
-                ->random(1)
-                ->first();
-        },
         'user_plan_id' => function () {
             return App\Models\UserPlan::pluck('id')
                 ->random(1)
