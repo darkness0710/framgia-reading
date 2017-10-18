@@ -25,5 +25,7 @@
         </div>
     </div>
 @else
-    <div class="text-center">{{ trans('view.not_found_lucky') }}</div>
+    <div class="col-md-8">
+        <div class="text-center">{{ trans('view.not_found_lucky') }}</div>
+    </div>
 @endif
