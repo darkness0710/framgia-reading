@@ -20,7 +20,7 @@
 @include('books.review-modal')
 <div class="main-wrapper scrollspy-container">
 <!-- start breadcrumb -->
-<div class="breadcrumb-image-bg breadcrumb-bg-link">
+<div class="breadcrumb-image-bg breadcrumb-bg-link" style="background-image:url('http://cdn30.us1.fansshare.com/image/wallpaperblue/engineering-wallpaper-hd-wallpapers-wallpaper-1528541881.jpg');">
     <div class="container">
         <div class="page-title">
             <div class="row">

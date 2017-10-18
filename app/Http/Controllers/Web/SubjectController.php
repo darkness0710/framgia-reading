@@ -30,7 +30,6 @@ class SubjectController extends Controller
     {
         $sorts = ['Number of Plans', 'Hot'];
         $subjects = $this->subjectRepository->paginate(9);
-        $count_subjects = $subjects->count();
 
         return view('subject.index', compact('subjects', 'count_subjects', 'sorts'));
     }

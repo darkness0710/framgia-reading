@@ -8,4 +8,6 @@ interface UserPlanRepositoryInterface extends RepositoryInterface
     public function checkForked($user_id, $plan_id);
 
     public function getPlanForked($id, $paginate);
+
+    public function findPlanForked($user_id, $userPlan_id);
 }

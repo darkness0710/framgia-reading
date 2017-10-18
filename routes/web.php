@@ -60,6 +60,7 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('/edit-password', 'Web\UserController@editPassword')->name('user.editPassword');
             Route::post('/update-password', 'Web\UserController@updatePassword');
             Route::get('/plans', 'Web\UserController@showMyPlans')->name('user.myPlans');
+            Route::get('/plans/forked/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
         });
         Route::group(['prefix' => '/admin', 'middleware' => ['auth.admin', 'unauthenticated']], function () {
             Route::get('/', 'Web\AdminController@index')->name('admin.dashboard');
@@ -85,7 +86,7 @@ Route::group(['prefix' => 'user'], function () {
             });
         });
         Route::get('/profile', 'Web\UserController@profile')->name('user.profile');
-        Route::get('/forked/{plan_id}', 'Web\UserPlanController@show')->name('forked-plan');
+        
     });
 });
 
