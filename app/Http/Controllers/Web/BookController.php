@@ -139,6 +139,12 @@ class BookController extends Controller
         $user = $this->userRepository->user();
         $books = $this->bookRepository->paginate(10);
 
+        if($request->ajax()) {
+           $html = view('admins.books._book', compact('user', 'books'))->render();
+
+           return Response(['html' => $html]);
+        }
+
         return view('admins.books.index', compact('user', 'books'));
     }
 }

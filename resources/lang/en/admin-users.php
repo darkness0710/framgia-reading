@@ -20,5 +20,5 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'avatar' => 'Avatar',
-    'search_placeholder' => 'Search by title of subjects'
+    'search_placeholder' => 'Search by name or email of users'
 ];
