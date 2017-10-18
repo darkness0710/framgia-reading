@@ -1,7 +1,7 @@
 <?php 
 
 return [
-    'manage_users' => 'Manage Users',
+    'manage_books' => 'Manage Books',
     'title' => 'Title',
     'image' => 'Image',
     'description' => 'Description',
@@ -21,5 +21,5 @@ return [
     'delete' => 'Delete',
     'avatar' => 'Avatar',
     'author' => 'Author',
-    'search_placeholder' => 'Search by title of subjects'
+    'search_placeholder' => 'Search by title or author books'
 ];

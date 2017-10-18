@@ -196,6 +196,12 @@ class UserController extends Controller
         $user = $this->userRepository->user();
         $users = $this->userRepository->paginate(10);
 
+        if($request->ajax()) {
+           $html = view('admins.users._user', compact('user', 'users'))->render();
+
+           return Response(['html' => $html]);
+        }
+        
         return view('admins.users.index', compact('user', 'users'));
     }
 

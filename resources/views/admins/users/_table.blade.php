@@ -8,69 +8,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10" data-toggle="modal" id="modal-new" data-target="#modal-new-subjects"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-subjects.new') }}</button>
+                            <button class="btn btn-warning btn-block mb-10" data-toggle="modal" id="modal-new" data-target="#modal-new-subjects"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('admin-users.new') }}</button>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control mb-10" placeholder="Ex: Php master" id="nameSearch" />
+                            <input type="text" class="form-control mb-10" placeholder="{{ trans('admin-users.search_placeholder') }}" id="nameSearch" />
                         </div>
                         <div class="col-md-2">
                             <button class="btn btn-warning btn-block mb-10">{{ trans('admin-subjects.search') }}</button>
                         </div>
-                        <div class="col-md-8">
-                            <div class="table-responsive tbl-four">
-                                <table class="table table-bordered bor-bot four-color">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>{{ trans('admin-users.name') }}</th>
-                                            <th>{{ trans('admin-users.avatar') }}</th>
-                                            <th>{{ trans('admin-users.email') }}</th>
-                                            <th>{{ trans('admin-users.role') }}</th>
-                                            <th>{{ trans('admin-users.view') }}</th>
-                                            <th>{{ trans('admin-users.edit') }}</th>
-                                            <th>{{ trans('admin-users.delete') }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="thum-photo">
-                                        @foreach($users as $user)
-                                            <tr>
-                                                <td>
-                                                    <div class="mt-30">{{ $loop->iteration }}</div>
-                                                </td>
-                                                <td>
-                                                    <div class="mt-30">{{ $user->name }}</div>
-                                                </td>
-                                                <td>
-                                                    <div class="admin-user-avatar"><img src="{{ $user->avatar }}" id="avatarUser" ></div></td>
-                                                <td>
-                                                    <div class="mt-30">{{ $user->email }}</div>
-                                                </td>
-                                                <td>
-                                                    <div class="mt-30">{{ $user->role }}</div>
-                                                </td>
-                                                <td> 
-                                                    <button type="submit" class="fa fa-eye mt-30"></button>
-                                                </td>
-                                                <td> 
-                                                    <button type="submit" class="fa fa-pencil mt-30"></button>
-                                                </td>
-                                                <td>
-                                                    <button type="submit" class="fa fa-trash mt-30"></button>
-                                               </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="pager-wrappper clearfix">
-                                <div class="pager-innner">
-                                    <div class="clearfix">
-                                        <div id="paginate">
-                                            {{ $users->links() }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="ajax_table_users">
+                            @include('admins.users._user')
                         </div>
                     </div>
                 </div>
@@ -78,5 +25,7 @@
         </div>
     </div>
 @else
-    <div class="text-center">{{ trans('view.not_found_lucky') }}</div>
+    <div class="col-md-8">
+        <div class="text-center">{{ trans('view.not_found_lucky') }}</div>
+    </div>
 @endif

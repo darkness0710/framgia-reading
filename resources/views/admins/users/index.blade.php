@@ -8,8 +8,13 @@
     {{ Html::style('css/table.css') }}
 @endsection
 
-<div id="ajax_table_users" class="col-md-9">
+<div class="col-md-9">
     @include('admins.users._table')
 </div>
+
+@section('script')
+    {{ Html::script('js/admin-user.js') }}
+    {{ Html::script('js/admin-user-paginate.js') }}
+@endsection
 
 @endsection

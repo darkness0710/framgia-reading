@@ -1,28 +1,39 @@
-@if(!$categories->isEmpty())      
+@if(!$users->isEmpty())    
     <div class="col-md-8">
         <div class="table-responsive tbl-four">
             <table class="table table-bordered bor-bot four-color">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ trans('admin-categories.title') }}</th>
-                        <th>{{ trans('admin-categories.description') }}</th>
-                        <th>{{ trans('admin-categories.edit') }}</th>
-                        <th>{{ trans('admin-categories.delete') }}</th>
+                        <th>{{ trans('admin-users.name') }}</th>
+                        <th>{{ trans('admin-users.avatar') }}</th>
+                        <th>{{ trans('admin-users.email') }}</th>
+                        <th>{{ trans('admin-users.role') }}</th>
+                        <th>{{ trans('admin-users.view') }}</th>
+                        <th>{{ trans('admin-users.edit') }}</th>
+                        <th>{{ trans('admin-users.delete') }}</th>
                     </tr>
                 </thead>
                 <tbody class="thum-photo">
-                    @foreach($categories as $category)
+                    @foreach($users as $user)
                         <tr>
                             <td>
                                 <div class="mt-30">{{ $loop->iteration }}</div>
                             </td>
                             <td>
-                                <div class="mt-30">{{ $category->title }}</div>
+                                <div class="mt-30">{{ $user->name }}</div>
                             </td>
                             <td>
-                                <div class="mt-30">{{ $category->description }}</div>
-                            </td>      
+                                <div class="admin-user-avatar"><img src="{{ $user->avatar }}" id="avatarUser" ></div></td>
+                            <td>
+                                <div class="mt-30">{{ $user->email }}</div>
+                            </td>
+                            <td>
+                                <div class="mt-30">{{ $user->role }}</div>
+                            </td>
+                            <td> 
+                                <button class="fa fa-eye mt-30"></button>
+                            </td>
                             <td> 
                                 <button class="fa fa-pencil mt-30"></button>
                             </td>
@@ -38,7 +49,7 @@
             <div class="pager-innner">
                 <div class="clearfix">
                     <div id="paginate">
-                        {{ $categories->links() }}
+                        {{ $users->links() }}
                     </div>
                 </div>
             </div>

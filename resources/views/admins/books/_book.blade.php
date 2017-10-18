@@ -1,34 +1,40 @@
-@if(!$categories->isEmpty())      
+@if(!$books->isEmpty())   
     <div class="col-md-8">
         <div class="table-responsive tbl-four">
             <table class="table table-bordered bor-bot four-color">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ trans('admin-categories.title') }}</th>
-                        <th>{{ trans('admin-categories.description') }}</th>
-                        <th>{{ trans('admin-categories.edit') }}</th>
-                        <th>{{ trans('admin-categories.delete') }}</th>
+                        <th>{{ trans('admin-books.title') }}</th>
+                        <th>{{ trans('admin-books.image') }}</th>
+                        <th>{{ trans('admin-books.author') }}</th>
+                        <th>{{ trans('admin-books.view') }}</th>
+                        <th>{{ trans('admin-books.edit') }}</th>
+                        <th>{{ trans('admin-books.delete') }}</th>
                     </tr>
                 </thead>
                 <tbody class="thum-photo">
-                    @foreach($categories as $category)
+                    @foreach($books as $book)
                         <tr>
                             <td>
                                 <div class="mt-30">{{ $loop->iteration }}</div>
                             </td>
                             <td>
-                                <div class="mt-30">{{ $category->title }}</div>
+                                <div class="mt-30">{{ $book->title }}</div>
+                            </td>
+                            <td><img src="{{ $book->cover }}" id="imageSize"></td>
+                            <td>
+                                <div class="mt-30">{{ $book->author }}</div>
+                            </td>
+                            <td> 
+                                <button class="fa fa-eye mt-30"></button>
                             </td>
                             <td>
-                                <div class="mt-30">{{ $category->description }}</div>
-                            </td>      
-                            <td> 
-                                <button class="fa fa-pencil mt-30"></button>
+                                <button class="fa fa-edit mt-30"></button>
                             </td>
                             <td>
                                 <button class="fa fa-trash mt-30"></button>
-                           </td>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -38,7 +44,7 @@
             <div class="pager-innner">
                 <div class="clearfix">
                     <div id="paginate">
-                        {{ $categories->links() }}
+                        {{ $books->links() }}
                     </div>
                 </div>
             </div>
