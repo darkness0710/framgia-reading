@@ -6,6 +6,7 @@
     {{ Html::script('js/modernizr.custom.js') }}
     {{ Html::script('js/toucheffects.js') }}
     {{ Html::script('js/slider.js') }}
+    {{ Html::script('js/subject.js') }}
 @endpush
 
 @section('styles')
@@ -52,7 +53,7 @@
                                             </div>
                                             <div class="btn-holder">
                                                 <div id="seach-sort">
-                                                    <input type="button" id="searchBook" value="{{ trans('view.search') }}" class="form-control">
+                                                    <input type="button" id="search-subjects" value="{{ trans('view.search') }}" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -64,29 +65,8 @@
                 </div>
         </form>
     </div>
-    <ul class="grid cs-style-1">
-        @foreach ($subjects as $subject)
-            <li>
-                <figure>
-                    <div><img src="{{ $subject->cover }}" alt="{{ $subject->title }}"></div>
-                    <figcaption>
-                        <h3>{{ $subject->title }}</h3>
-                        <span>{{ $subject->description }}</span>
-                        <p class="text-white">{{ $subject->plans_count }} {{ trans('view.plan') }}</p>
-                        <a href="{{ route('subject.show', $subject->id) }}">{{ trans('view.view') }}</a>
-                    </figcaption>
-                </figure>
-            </li>
-        @endforeach
-    </ul>
-    <div class="pager-wrappper clearfix mb-50">
-        <div class="pager-innner">
-            <div class="clearfix">
-                <div id="paginate">
-                    {{ $subjects->links() }}
-                </div>
-            </div>
-        </div>
+    <div class="result">
+        @include('subject._subject')
     </div>
 </div>
 

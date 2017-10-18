@@ -31,6 +31,12 @@ class SubjectController extends Controller
         $sorts = ['Number of Plans', 'Hot'];
         $subjects = $this->subjectRepository->paginate(9);
 
+        if($request->ajax()) {
+            $html = view('subject._subject', compact('subjects'))->render();
+
+            return Response(['html' => $html]);
+        }
+
         return view('subject.index', compact('subjects', 'count_subjects', 'sorts'));
     }
 
@@ -110,7 +116,7 @@ class SubjectController extends Controller
     public function store(Request $request, $user_id)
     {
         if(!$request->ajax()) {
-            return fasle;
+            return redirect()->route('error');
         }
 
         $this->subjectRepository->createSubjectByAjax($request);
@@ -119,7 +125,7 @@ class SubjectController extends Controller
     public function adminSearchData(Request $request)
     {
         if(!$request->ajax()) {
-            return fasle;
+            return redirect()->route('error');
         }
 
         $user = $this->userRepository->user();
@@ -127,5 +133,18 @@ class SubjectController extends Controller
         $html = view('admins.subjects._subject', compact('subjects', 'user'))->render();
 
         return Response(['html' => $html]);    
+    }
+
+    public function searchData(Request $request)
+    {
+        if(!$request->ajax()) {
+            return redirect()->route('error');
+        }
+
+        $user = $this->userRepository->user();
+        $subjects = $this->subjectRepository->searchData($request, 10);
+        $html = view('subject._subject', compact('subjects'))->render();
+
+        return Response(['html' => $html]);
     }
 }

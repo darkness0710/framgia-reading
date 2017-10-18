@@ -74,4 +74,21 @@ class SubjectRepository extends Repository implements SubjectRepositoryInterface
 
         return $subjects;
     }
+
+    public function searchData($request, $paginate)
+    {
+        $input = $request->all();
+
+        if(empty($input['title'])) {
+            $input['title'] = "";
+        }
+
+        $subjects = Subject::whereLike('title', $input['title'])
+            ->orderBy('created_at', 'DESC')
+            ->paginate($paginate);
+
+        $subjects->appends($input);
+
+        return $subjects;
+    }
 }

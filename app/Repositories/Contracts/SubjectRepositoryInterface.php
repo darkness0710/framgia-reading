@@ -12,4 +12,6 @@ interface SubjectRepositoryInterface extends RepositoryInterface
     public function getName($select = ['*']);
 
     public function adminSearchData($request, $paginate);
+
+    public function searchData($request, $paginate);
 }
