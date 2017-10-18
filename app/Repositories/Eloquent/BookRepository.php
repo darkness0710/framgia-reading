@@ -91,4 +91,9 @@ class BookRepository extends Repository implements BookRepositoryInterface
 
         return $books;
     }
+
+    public function getBookWithOptions($id, $options = [])
+    {
+        return Book::where('id', $id)->with($options);
+    }
 }

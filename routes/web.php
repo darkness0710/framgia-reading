@@ -81,13 +81,14 @@ Route::group(['prefix' => 'user'], function () {
             Route::group(['prefix' => 'books'], function () {
                 Route::get('/', 'Web\BookController@indexDashboard')->name('admin.book');
                 Route::post('/store', 'Admin\BookController@store')->name('admin.book.store');
+                Route::get('/show/{book_id}', 'Admin\BookController@show')->name('admin.book.show');
             });
             Route::group(['prefix' => 'plans'], function () {
                 Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');
             });
         });
         Route::get('/profile', 'Web\UserController@profile')->name('user.profile');
-        
+
     });
 });
 

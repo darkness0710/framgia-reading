@@ -92,4 +92,7 @@ return [
     'clear' => 'Clear',
     'confirm-password' => 'Confirm Password',
     'user_created_success' => 'User Created Successfully!',
+    'book_detail' => 'Book Detail',
+    'dismiss' => 'Dismiss',
+    'no_data' => 'No data',
 ];

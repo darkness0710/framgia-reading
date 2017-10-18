@@ -1,4 +1,4 @@
-@if(!$books->isEmpty())   
+@if(!$books->isEmpty())
     <div class="col-md-8">
         <div class="table-responsive tbl-four">
             <table class="table table-bordered bor-bot four-color">
@@ -26,8 +26,8 @@
                             <td>
                                 <div class="mt-30">{{ $book->author }}</div>
                             </td>
-                            <td> 
-                                <button class="fa fa-eye mt-30"></button>
+                            <td>
+                                <button class="fa fa-eye mt-30" id="{{ 'btn_show_' . $book->id }}"></button>
                             </td>
                             <td>
                                 <button class="fa fa-edit mt-30"></button>
