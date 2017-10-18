@@ -18,6 +18,7 @@ Route::get('/', 'Web\HomeController@index')->name('home');
 
 Route::group(['prefix' => 'book'], function () {
     Route::get('/search', 'Web\BookController@searchData');
+    Route::get('/admin-search', 'Web\BookController@adminSearchData');
     Route::get('/{id}', 'Web\BookController@show')->name('book.show');
     Route::get('/', 'Web\BookController@index')->name('book.index');
     Route::get('/add-to-cart/{id}', 'Web\BookController@getAddToCart')
@@ -47,6 +48,7 @@ Route::get('search', 'Web\HomeController@searchData')->name('search');
 Route::group(['prefix' => 'user'], function () {
     Route::get('/search', 'Web\UserController@searchData');
     Route::get('/', 'Web\UserController@index')->name('user.index');
+    Route::get('/admin-search', 'Web\UserController@adminSearchData');
     Route::group(['prefix' => '{id}'], function () {
         Route::get('/', 'Web\UserController@showPlans')->name('user.plans');
         Route::group(['prefix' => '/dashboard', 'middleware' => 'unauthenticated'], function () {
@@ -100,4 +102,4 @@ Route::group(['prefix' => 'categories'], function () {
     Route::get('/admin-search', 'Web\CategoryController@adminSearchData');
 });
 
-Route::get('error', 'Web\HomeController@errorPage');
+Route::get('error', 'Web\HomeController@errorPage')->name('error');

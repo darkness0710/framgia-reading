@@ -31,7 +31,7 @@ class CategoryController extends Controller
     public function adminSearchData(Request $request)
     {
         if(!$request->ajax()) {
-            return fasle;
+            return redirect()->route('error');;
         }
 
         $user = $this->userRepository->user();

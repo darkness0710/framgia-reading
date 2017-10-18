@@ -14,7 +14,7 @@
                             <input type="text" class="form-control mb-10" placeholder="{{ trans('admin-users.search_placeholder') }}" id="nameSearch" />
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10">{{ trans('admin-subjects.search') }}</button>
+                            <button class="btn btn-warning btn-block mb-10" id="admin-search-users">{{ trans('admin-subjects.search') }}</button>
                         </div>
                         <div id="ajax_table_users">
                             @include('admins.users._user')
