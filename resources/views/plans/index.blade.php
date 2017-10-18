@@ -116,3 +116,20 @@
     @include('plans._resultPlan');
 </div>
 @endsection
+
+@section('script')
+<script type="text/javascript">
+    $(".my-rating").starRating({
+        starSize: 20,
+        disableAfterRate: false,
+        callback: function(currentRating, $el){
+            // make a server call here
+        }
+    });
+
+    var arr = $("div[id*='rate_']");
+    for (var i = 0; i < arr.length; i++) {
+        $("#" + arr[i].attributes.id.value).starRating('setRating', arr[i].attributes.value.value);
+    }
+</script>
+@endsection

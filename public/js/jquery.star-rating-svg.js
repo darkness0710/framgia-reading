@@ -111,7 +111,6 @@
 
     applyRating: function(rating){
         var index = rating - 1;
-        console.log(index);
         if (index > -0.5) {
             // paint selected and remove hovered color
             this.paintStars(index, 'active');

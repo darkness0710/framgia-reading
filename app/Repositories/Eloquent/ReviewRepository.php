@@ -89,9 +89,10 @@ class ReviewRepository extends Repository implements ReviewRepositoryInterface
         return [
             'review' => $review,
             'rate' => $averageResult,
-            'reviewNumber' => $this->getReviewNumber($id, 'plan'),
+            'reviewNumber' => $this->getReviewNumber($id, $type),
         ];
     }
+
     public function getReviewNumber($id, $type)
     {
         return Review::whereLike('reviewable_type', $type)

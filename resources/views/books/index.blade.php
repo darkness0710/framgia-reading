@@ -131,15 +131,22 @@
                                                 <input type="hidden" id="user_login" value="{{ Auth::user()->id }}">
                                             @endif
                                             <div class="rating-item">
-                                                <div class="my-rating" id="{{ 'rate_' . $book->id }}"></div>
+                                                <div class="my-rating" id="{{ 'rate_' . $book->id }}"
+                                                    value="{{ $book->rate }}"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row gap-10">
                                         <div class="col-xs-12 col-sm-6">
-                                            <div class="trip-guide-price">
-                                                {{ trans('view.rate') }}: {{ $book->rate }}
-                                                <p class="block inline-block-xs">{{ $book->reviews_count }} {{ trans('view.reviews') }}</p>
+                                            <div class="trip-guide-price clearfix">
+                                                <div class="clearfix mt-5">
+                                                    <p class="float-left">{{ trans('view.reviews') }}</p>
+                                                    <p class="block inline-block-xs col-md-2"
+                                                        id="{{ 'review_number_' . $book->id }}">
+                                                        {{ $book->reviews_count }}
+                                                    </p>
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 text-right text-left-xs">
@@ -170,12 +177,7 @@
 
 @section('script')
 <script type="text/javascript">
-    $(".my-rating").starRating({
-        starSize: 20,
-        disableAfterRate: false,
-        callback: function(currentRating, $el){
-            // make a server call here
-        }
-    });
+    var review_in_book_index = new review_in_book_index();
+    review_in_book_index.init();
 </script>
 @endsection

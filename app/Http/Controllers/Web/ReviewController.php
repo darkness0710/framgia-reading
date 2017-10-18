@@ -33,16 +33,11 @@ class ReviewController extends Controller
         $user = $this->userRepository->user();
         $data = $request->all();
         $data = array_add($data, 'user_id', $user->id);
-        $totalRate = $this->reviewRepository->setReview($data, $book_id, 'Book');
-        $this->bookRepository->setRate($book_id, $totalRate);
-        $reviewNumber = $this->reviewRepository->getReviewNumber($request->target_id, 'Book');
+        $result = $this->reviewRepository->setReview($data, $book_id, 'Book');
 
         return response()->json([
             'status' => 'success',
-            'data' => [
-                'rate' => $totalRate,
-                'reviewNumber' => $reviewNumber,
-            ],
+            'data' => $result,
             'message' => 'Review Created Successfully!',
         ]);
     }

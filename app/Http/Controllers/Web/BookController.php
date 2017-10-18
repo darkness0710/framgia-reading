@@ -52,9 +52,11 @@ class BookController extends Controller
     public function show($id)
     {
         $book = $this->bookRepository->find($id);
+        $reviews = $this->reviewRepository
+            ->getReviews($id, ['comments', 'user'], ['*']);
         $totalReview = $this->reviewRepository->getReviewNumber($id, 'Book');
 
-        return view('books.show', compact('book'))->with('totalReview', $totalReview);
+        return view('books.show', compact('book', 'reviews'))->with('totalReview', $totalReview);
     }
 
     public function getAddToCart(Request $request, $id)
