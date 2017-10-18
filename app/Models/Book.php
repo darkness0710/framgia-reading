@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Book extends BaseModel
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'title',
         'description',
@@ -19,6 +19,8 @@ class Book extends BaseModel
         'cover',
         'rate',
         'summary',
+        'speak',
+        'year',
     ];
 
      public function getCoverAttribute()

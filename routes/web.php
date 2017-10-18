@@ -77,6 +77,7 @@ Route::group(['prefix' => 'user'], function () {
             });
             Route::group(['prefix' => 'books'], function () {
                 Route::get('/', 'Web\BookController@indexDashboard')->name('admin.book');
+                Route::post('/store', 'Admin\BookController@store')->name('admin.book.store');
             });
             Route::group(['prefix' => 'plans'], function () {
                 Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');
