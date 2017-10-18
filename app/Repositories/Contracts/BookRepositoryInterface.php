@@ -11,4 +11,6 @@ interface BookRepositoryInterface extends RepositoryInterface
         $select = ['*'], $paginate = 12);
 
     public function countBook($select = ['*']);
+
+    public function adminSearchData($request, $paginate);
 }

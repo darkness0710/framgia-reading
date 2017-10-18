@@ -72,4 +72,23 @@ class BookRepository extends Repository implements BookRepositoryInterface
         $book->rate = $value;
         $book->save();
     }
+
+    public function adminSearchData($request, $paginate)
+    {
+        $input = $request->all();
+
+        if(empty($input['title'])) {
+            $input['title'] = "";
+        }
+
+        $keyword = $input['title'];
+        $books = Book::whereLike('title', $keyword)
+            ->orWhere('author', 'LIKE', '%' . $keyword . '%')
+            ->orderBy('created_at', 'DESC')
+            ->paginate($paginate);
+
+        $books->appends($input);
+
+        return $books;
+    }
 }

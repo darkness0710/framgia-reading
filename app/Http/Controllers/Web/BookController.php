@@ -147,4 +147,17 @@ class BookController extends Controller
 
         return view('admins.books.index', compact('user', 'books'));
     }
+
+    public function adminSearchData(Request $request)
+    {
+        if(!$request->ajax()) {
+            return redirect()->route('error');;
+        }
+
+        $user = $this->userRepository->user();
+        $books = $this->bookRepository->adminSearchData($request, 10);
+        $html = view('admins.books._book', compact('books', 'user'))->render();
+
+        return Response(['html' => $html]);    
+    }
 }

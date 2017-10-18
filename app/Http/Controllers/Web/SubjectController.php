@@ -83,7 +83,7 @@ class SubjectController extends Controller
     public function update(Request $request, $user_id, $subject_id)
     {
         if(!$request->ajax()) {
-            return fasle;
+            return redirect()->route('error');
         }
 
         $subject = $this->subjectRepository->find($subject_id);

@@ -11,4 +11,6 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function getData($select = ['*'], $withCount = []);
 
     public function searchData($select = ['*'], $withCount = [], $input);
+
+    public function adminSearchData($request, $paginate);
 }

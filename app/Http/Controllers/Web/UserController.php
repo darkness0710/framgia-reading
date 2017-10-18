@@ -224,7 +224,7 @@ class UserController extends Controller
     public function searchData(Request $request)
     {
         if(!$request->ajax()) {
-            return false;
+            return redirect()->route('error');
         }
 
         $input = $request->all();
@@ -257,5 +257,18 @@ class UserController extends Controller
         }
 
         return view('users.details.myPlans', compact('user', 'plans', 'filterPlans'));
+    }
+
+    public function adminSearchData(Request $request)
+    {
+        if(!$request->ajax()) {
+            return redirect()->route('error');
+        }
+
+        $user = $this->userRepository->user();
+        $users = $this->userRepository->adminSearchData($request, 10);
+        $html = view('admins.users._user', compact('users', 'user'))->render();
+
+        return Response(['html' => $html]);    
     }
 }

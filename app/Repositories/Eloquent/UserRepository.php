@@ -159,4 +159,23 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
         return $users;
     }
+
+    public function adminSearchData($request, $paginate)
+    {
+        $input = $request->all();
+
+        if(empty($input['title'])) {
+            $input['title'] = "";
+        }
+
+        $keyword = $input['title'];
+        $users = User::whereLike('name', $keyword)
+            ->orWhere('email', 'LIKE', '%' . $keyword . '%')
+            ->orderBy('created_at', 'DESC')
+            ->paginate($paginate);
+
+        $users->appends($input);
+
+        return $users;
+    }
 }

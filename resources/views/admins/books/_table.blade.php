@@ -14,7 +14,7 @@
                             <input type="text" class="form-control mb-10" placeholder="{{ trans('admin-books.search_placeholder') }}" id="nameSearch" />
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-warning btn-block mb-10">{{ trans('admin-books.search') }}</button>
+                            <button class="btn btn-warning btn-block mb-10" id="admin-search-books">{{ trans('admin-books.search') }}</button>
                         </div>
                         <div id="ajax_table_books">
                             @include('admins.books._book')
