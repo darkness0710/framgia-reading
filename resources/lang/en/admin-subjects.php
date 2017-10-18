@@ -19,4 +19,5 @@ return [
     'update' => 'Update',
     'close' => 'Close',
     'new_subject' => 'New Subject',
+    'search_placeholder' => 'Search by title of subjects'
 ];

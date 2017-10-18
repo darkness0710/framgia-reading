@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Log;
 
-class Subject extends Model
+class Subject extends BaseModel
 {
     use SoftDeletes;
 

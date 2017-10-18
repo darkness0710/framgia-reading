@@ -116,4 +116,17 @@ class SubjectController extends Controller
 
         $this->subjectRepository->createSubjectByAjax($request);
     }
+
+    public function adminSearchData(Request $request)
+    {
+        if(!$request->ajax()) {
+            return fasle;
+        }
+
+        $user = $this->userRepository->user();
+        $subjects = $this->subjectRepository->adminSearchData($request, 10);
+        $html = view('admins.subjects._subject', compact('subjects', 'user'))->render();
+
+        return Response(['html' => $html]);    
+    }
 }

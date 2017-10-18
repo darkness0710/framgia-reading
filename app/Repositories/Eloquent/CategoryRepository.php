@@ -27,4 +27,21 @@ class CategoryRepository extends Repository implements CategoryRepositoryInterfa
 
         return $count;
     }
+
+    public function adminSearchData($request, $paginate)
+    {
+        $input = $request->all();
+
+        if($input['title'] == null) {
+            $input['title'] = "";
+        }
+
+        $categories = Category::whereLike('title', $input['title'])
+            ->orderBy('created_at', 'DESC')
+            ->paginate($paginate);
+
+        $categories->appends($input);
+
+        return $categories;
+    }
 }

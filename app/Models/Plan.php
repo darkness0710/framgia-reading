@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Plan extends BaseModel

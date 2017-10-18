@@ -5,7 +5,7 @@ $(document).on('click', '#paginate ul li a', function (e) {
     e.preventDefault();
     axios.get(addressValue)
       .then(function (response) {
-        $('#ajax_table_subjects').html(response.data.html);
+        $('#ajax_table_categories').html(response.data.html);
       })
       .catch(function (error) {
         //Error
