@@ -109,9 +109,13 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $book_id)
     {
-        //
+        $book = $this->bookRepository->getBookWithOptions($book_id, ['categories'])->first();
+
+        return response()->json([
+            'book' => $book,
+        ]);
     }
 
     /**
@@ -121,9 +125,34 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $book_id)
     {
-        //
+        $data = $request->except('_token');
+        $book = $this->bookRepository->getBookWithOptions($book_id, ['categories'])->first();
+        $cover = $book->cover;
+        if (array_has($data, 'cover')) {
+            $coverFile = $data['cover'];
+            $cover = $data['title'] . '.' . config('app.name') . '.' . $coverFile->getClientOriginalExtension();
+            upload_file($coverFile, config('custom.avatar.url'), $cover);
+        }
+
+        $year = date('Y/m/d', strtotime($data['year']));
+        $book->cover = $cover;
+        $book->title = $data['title'];
+        $book->description = $data['description'];
+        $book->author = $data['author'];
+        $book->status = $data['status'];
+        $book->publisher = $data['publisher'];
+        $book->pages = $data['pages'];
+        $book->speak = $data['language'];
+        $book->year = $year;
+        $book->summary = $data['summary'];
+        $book->save();
+
+        return response()->json([
+            'book' => $book,
+            'messages' => trans('messages.book_update_success'),
+        ]);
     }
 
     /**
