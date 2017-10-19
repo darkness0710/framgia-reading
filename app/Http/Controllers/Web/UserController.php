@@ -40,11 +40,13 @@ class UserController extends Controller
     public function dashboard()
     {
         $user = $this->userRepository->user();
-        $readBooks = $this->userPlanItemRepository->findBy('status', 'done')->get();
+        $plans = $this->userPlanRepository->getAllPlansByUserId($user->id)->count();
+        $followings = $this->userRepository->getFollowings($user->id)->count();
 
         return view('users.details.components.dashboard')->with([
             'user' => $user,
-            'readBooks' => $readBooks,
+            'followings' => $followings,
+            'plans' => $plans,
         ]);
     }
 
@@ -201,7 +203,7 @@ class UserController extends Controller
 
            return Response(['html' => $html]);
         }
-        
+
         return view('admins.users.index', compact('user', 'users'));
     }
 

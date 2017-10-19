@@ -178,4 +178,9 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
         return $users;
     }
+
+    public function getFollowings($id)
+    {
+        return Relation::where('follower_id', $id);
+    }
 }

@@ -32,5 +32,7 @@ return [
     'books' => 'Books',
     'categories' => 'Categories',
     'users' => 'Users',
-    'view_details' => 'View Details'
+    'view_details' => 'View Details',
+    'followers' => 'Follwers',
+    'followings' => 'Followings',
 ];
