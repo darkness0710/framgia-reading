@@ -21,15 +21,6 @@
 
 @endsection
 
-@section('script')
-    <script type="text/javascript">
-        var create_user = new create_user();
-        create_user.init({
-            user_id: {{ Auth::id() }},
-        });
-    </script>
-@endsection
-
 @push('scripts')
     {{ Html::script('js/moment.min.js') }}
     {{ Html::script('js/bootstrap-datetimepicker.min.js') }}
