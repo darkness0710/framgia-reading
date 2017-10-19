@@ -12,6 +12,7 @@
 <div class="col-md-9">
     @include('admins.books._table')
     @include('admins.books._create')
+    @include('admins.books._show')
 </div>
 
 @section('script')

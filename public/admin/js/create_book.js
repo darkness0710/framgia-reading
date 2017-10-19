@@ -50,6 +50,29 @@ var create_book = function () {
                 }
             });
         })
+
+        btn_show = $("button[id^='btn_show_']");
+        $.each(btn_show, function (key, value) {
+            $("#" + value.id).click(function (event) {
+                book_id = event.currentTarget.attributes.id.value.replace('btn_show_', '');
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: "GET",
+                    url: '/user/' + user_id + '/admin/books/show/' + book_id,
+                    success:function(data){
+                        console.log(data.html);
+                        $("#container_show_detail").html(data.html);
+                        $("#modal_show_detail").modal('show');
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        var notification = alertify.notify('Error!!!', 'error', 5, function() {});
+                    }
+                });
+            });
+        });
     }
 
     this.uploadCover = function () {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CreateBookRequest;
 use App\Http\Controllers\Controller;
 use Carbon;
+use App\Models\Book;
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 use App\Repositories\Contracts\BookRepositoryInterface as BookRepository;
 use App\Repositories\Contracts\SubjectRepositoryInterface as SubjectRepository;
@@ -92,9 +93,14 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $book_id)
     {
-        //
+        $book = $this->bookRepository->getBookWithOptions($book_id, ['categories'])->first();
+        $html = view('admins.books._bookDetails')->with('book', $book)->render();
+
+        return response()->json([
+            'html' => $html,
+        ]);
     }
 
     /**
