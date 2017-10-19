@@ -13,6 +13,7 @@
     @include('admins.books._table')
     @include('admins.books._create')
     @include('admins.books._show')
+    @include('admins.books._edit')
 </div>
 
 @section('script')

@@ -95,4 +95,6 @@ return [
     'book_detail' => 'Book Detail',
     'dismiss' => 'Dismiss',
     'no_data' => 'No data',
+    'update' => 'Update',
+    'book_update_success' => 'Book Updated Successfully!',
 ];

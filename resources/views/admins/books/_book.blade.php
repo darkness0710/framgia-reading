@@ -30,7 +30,7 @@
                                 <button class="fa fa-eye mt-30" id="{{ 'btn_show_' . $book->id }}"></button>
                             </td>
                             <td>
-                                <button class="fa fa-edit mt-30"></button>
+                                <button class="fa fa-edit mt-30" id="{{ 'btn_edit_' . $book->id }}"></button>
                             </td>
                             <td>
                                 <button class="fa fa-trash mt-30"></button>

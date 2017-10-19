@@ -82,6 +82,8 @@ Route::group(['prefix' => 'user'], function () {
                 Route::get('/', 'Web\BookController@indexDashboard')->name('admin.book');
                 Route::post('/store', 'Admin\BookController@store')->name('admin.book.store');
                 Route::get('/show/{book_id}', 'Admin\BookController@show')->name('admin.book.show');
+                Route::get('/edit/{book_id}', 'Admin\BookController@edit')->name('admin.book.edit');
+                Route::post('/update/{book_id}', 'Admin\BookController@update')->name('admin.book.update');
             });
             Route::group(['prefix' => 'plans'], function () {
                 Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');
