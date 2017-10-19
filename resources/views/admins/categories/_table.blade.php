@@ -4,6 +4,14 @@
             <div class="text-center">
                 <h1><span class="fontSize">{{ trans('admin-categories.manage_categories') }}</span></h1>
             </div>
+
+            @if (session('status'))
+                <div class="alert alert-danger">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            @endif
+            
             <div class="animatedParent no-more-tables">
                 <div class="container">
                     <div class="row">

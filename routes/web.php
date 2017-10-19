@@ -72,7 +72,10 @@ Route::group(['prefix' => 'user'], function () {
                 Route::delete('/{subject_id}', 'Web\SubjectController@destroy')->name('admin.subject.destroy');
             });
             Route::group(['prefix' => 'categories'], function () {
-                Route::get('/', 'Web\CategoryController@indexDashboard')->name('admin.category');
+                Route::get('/', 'Web\CategoryController@indexDashboard')
+                    ->name('admin.category');
+                Route::delete('/{category_id}', 'Web\CategoryController@destroy')
+                    ->name('admin.category.destroy');
             });
             Route::group(['prefix' => 'users'], function () {
                 Route::get('/', 'Web\UserController@indexDashboard')->name('admin.user');
@@ -84,6 +87,8 @@ Route::group(['prefix' => 'user'], function () {
                 Route::get('/show/{book_id}', 'Admin\BookController@show')->name('admin.book.show');
                 Route::get('/edit/{book_id}', 'Admin\BookController@edit')->name('admin.book.edit');
                 Route::post('/update/{book_id}', 'Admin\BookController@update')->name('admin.book.update');
+                Route::delete('/{book_id}', 'Web\BookController@destroy')
+                    ->name('admin.book.destroy');
             });
             Route::group(['prefix' => 'plans'], function () {
                 Route::get('/', 'Web\PlanController@indexDashboard')->name('admin.plan');

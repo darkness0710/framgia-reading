@@ -59,6 +59,7 @@ class UserPlanController extends Controller
     {
         $user = $this->userRepository->user();
         $forked = $this->userPlanRepository->checkForked($user->id, $id)->first();
+
         if ($forked == null) {
             $plan = $this->planRepository->find($id);
             $planItems = $this->planItemRepository->getByPlanId($id)->get();

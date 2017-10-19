@@ -9,6 +9,7 @@ use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
 use App\Repositories\Contracts\PlanRepositoryInterface as PlanRepository;
 use App\Models\Subject;
 use App\Models\Plan;
+use Session;
 
 class SubjectController extends Controller
 {
@@ -108,6 +109,12 @@ class SubjectController extends Controller
 
     public function destroy($user_id, $subject_id)
     {
+        $subjects = Subject::whereHas('plans')->get();
+
+        if($subjects) {
+            return redirect()->back()->with('status', 'Can not delete subject because include plans!');
+        }
+
         $this->subjectRepository->find($subject_id)->delete();
 
         return redirect()->route('admin.subject', $user_id);

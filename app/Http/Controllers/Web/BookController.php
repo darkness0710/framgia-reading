@@ -166,4 +166,17 @@ class BookController extends Controller
 
         return Response(['html' => $html]);    
     }
+
+    public function destroy($user_id, $book_id)
+    {
+        $books = Book::withCount('categories')->get();
+      
+        if($books) {
+            return redirect()->back()->with('status', 'Can not delete books because include categories!');
+        }
+
+        $this->bookRepository->find($book_id)->delete();
+
+        return redirect()->route('admin.book', $user_id);
+    }
 }

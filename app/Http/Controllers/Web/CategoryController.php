@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\CategoryRepositoryInterface as CategoryRepository;
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -39,5 +40,18 @@ class CategoryController extends Controller
         $html = view('admins.categories._category', compact('categories', 'user'))->render();
 
         return Response(['html' => $html]);    
+    }
+
+    public function destroy($user_id, $category_id)
+    {
+        $categories = Category::withCount('books')->get();
+      
+        if($categories) {
+            return redirect()->back()->with('status', 'Can not delete categories because include books!');
+        }
+
+        $this->categoryRepository->find($category_id)->delete();
+
+        return redirect()->route('admin.category', $user_id);
     }
 }

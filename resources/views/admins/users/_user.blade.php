@@ -10,7 +10,6 @@
                         <th>{{ trans('admin-users.email') }}</th>
                         <th>{{ trans('admin-users.role') }}</th>
                         <th>{{ trans('admin-users.view') }}</th>
-                        <th>{{ trans('admin-users.delete') }}</th>
                     </tr>
                 </thead>
                 <tbody class="thum-photo">
@@ -35,9 +34,6 @@
                                     <button type="submit" class="fa fa-eye mt-30"></button>
                                 </a>
                             </td>
-                            <td>
-                                <button class="fa fa-trash mt-30"></button>
-                           </td>
                         </tr>
                     @endforeach
                 </tbody>

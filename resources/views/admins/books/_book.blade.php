@@ -33,7 +33,9 @@
                                 <button class="fa fa-edit mt-30" id="{{ 'btn_edit_' . $book->id }}"></button>
                             </td>
                             <td>
-                                <button class="fa fa-trash mt-30"></button>
+                                {{ Form::open(['route' => ['admin.book.destroy', 'id' => $user->id, 'book_id' => $book->id], 'method' => 'delete']) }}
+                                    <button type="submit" class="fa fa-trash mt-30"></button>
+                                {{ Form::close() }}
                             </td>
                         </tr>
                     @endforeach
