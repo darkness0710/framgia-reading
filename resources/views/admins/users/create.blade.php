@@ -152,3 +152,12 @@
     {{ Html::script('admin/js/create_user.js') }}
     {{ Html::script('js/upload-avatar.js') }}
 @endpush
+
+@section('script')
+    <script type="text/javascript">
+        var create_user = new create_user();
+        create_user.init({
+            user_id: {{ Auth::id() }},
+        });
+    </script>
+@endsection
